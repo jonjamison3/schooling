@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Jon Jamison's Assignment 1</title>
+		<meta charset="utf-8"/>
+		<style type="text/css">
+		    #wrapper {
+		        width: 80%;
+		        margin-left: auto;
+		        margin-right: auto;
+		    }
+			input{
+				display: block;
+			}
+		    input[type='button'] {
+		        display: inline-block;
+		    }
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+       		<h1>Assignment 1</h1>
+    		<label>Width:<input id="txtWidth" type="text"/></label>
+			<label>Length:<input id="txtLength" type="text"/></label>
+			<label>Area:<input id="txtArea" type="text" disabled/></label>
+			<label>Perimeter:<input id="txtPerimeter" type="text" disabled/></label>
+            <br>
+			<input type="button" id="btnSubmit" value="Evaluate"/>&nbsp;
+   			<input type="button" id="btnReset" value="Reset"/>
+        </div>
+
+		<script type="text/javascript">
+		    window.onload = function () {
+
+		        btnReset.onclick = reset;
+		        
+		        btnSubmit.onclick = function () {
+		            //grabbing user input
+		            var width = txtWidth.value;
+		            var length = txtLength.value;
+
+		            //validating input is numeric  	
+			        if (isNaN(width) || isNaN(length)) {
+			            alert("Numeric values only, please.");
+			        }
+
+                    //disallowing negative and zero input values
+			        else if (length<=0 || width<=0) {
+			            alert("Please input two numeric values greater than zero.");
+                    }
+
+			        //calculating and returning result
+			        else {
+			            txtArea.value = width * length;;
+			            txtPerimeter.value = width * 2 + length * 2;
+			        }
+			        btnReset.focus();
+		        }
+		    }
+			function reset() {
+			    txtWidth.value = null;
+			    txtLength.value = null;
+			    txtArea.value = null;
+			    txtPerimeter.value = null;
+			    txtWidth.focus();			    
+            }
+		</script>
+	</body>
+</html>

@@ -1,0 +1,16 @@
+C:\Users\g00027091\Documents\Visual Studio 2012\Projects\Lab01\WebApplication1\bin\WebApplication1.dll
+C:\Users\g00027091\Documents\Visual Studio 2012\Projects\Lab01\WebApplication1\bin\WebApplication1.pdb
+C:\Users\g00027091\Documents\Visual Studio 2012\Projects\Lab01\WebApplication1\bin\WebApplication1.xml
+C:\Users\g00027091\Documents\Visual Studio 2012\Projects\Lab01\WebApplication1\obj\Debug\WebApplication1.Resources.resources
+C:\Users\g00027091\Documents\Visual Studio 2012\Projects\Lab01\WebApplication1\obj\Debug\Lab01.vbproj.GenerateResource.Cache
+C:\Users\g00027091\Documents\Visual Studio 2012\Projects\Lab01\WebApplication1\obj\Debug\WebApplication1.dll
+C:\Users\g00027091\Documents\Visual Studio 2012\Projects\Lab01\WebApplication1\obj\Debug\WebApplication1.xml
+C:\Users\g00027091\Documents\Visual Studio 2012\Projects\Lab01\WebApplication1\obj\Debug\WebApplication1.pdb
+C:\Users\j\Projects\School\Javascript\Lab01\WebApplication1\bin\WebApplication1.dll
+C:\Users\j\Projects\School\Javascript\Lab01\WebApplication1\bin\WebApplication1.pdb
+C:\Users\j\Projects\School\Javascript\Lab01\WebApplication1\bin\WebApplication1.xml
+C:\Users\j\Projects\School\Javascript\Lab01\WebApplication1\obj\Debug\WebApplication1.Resources.resources
+C:\Users\j\Projects\School\Javascript\Lab01\WebApplication1\obj\Debug\Lab01.vbproj.GenerateResource.Cache
+C:\Users\j\Projects\School\Javascript\Lab01\WebApplication1\obj\Debug\WebApplication1.dll
+C:\Users\j\Projects\School\Javascript\Lab01\WebApplication1\obj\Debug\WebApplication1.xml
+C:\Users\j\Projects\School\Javascript\Lab01\WebApplication1\obj\Debug\WebApplication1.pdb
