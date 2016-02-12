@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Lab03 - Chapter02 Datatypes and variables</title>
+</head>
+<body>
+
+    <div>
+        <input type="button" id="btnEscape" value="Escape Characters" />
+        <hr />
+        <input type="button" id="btnParse" value="Parse int/float" />
+      
+    </div>
+    <script type="text/javascript">
+
+        var $ = function (id) {
+            return document.getElementById(id);
+        }
+
+        window.onload = function () {
+
+            $('btnEscape').onclick = Escape;
+            $('btnParse').onclick = Parse;
+        }
+
+        function Escape() {
+           
+            var deadCelebrities = "The following celebrities are no longer with us:\n"
+                                + "\t\"Abe Vigoda\"\nDavid Bowie\tAlan Rickman",
+                fileName;
+            
+            alert(deadCelebrities); 
+
+            fileName = 'c:\\temp\\mydata\\mystuff.txt';
+
+            alert(fileName);
+        }
+
+        function Parse() {
+            
+            var myString = '56.02 degrees centyigrade ',
+                myInt,
+                myFloat,
+                myUnconvertibleString = "I am a string and not a number";
+            alert("The string value: '" + myString
+                + "' when converted to an integer is: "
+                + parseInt(myString));
+            alert("The string value: '" + myString
+                + "' when converted to an float is: "
+                + parseFloat(myString));
+            alert("The string value: '" + myUnconvertibleString
+                + "' when converted to an float is: "
+                + parseInt(myUnconvertibleString));
+        }
+
+    </script>
+
+</body>
+</html>
