@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+        
+        <tr>
+            <td>
+                TShirts@$20 a piece
+            </td>
+            <td>
+                <input id='txtNbrOfShirts'type="text" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Subtotal: 
+            </td>
+            <td>
+                <input id='txtSubtotal' type="text" disabled="disabled"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Tax @ 7.0%: 
+            </td>
+            <td>
+                <input id='txtTax' type="text" disabled="disabled"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Total: 
+            </td>
+            <td>
+                <input id='txtTotal' type="text" disabled="disabled"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id='btnCalculate' type="button" value="Calculate"/>
+            </td>
+            <td>
+                <input id='btnClear' type="button" value="Clear"/>
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+        window.onload = function () {
+            $('btnCalculate').onclick = Calculate;
+            $('btnClear').onclick = Clear;
+        }
+        
+        function Calculate() {
+            //get user input
+            var nbrOfShirts, subTotal, tax, total;
+            //assign variables
+            nbrOfShirts = $('txtNbrOfShirts').value;
+            //calculate subtotal
+            subTotal = 20 * nbrOfShirts;
+            //calculate tax
+            tax = subTotal * .07;
+            //calculate total
+            total = subTotal + tax;
+            //return values
+            txtSubtotal.value = subTotal;
+            txtTax.value = tax;
+            txtTotal.value = total;
+        }
+        function Clear() {
+            txtNbrOfShirts.value = null;
+            txtSubtotal.value = null;
+            txtTax.value = null;
+            txtTotal.value = null;
+            txtNbrOfShirts.focus();
+        }
+        function $(id) {
+            return document.getElementById(id);
+        }
+    </script>
+</body>
+</html>
