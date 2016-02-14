@@ -5,7 +5,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+if(isset($_POST['btnClear'])){
+    include 'index.php';
+    return;
+}
 $feetError = "";
 $inchesError = "";
 $weightError = "";
@@ -14,10 +17,7 @@ $txtFeet=$_POST['txtFeet'];
 $txtInches=$_POST['txtInches'];
 $txtWeight=$_POST['txtWeight'];
 
-if(isset($_POST['btnClear'])){
-    include 'index.php';
-    return;
-}
+
 if (!is_numeric($txtFeet)) {
     $feetError = $feetError . "Please enter a numeric value.";
 } else if ($txtFeet < 0) {
@@ -32,8 +32,8 @@ if (!is_numeric($txtInches)) {
 
 if (!is_numeric($txtWeight)) {
     $weightError = $weightError . "Please enter a numeric value.";
-} else if ($txtWeight < 0) {
-    $weightError = $weightError . "Weight must be greater than 0.";
+} else if ($txtWeight < 85||$txtWeight>600) {
+    $weightError = $weightError . "Weight must be between 85 and 600.";
 }
 
 include 'index.php';
