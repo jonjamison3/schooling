@@ -8,6 +8,13 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
+        <style>
+            span{
+                color:red;
+                font-size: .75em;
+                font-weight:bold;
+            }
+        </style>
     </head>
     <body>
         <?php
@@ -19,7 +26,7 @@ and open the template in the editor.
                 echo "value='".$txtFeet."'";
             }?>/><?php 
             if (isset($feetError)) {
-                echo "<span style='color:red;font-size:.75em;'>$feetError</span>";
+                echo "<span>$feetError</span>";
             }?>
             
             Inches:&nbsp;<input type="text" name="txtInches" <?php if (isset($txtInches)) {
@@ -27,7 +34,7 @@ and open the template in the editor.
             }?>/>
             <?php
             if (isset($inchesError)) {
-                echo "<span style='color:red;font-size:.75em;'>$inchesError</span>";
+                echo "<span>$inchesError</span>";
             }
             ?>
             
@@ -37,7 +44,7 @@ and open the template in the editor.
             }?>/>
             <?php
             if (isset($weightError)) {
-                echo "<span style='color:red;font-size:.75em;'>$weightError</span>";
+                echo "<span>$weightError</span>";
             }
             ?>
             
