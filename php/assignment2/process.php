@@ -27,13 +27,13 @@ if (!is_numeric($txtFeet)) {
 if (!is_numeric($txtInches)) {
     $inchesError = $inchesError . "Please enter a numeric value.";
 } else if ($txtInches < 0) {
-    $inchesError = $inchesError . "Feet must be greater than 0.";
+    $inchesError = $inchesError . "Inches must be greater than 0.";
 }
 
 if (!is_numeric($txtWeight)) {
     $weightError = $weightError . "Please enter a numeric value.";
 } else if ($txtWeight < 0) {
-    $weightError = $weightError . "Feet must be greater than 0.";
+    $weightError = $weightError . "Weight must be greater than 0.";
 }
 
 include 'index.php';

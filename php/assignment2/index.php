@@ -17,19 +17,23 @@ and open the template in the editor.
             <h3>Height</h3>
             Feet:&nbsp;<input type="text" name="txtFeet"><?php 
             if (isset($feetError)) {
-                echo "<span style='color:red'>$feetError</span>";
+                echo "<span style='color:red;font-size:.75em;'>$feetError</span>";
             }?>
             
-            <label>Inches:&nbsp;<input type="text" name="txtInches"></label>
+            Inches:&nbsp;<input type="text" name="txtInches">
             <?php
             if (isset($inchesError)) {
-                echo "<span style='color:red'>$inchesError</span>";
+                echo "<span style='color:red;font-size:.75em;'>$inchesError</span>";
             }
             ?>
             
             <h3>Weight</h3>
             <input type="text" name="txtWeight">
-            
+            <?php
+            if (isset($weightError)) {
+                echo "<span style='color:red;font-size:.75em;'>$weightError</span>";
+            }
+            ?>
             <br>
             <br>
             <input type="submit" name="btnCalculate" value="Calculate BMI">&nbsp;
