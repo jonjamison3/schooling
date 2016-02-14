@@ -13,17 +13,27 @@ and open the template in the editor.
         <?php
         // put your code here
         ?>
-        <form method="post">
+        <form method="post" action="process.php">
             <h3>Height</h3>
-            <label>Feet:<input type="text" name="txtFeet"></label>
+            Feet:&nbsp;<input type="text" name="txtFeet"><?php 
+            if (isset($feetError)) {
+                echo "<span style='color:red'>$feetError</span>";
+            }?>
             
-            <label>Inches:<input type="text" name="txtInches"></label>
-
+            <label>Inches:&nbsp;<input type="text" name="txtInches"></label>
+            <?php
+            if (isset($inchesError)) {
+                echo "<span style='color:red'>$inchesError</span>";
+            }
+            ?>
+            
             <h3>Weight</h3>
             <input type="text" name="txtWeight">
-            <hr>
-            <input type="submit" value="Calculate BMI">&nbsp;
-            <input type="submit" value="Clear">
+            
+            <br>
+            <br>
+            <input type="submit" name="btnCalculate" value="Calculate BMI">&nbsp;
+            <input type="submit" name="btnClear" value="Clear">
        
         </form>
     </body>
