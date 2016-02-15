@@ -37,20 +37,26 @@ if (!is_numeric($txtWeight)) {
     $weightError = $weightError . "Weight must be between 85 and 600";
 }
 
+
+//Doing the math. Unless the math involves potentially dividing by zero.
 if(($txtFeet*$txtInches*$txtWeight)!=0){
 $txtBMI=  number_format(($txtWeight/(pow((($txtFeet*12)+$txtInches),2)))*703, 1);
 } else {
-    $txtBMI = "";
+    $txtBMI = null;
 }
 
-if($txtBMI<18.5&&$txtBMI!==""){
-    $txtStatus = $txtStatus."Underweight";
-} else if($txtBMI<25){
-    $txtStatus = $txtStatus."Normal";
-} else if($txtBMI<30){
-    $txtStatus = $txtStatus."Overweight";
-} else {
-    $txtStatus = $txtStatus."Obese";
+if ($txtBMI==null){
+    $txtStatus = null;
+} else{
+    if($txtBMI<18.5&&$txtBMI!=""){
+        $txtStatus = $txtStatus."Underweight";
+        } else if($txtBMI<25){
+            $txtStatus = $txtStatus."Normal";
+        } else if($txtBMI<30){
+            $txtStatus = $txtStatus."Overweight";
+        } else {
+            $txtStatus = $txtStatus."Obese";
+    }
 }
 
 include 'index.php';
