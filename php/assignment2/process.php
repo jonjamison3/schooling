@@ -7,10 +7,11 @@ if(isset($_POST['btnClear'])){
 }
 
 //Initialize Variables
-$feetError = "";
-$inchesError = "";
-$weightError = "";
+$feetError = null;
+$inchesError = null;
+$weightError = null;
 $txtStatus= "";
+$txtResult="";
 
 //Grab input
 $txtFeet = $_POST['txtFeet'];
@@ -24,13 +25,13 @@ $txtWeight = $_POST['txtWeight'];
 if (!is_numeric($txtFeet)) {
     $feetError = $feetError . "Please enter a numeric value";  
 } 
-//As well as logically in range of assigned limits
+//As well as logically in scope of assigned limits
 else if ($txtFeet < 2||$txtFeet > 8) {
     $feetError = $feetError . "Feet must be between 2 and 8";
 } 
 
 
-//Repeat for all other input 
+//Repeating for other input 
 if (!is_numeric($txtInches)) {
     $inchesError = $inchesError . "Please enter a numeric value";
 } else if ($txtInches < 0||$txtInches>11) {
@@ -45,25 +46,30 @@ if (!is_numeric($txtWeight)) {
 
 
 //Doing the math. Unless the math involves potentially dividing by zero
+
 if(($txtFeet * $txtInches * $txtWeight) != 0){
-$txtBMI =  number_format(($txtWeight/(pow( ( ($txtFeet * 12) + $txtInches), 2))) * 703, 1);
+    //Initializing new variable for math result as well
+    $txtBMI =  number_format(($txtWeight/(pow( ( ($txtFeet * 12) + $txtInches), 2))) * 703, 1);
 } else {
-    $txtBMI = null;
+    $txtBMI = "";
 }
 
 //Pass down the verdict
-if ($txtBMI==null){
-    $txtStatus = null;
-} else{
-    if($txtBMI<18.5&&$txtBMI!=""){
+if($txtBMI<18.5&&$txtBMI!=""){
     $txtStatus = $txtStatus."Underweight";
-    } else if($txtBMI<25){
-        $txtStatus = $txtStatus."Normal";
-    } else if($txtBMI<30){
-        $txtStatus = $txtStatus."Overweight";
-    } else {
-        $txtStatus = $txtStatus."Obese";
-    }
+} else if($txtBMI<25){
+    $txtStatus = $txtStatus."Normal";
+} else if($txtBMI<30){
+    $txtStatus = $txtStatus."Overweight";
+} else {
+    $txtStatus = $txtStatus."Obese";
+}
+
+//Checking for error before returning final result
+if(isset($feetError)||isset($inchesError)||isset($weightError)){
+    $txtResult=null;
+}else {
+    $txtResult = "<p>".$txtStatus."-".$txtBMI."</p>";
 }
 
 include 'index.php';

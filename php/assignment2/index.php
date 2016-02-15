@@ -66,7 +66,7 @@ and open the template in the editor.
             
             <?php 
                 if (isset($txtBMI)&&isset($txtStatus)){
-                    echo "<p>".$txtStatus."-".$txtBMI."</p>";
+                    echo $txtResult;
                 } else{
                     return;
                 }
