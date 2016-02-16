@@ -1,3 +1,46 @@
+body{
+	background-color: #003535;
+	color: white;
+}
 h1{
-	color:red;
+	font-size: 4em;
+	color:#FFA9A9;
+}
+h2{
+	color:#831616;
+}
+a{
+	color:#AC3939;
+	text-decoration: none;
+	font-weight: bold;
+}
+.preamble{
+	width:20vw;
+	background-color:#835F16;
+	padding: 2.5em;
+	float: left;
+	min-width: 360px;
+}
+.summary{
+	float: right;
+	background-color: #AC3939;
+	max-width: 10vw;
+	padding:2.5em;
+}
+.main{
+	color:#835F16;
+	padding: 2.5em;
+	background-color:#FFE2A9;
+}
+.supporting{
+	margin:10vw 20vw;
+}
+ul{
+	list-style-type: none;
+}
+li{
+	display: inline;
+}
+.design-selection li {
+	display: block;
 }
