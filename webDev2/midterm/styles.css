@@ -1,6 +1,6 @@
 body{
 	background-color: #4A4343;
-	color: white;
+	color: #FFE2A9;
 	font-size: 1.5em;
 	font-family: "Ubuntu mono";
 }
@@ -8,8 +8,7 @@ h1{
 	font-size: 4em;
 	color:#AA3F39;
 	background-color: #222;
-	//text-shadow: 10px 20px 60px #fff;
-	box-shadow: 60px 30px 80px red;
+	box-shadow: 60px 30px 80px #AA3F39;
 	margin-right: 0;
 }
 h2{
@@ -33,11 +32,15 @@ li{
 	color:#AA3939;
 	margin-bottom: 0px;
 	font-family: "Pacifico";
+	font-size: 1.5em;
+	border-bottom: 2px groove; 
+	width: 35%;
 }
 .main p{
 	margin:auto;
-	margin-top: 6px;
-	max-width: 760px;
+	margin-top: 0;
+	margin-bottom: 4%;
+	margin-left: 4%;
 	text-indent: 2em;
 }
 
@@ -53,13 +56,13 @@ li{
 .preamble{
 	width:20vw;
 	background-color:#4A4343;
-	padding: 2.5em;
+	padding: 1.5em;
 	float: left;
 	min-width: 540px;
-	box-shadow: 10px 11px 10px #AA9239;
+	box-shadow: 10px 11px 11px #AA3939;
 }
 .preamble h3{
-	color: #AA9239;
+	color: #AA3939;
 }
 .summary{
 	float: right;
@@ -70,7 +73,6 @@ li{
 	box-shadow: 20px 40px 0px #4A4343;
 }
 .main{
-	color:#FFE2A9;
 	padding: 1.5em;
 	background-color:#4A4343;
 	width:50vw;
