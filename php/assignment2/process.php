@@ -11,7 +11,7 @@ $feetError = null;
 $inchesError = null;
 $weightError = null;
 $txtStatus= "";
-$txtResult="";
+$txtResult= "";
 
 //Grab input
 $txtFeet = $_POST['txtFeet'];
@@ -23,25 +23,25 @@ $txtWeight = $_POST['txtWeight'];
 
 //Ensure input values are numeric 
 if (!is_numeric($txtFeet)) {
-    $feetError = $feetError . "Please enter a numeric value";  
+    $feetError = $feetError . "<span>Please enter a numeric value</span>";  
 } 
 //As well as logically in scope of assigned limits
 else if ($txtFeet < 2||$txtFeet > 8) {
-    $feetError = $feetError . "Feet must be between 2 and 8";
+    $feetError = $feetError . "<span>Feet must be between 2 and 8</span>";
 } 
 
 
 //Repeating for other input 
 if (!is_numeric($txtInches)) {
-    $inchesError = $inchesError . "Please enter a numeric value";
-} else if ($txtInches < 0||$txtInches>11) {
-    $inchesError = $inchesError . "Inches must be between 0 and 11";
+    $inchesError = $inchesError . "<span>Please enter a numeric value</span>";
+} else if ($txtInches < 0||$txtInches > 11) {
+    $inchesError = $inchesError . "<span>Inches must be between 0 and 11</span>";
 }
 
 if (!is_numeric($txtWeight)) {
-    $weightError = $weightError . "Please enter a numeric value";
-} else if ($txtWeight < 85||$txtWeight>600) {
-    $weightError = $weightError . "Weight must be between 85 and 600";
+    $weightError = $weightError . "<span>Please enter a numeric value</span>";
+} else if ($txtWeight < 85||$txtWeight > 600) {
+    $weightError = $weightError . "<span>Weight must be between 85 and 600</span>";
 }
 
 
@@ -54,12 +54,12 @@ if(($txtFeet * $txtInches * $txtWeight) != 0){
     $txtBMI = "";
 }
 
-//Pass down the verdict
-if($txtBMI<18.5&&$txtBMI!=""){
+//Assign status based on BMI scale values
+if($txtBMI < 18.5&&$txtBMI != ""){
     $txtStatus = $txtStatus."Underweight";
-} else if($txtBMI<25){
+} else if($txtBMI < 25){
     $txtStatus = $txtStatus."Normal";
-} else if($txtBMI<30){
+} else if($txtBMI < 30){
     $txtStatus = $txtStatus."Overweight";
 } else {
     $txtStatus = $txtStatus."Obese";
