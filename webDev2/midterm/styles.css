@@ -1,13 +1,15 @@
 body{
 	background-color: #003535;
 	color: white;
+	font-size: 1.5em;
 }
 h1{
 	font-size: 4em;
-	color:#FFA9A9;
+	color:#698080;
 }
 h2{
-	color:#831616;
+	color:#D5AEAE;
+	text-align: right;
 }
 a{
 	color:#AC3939;
@@ -28,6 +30,8 @@ li{
 }
 .design-archives, .design-selection, .zen-resources{
 	background-color: #222;
+	padding: 2.5em;
+	text-align: center;
 }
 .design-selection li {
 	display: block;
@@ -50,7 +54,9 @@ li{
 	color:#835F16;
 	padding: 2.5em;
 	background-color:#FFE2A9;
+	width:50vw;
 	min-width:500px;
+	float:right;
 }
 .supporting{
 	margin:10vw 20vw;
