@@ -1,15 +1,22 @@
 body{
-	background-color: #003535;
+	background-color: #4A4343;
 	color: white;
 	font-size: 1.5em;
+	font-family: "Ubuntu mono";
 }
 h1{
 	font-size: 4em;
-	color:#698080;
+	color:#AA3F39;
+	background-color: #222;
+	//text-shadow: 10px 20px 60px #fff;
+	box-shadow: 60px 30px 80px red;
+	margin-right: 0;
 }
 h2{
-	color:#D5AEAE;
+	color:red;
 	text-align: right;
+	font-family: "Pacifico";
+	opacity: .5;
 }
 a{
 	color:#AC3939;
@@ -23,41 +30,54 @@ li{
 	display: inline;
 }
 .main h3{
-	color:#0D4F4F;
+	color:#AA3939;
+	margin-bottom: 0px;
+	font-family: "Pacifico";
 }
-.preamble{
-	color: #669A9A;
+.main p{
+	margin:auto;
+	margin-top: 6px;
+	max-width: 760px;
+	text-indent: 2em;
 }
+
 .design-archives, .design-selection, .zen-resources{
-	background-color: #222;
+	background-color:#222;
 	padding: 2.5em;
-	text-align: center;
+	text-align: right;
 }
 .design-selection li {
 	display: block;
+
 }
 .preamble{
 	width:20vw;
-	background-color:#835F16;
+	background-color:#4A4343;
 	padding: 2.5em;
 	float: left;
-	min-width: 360px;
+	min-width: 540px;
+	box-shadow: 10px 11px 10px #AA9239;
+}
+.preamble h3{
+	color: #AA9239;
 }
 .summary{
 	float: right;
-	background-color: #AC3939;
+	background-color: #4A4343;
 	max-width: 10vw;
-	min-width: 180px;
+	min-width: 360px;
 	padding:2.5em;
+	box-shadow: 20px 40px 0px #4A4343;
 }
 .main{
-	color:#835F16;
-	padding: 2.5em;
-	background-color:#FFE2A9;
+	color:#FFE2A9;
+	padding: 1.5em;
+	background-color:#4A4343;
 	width:50vw;
 	min-width:500px;
 	float:right;
 }
+
 .supporting{
 	margin:10vw 20vw;
 }
