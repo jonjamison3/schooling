@@ -14,6 +14,24 @@ a{
 	text-decoration: none;
 	font-weight: bold;
 }
+ul{
+	list-style-type: none;
+}
+li{
+	display: inline;
+}
+.main h3{
+	color:#0D4F4F;
+}
+.preamble{
+	color: #669A9A;
+}
+.design-archives, .design-selection, .zen-resources{
+	background-color: #222;
+}
+.design-selection li {
+	display: block;
+}
 .preamble{
 	width:20vw;
 	background-color:#835F16;
@@ -25,22 +43,15 @@ a{
 	float: right;
 	background-color: #AC3939;
 	max-width: 10vw;
+	min-width: 180px;
 	padding:2.5em;
 }
 .main{
 	color:#835F16;
 	padding: 2.5em;
 	background-color:#FFE2A9;
+	min-width:500px;
 }
 .supporting{
 	margin:10vw 20vw;
-}
-ul{
-	list-style-type: none;
-}
-li{
-	display: inline;
-}
-.design-selection li {
-	display: block;
 }
