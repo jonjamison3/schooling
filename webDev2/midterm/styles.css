@@ -64,7 +64,6 @@ footer{
 	padding: 1.5em;
 	background-color:#4A4343;
 	width:50vw;
-	min-width:500px;
 	float:right;
 }
 .main h3{
@@ -84,26 +83,30 @@ footer{
 }
 
 .design-archives, .design-selection, .zen-resources{
-	//padding: 2.5em;
 	text-align: right;
 }
 .design-selection{
-	width: 40vw;
-	text-align: left;
+	width: 30vw;
+	margin-top: -20vh;
+	background-color: #222;
+	text-align: center;
+	margin-left: 10vw;
 }
 .design-selection ul{
-	
+	margin-top: 0;
 }
 .design-selection li {
-	display: inline-block;
+	display: flex;
 	background-color: #4A4343;
 	margin: 2%;
-	width:50%;
 	padding:1em;
 	text-align: center;
 }
-.design-selection li a{
-	display: block;
+.design-selection li a:first-of-type{
+	margin-right: 10px;
+}
+.design-selection li a:last-of-type{
+	margin-left: 10px;
 }
 .preamble{
 	width:20vw;
@@ -112,7 +115,10 @@ footer{
 	float: right;
 	min-width: 540px;
 	margin: 5%;
+	margin-right: 20vw;
 	box-shadow: 10px 11px 11px #AA3939;
+	animation-name:inFade;
+	animation-duration:4s;
 }
 .preamble h3{
 	color: #AA3939;
@@ -124,6 +130,12 @@ footer{
 	padding:2.5em;
 	box-shadow: 20px 40px 0px #4A4343;
 	margin-left: 70vw;
+}
+.zen-resources, .design-archives{
+	clear:both;
+}
+.design-archives li, .zen-resources li{
+	display: inline-block;
 }
 
 .supporting{
@@ -150,6 +162,7 @@ footer{
 		/* Internet Explorer */
 		filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 		margin-left: 0;
+		margin-top: -90vh;
 	}
 		to {/* Safari */
 		-webkit-transform: rotate(-90deg);
