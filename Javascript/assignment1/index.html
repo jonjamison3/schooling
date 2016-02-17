@@ -47,24 +47,27 @@
 			        }
 
                     //disallowing negative and zero input values
-			        else if (length<=0 || width<=0) {
+			        else if (length <= 0||width <= 0) {
 			            alert("Please input two numeric values greater than zero.");
                     }
 
-			        //calculating and returning result
+			        //calculating and returning result (with two decimal places per example)
 			        else {
-			            $('txtArea').value = width * length;;
-			            $('txtPerimeter').value = width * 2 + length * 2;
+			            $('txtArea').value = (width * length).toFixed(2);
+			            $('txtPerimeter').value = (width * 2 + length * 2).toFixed(2);
 			        }
+			        //poised for quick reset regardless of good/bad input
 			        $('btnReset').focus();
 		        }
 		    }
 		    //giving the reset button functionality
 			function reset() {
+				//empty out all fields
 			    $('txtWidth').value = "";
 			    $('txtLength').value = "";
 			    $('txtArea').value = "";
 			    $('txtPerimeter').value = "";
+			    //take it from the top
 			    $('txtWidth').focus();			    
             }
             //selector function used in class
