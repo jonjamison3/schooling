@@ -37,7 +37,7 @@
 		        $('btnReset').onclick = reset;
 		        
 		        $('btnSubmit').onclick = function () {
-		            //grabbing user input
+		            //grabbing and assigning user input
 		            var width = $('txtWidth').value;
 		            var length = $('txtLength').value;
 
@@ -59,12 +59,13 @@
 			        $('btnReset').focus();
 		        }
 		    }
+		    //giving the reset button functionality
 			function reset() {
-			    txtWidth.value = "";
-			    txtLength.value = "";
-			    txtArea.value = "";
-			    txtPerimeter.value = "";
-			    txtWidth.focus();			    
+			    $('txtWidth').value = "";
+			    $('txtLength').value = "";
+			    $('txtArea').value = "";
+			    $('txtPerimeter').value = "";
+			    $('txtWidth').focus();			    
             }
             //selector function used in class
             function $(id){
