@@ -4,11 +4,13 @@
 		<title>Jon Jamison's Assignment 1</title>
 		<meta charset="utf-8"/>
 		<style type="text/css">
+		    
 		    #wrapper {
 		        width: 80%;
 		        margin-left: auto;
 		        margin-right: auto;
 		    }
+
 			input{
 				display: block;
 			}
@@ -20,10 +22,10 @@
 	<body>
 		<div id="wrapper">
        		<h1>Assignment 1</h1>
-    		<label>Width:<input id="txtWidth" type="text"/></label>
-			<label>Length:<input id="txtLength" type="text"/></label>
-			<label>Area:<input id="txtArea" type="text" disabled/></label>
-			<label>Perimeter:<input id="txtPerimeter" type="text" disabled/></label>
+    		Width:<input id="txtWidth" type="text"/>
+			Length:<input id="txtLength" type="text"/>
+			Area:<input id="txtArea" type="text" disabled="disabled"/>
+			Perimeter:<input id="txtPerimeter" type="text" disabled="disabled"/>
             <br>
 			<input type="button" id="btnSubmit" value="Evaluate"/>&nbsp;
    			<input type="button" id="btnReset" value="Reset"/>
@@ -32,12 +34,12 @@
 		<script type="text/javascript">
 		    window.onload = function () {
 
-		        btnReset.onclick = reset;
+		        $('btnReset').onclick = reset;
 		        
-		        btnSubmit.onclick = function () {
+		        $('btnSubmit').onclick = function () {
 		            //grabbing user input
-		            var width = txtWidth.value;
-		            var length = txtLength.value;
+		            var width = $('txtWidth').value;
+		            var length = $('txtLength').value;
 
 		            //validating input is numeric  	
 			        if (isNaN(width) || isNaN(length)) {
@@ -51,18 +53,22 @@
 
 			        //calculating and returning result
 			        else {
-			            txtArea.value = width * length;;
-			            txtPerimeter.value = width * 2 + length * 2;
+			            $('txtArea').value = width * length;;
+			            $('txtPerimeter').value = width * 2 + length * 2;
 			        }
-			        btnReset.focus();
+			        $('btnReset').focus();
 		        }
 		    }
 			function reset() {
-			    txtWidth.value = null;
-			    txtLength.value = null;
-			    txtArea.value = null;
-			    txtPerimeter.value = null;
+			    txtWidth.value = "";
+			    txtLength.value = "";
+			    txtArea.value = "";
+			    txtPerimeter.value = "";
 			    txtWidth.focus();			    
+            }
+            //selector function used in class
+            function $(id){
+            	return document.getElementById(id);
             }
 		</script>
 	</body>
