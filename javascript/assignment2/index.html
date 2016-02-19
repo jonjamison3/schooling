@@ -8,8 +8,8 @@
 	<h1>RVCC Pizzeria</h1>
 	<div style="width:40%">
 	Name: <input type="text" id="txtName">
-	Pickup:<input type="radio" id="rbPickup">
-	Delivery:<input type="radio" id="rbDelivery">
+	Pickup:<input type="radio" id="rbPickup" name="origin" value="Pick up">
+	Delivery:<input type="radio" id="rbDelivery" name="origin" value="Delivery">
 	<br>
 	<br>
 	Style:
@@ -30,18 +30,66 @@
 	<br>
 	<br>
 	Toppings:
-	<input type="checkbox" id="cbPepperoni">Pepperoni
-	<input type="checkbox" id="cbBlackOlives">Black Olives
-	<input type="checkbox" id="cbMeatball">Meatball
-	<input type="checkbox" id="cbSausage">Sausage
+	<input type="checkbox" id="cbPepperoni" value="Pepperoni">Pepperoni
+	<input type="checkbox" id="cbBlackOlives" value="Black Olives">Black Olives
+	<input type="checkbox" id="cbMeatball" value="Meatball">Meatball
+	<input type="checkbox" id="cbSausage" value="Sausage">Sausage
 	<br>
 	<br>
 	<input type="button" id="btnConfirm" value="Confirm Order" style="width:40%;margin:auto;">
 	<br>
 	<br>
-	<textarea id="txtReturn" style="width:40%;height:5em;margin:auto;"></textarea>
+	<textarea id="txtReturn" style="width:40%;height:5em;margin:auto;" disabled="disabled"></textarea>
 	</div>
 	<script type="text/javascript">
+		window.onload = function(){
+			$('btnConfirm').onclick = confirm;
+		}
 
+		function confirm (){
+			var answerText="";
+			if($("rbPickup").checked){
+				answerText += $("rbPickup").value;
+			}
+			else {
+				if (rbDelivery.checked){
+				answerText+=$("rbDelivery").value;
+				}
+				else {
+					alert("Please indicate whether your order should be picked up or delivered.");
+				}
+			}
+			var toppings = [];
+			if($('cbPepperoni').checked){
+				toppings.push(cbPepperoni.value);
+			}
+			if($('cbBlackOlives').checked){
+				toppings.push(cbBlackOlives.value);
+			}
+			if($('cbMeatball').checked){
+				toppings.push(cbMeatball.value);
+			}
+			if($('cbSausage').checked){
+				toppings.push(cbSausage.value);
+			}
+
+			answerText+=" for "+txtName.value+
+						"\n"+ddlSize.value+
+						", "+ddlStyle.value+" pizza";
+
+			for(var i=0;i<toppings.length;i++){
+				addTopping(toppings[i]);
+			} 
+			txtReturn.value = answerText;
+			function addTopping(topping){
+				answerText += "\n\t+"+topping;
+				console.log(topping);
+			}
+		}
+		
+		function $(id){
+			return document.getElementById(id);
+		}
+		
 	</script>
 </body>
