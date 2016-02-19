@@ -59,46 +59,46 @@
 				alert("Please indicate whether your order should be picked up or delivered.");
 				$("rbPickup").focus();
 			}else{
-			if($("rbDelivery").checked){
-				answerText+=$("rbDelivery").value;
-			}
-			if ($("rbPickup").checked){
-				answerText+=$("rbPickup").value;
-			}
-
-			var toppings = [];
-			if($('cbPepperoni').checked){
-				toppings.push(cbPepperoni.value);
-			}
-			if($('cbBlackOlives').checked){
-				toppings.push(cbBlackOlives.value);
-			}
-			if($('cbMeatball').checked){
-				toppings.push(cbMeatball.value);
-			}
-			if($('cbSausage').checked){
-				toppings.push(cbSausage.value);
-			}
-			
-			
-			if($('txtName').value==""){
-				alert("Please enter your name.");
-				txtName.focus();
-			} 
-			else{			
-				answerText+=" for "+$('txtName').value+
-						"\n"+$('ddlSize').value+
-						", "+$('ddlStyle').value+" pizza";
-
-				for(i=0;i<toppings.length;i++){
-					addTopping(toppings[i]);
-				} 
-				$('txtReturn').value = answerText;
-				
-				function addTopping(topping){
-					answerText += "\n\t+"+topping;
+				if($("rbDelivery").checked){
+					answerText+=$("rbDelivery").value;
 				}
-			}
+				if ($("rbPickup").checked){
+					answerText+=$("rbPickup").value;
+				}
+
+				
+				
+				
+				if($('txtName').value==""){
+					alert("Please enter your name.");
+					txtName.focus();
+				} 
+				else {	
+					var toppings = [];
+					if($('cbPepperoni').checked){
+						toppings.push(cbPepperoni.value);
+					}
+					if($('cbBlackOlives').checked){
+						toppings.push(cbBlackOlives.value);
+					}
+					if($('cbMeatball').checked){
+						toppings.push(cbMeatball.value);
+					}
+					if($('cbSausage').checked){
+						toppings.push(cbSausage.value);
+					}		
+					answerText+=" for "+$('txtName').value+
+							"\n"+$('ddlSize').value+
+							", "+$('ddlStyle').value+" pizza";
+
+					for(var i=0;i<toppings.length;i++){
+						answerText += "\n\t+"+(toppings[i]);
+					} 
+
+					
+					$('txtReturn').value = answerText;
+					
+				}
 			}
 		}
 		function reset(){
