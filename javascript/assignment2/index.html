@@ -48,11 +48,11 @@
 	<script type="text/javascript">
 		
 		window.onload = function(){
-			$('btnConfirm').onclick = confirm;
+			$('btnConfirm').onclick = submitOrder;
 			$('btnReset').onclick=reset;
 		}
 
-		function confirm (){
+		function submitOrder(){
 
 			var answerText="";
 			if(!$("rbPickup").checked&&!$("rbDelivery").checked){
@@ -66,8 +66,6 @@
 					answerText+=$("rbPickup").value;
 				}
 
-				
-				
 				
 				if($('txtName').value==""){
 					alert("Please enter your name.");
@@ -83,22 +81,25 @@
 					}
 					if($('cbMeatball').checked){
 						toppings.push(cbMeatball.value);
-					}j
+					}
 					if($('cbSausage').checked){
 						toppings.push(cbSausage.value);
 					}		
-					answerText+=" for "+$('txtName').value+
+					answerText+=" for "+$('txtName').value+"-"+
 							"\n"+$('ddlSize').value+
 							", "+$('ddlStyle').value+" pizza";
 
 					for(var i=0;i<toppings.length;i++){
-						answerText += "\n\t+"+(toppings[i]);
-					} 
-
-					
-					$('txtReturn').value = answerText;
-					
+						answerText += "\n+"+(toppings[i]);
+					} 					
 				}
+			}
+			var confirmation = confirm(answerText+"\n***\nIs this correct?");
+			if(confirmation){
+				$('txtReturn').value = answerText;
+			}
+			else{
+				$('txtReturn').value = "***Please complete your order and resubmit your order.***"
 			}
 		}
 		function reset(){
