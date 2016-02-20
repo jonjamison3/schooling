@@ -91,25 +91,26 @@
 
 					for(var i=0;i<toppings.length;i++){
 						answerText += "\n+"+(toppings[i]);
-					} 					
+					} 
+					var confirmation = confirm(answerText+"\n***\nIs this correct?");
+					if(confirmation){
+						$('txtReturn').value = answerText;
+					}
+					else{
+						$('txtReturn').value = "***Please complete and resubmit your order.***"
+					}					
 				}
 			}
-			var confirmation = confirm(answerText+"\n***\nIs this correct?");
-			if(confirmation){
-				$('txtReturn').value = answerText;
-			}
-			else{
-				$('txtReturn').value = "***Please complete your order and resubmit your order.***"
-			}
+			
 		}
 		function reset(){
 				$('txtName').value = "";
 				$('rbPickup').checked = false;
 				$('rbDelivery').checked = false;
-				$('cbSausage').checked=false;
-				$('cbMeatball').checked=false;
-				$('cbPepperoni').checked=false;
-				$('cbBlackOlives').checked=false;
+				$('cbSausage').checked = false;
+				$('cbMeatball').checked = false;
+				$('cbPepperoni').checked = false;
+				$('cbBlackOlives').checked = false;
 				answerText = "";
 				$('txtReturn').value="";
 		}
