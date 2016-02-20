@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Transitions and Transfroms Lab</title>
+		<style>
+			body > div {
+				color: white;
+				font-size: 3em;
+				width:150px;
+				height:150px;
+				background-color:grey;
+				margin: 100px auto;
+				padding: 100px;
+				text-align:center;
+				transition:all .5s ease;
+			}
+			
+			.box1:hover {
+				transform:rotate(45deg);
+			}
+			.box2:hover {
+				transform:scale(0.5);
+			}
+			.box3:hover {
+				background-color:purple;
+			}
+			.box4:hover {
+				transform:rotate(45deg);
+				transform:scale(0.5);
+				background-color:purple;
+			}
+			.box5:hover{
+				border-radius:50%;		
+				border:solid 15px black;
+
+			}
+
+			.box6:hover {
+				box-shadow:10px 10px black;
+				transform:translateX(-5px);
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="box1">Box 1</div>
+		<div class="box2">Box 2</div>
+		<div class="box3">Box 3</div>
+		<div class="box4">Box 4</div>
+		<div class="box5">Box 5</div>
+		<div class="box6">Box 6</div>
+	</body>
+</html>
+

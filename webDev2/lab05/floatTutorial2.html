@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Lab #4: Float Tutorial 2</title>
+		<style>
+			* {
+				box-sizing: border-box;
+				margin: 0;
+			}
+			
+			#container {
+				width: 90%;
+				margin: 10px auto;
+				background-color: #fff;
+				color: #333;
+				border: 1px solid gray;		
+				line-height: 130%;				
+			}
+
+			#top {			
+				padding: .5em;
+				background-color: #ddd;
+				border-bottom: 1px solid gray;
+				text-align: center;
+			}		
+
+						
+			#columnWrapper {
+				float:left;
+				width: 75%;
+			}
+			#leftnav{
+				float: left;
+				width: 33.3%;
+				padding: 2em;
+			}
+			#content {				
+				float:right;
+				width: 66.7%;
+				border-left: 1px solid gray;
+				border-right: 1px solid gray;
+				padding: 2em;
+			}
+			
+			#rightnav {
+				float: right;
+				width: 25%;
+				padding: 2em;
+			}
+
+			#footer	{
+				clear: both;
+				padding: .5em;
+				background-color: #ddd;
+				border-top: 1px solid gray;
+				text-align:center;
+			}		
+		</style>
+	</head>
+	<body>
+		<div id="container">
+		
+			<div id="top">
+				<h1>Header</h1>
+			</div>
+			
+			<!--New Column Wrapper Added-->
+			<div id="columnWrapper">
+			
+				<div id="content">
+					<h2>Subheading</h2>
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+					<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>				
+				</div>
+				
+				<div id="leftnav">
+					<h2>Left Sidebar</h2>
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p>
+				</div>
+				
+			</div>
+			<!----->
+			
+			<div id="rightnav">
+				<h2>Right Sidebar</h2>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p>
+			</div>
+			
+			<div id="footer">
+				<h3>Footer</h3>
+			</div>
+			
+		</div>
+	</body>
+</html>
+
