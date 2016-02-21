@@ -28,18 +28,10 @@ h2{
 	margin-top: 70vh;
 	animation-name:rotate;
 	animation-duration:2s;
-	/* Safari */
 	-webkit-transform: rotate(-90deg);
-
-	/* Firefox */
 	-moz-transform: rotate(-90deg);
-
-	/* IE */
 	-ms-transform: rotate(-90deg);
-
-	/* Opera */
 	-o-transform: rotate(-90deg);
-
 	transform:rotate(-90deg);
 	margin-left: -10vw;
 }
@@ -154,38 +146,20 @@ footer{
 }
 @keyframes rotate {
 	from {
-		/* Safari */
 		-webkit-transform: rotate(0deg);
-
-		/* Firefox */
 		-moz-transform: rotate(0deg);
-
-		/* IE */
 		-ms-transform: rotate(0deg);
-
-		/* Opera */
 		-o-transform: rotate(0deg);
-
-		/* Internet Explorer */
 		filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 		margin-left: 0;
 		margin-top: -90vh;
 	}
-		to {/* Safari */
+	to {
 		-webkit-transform: rotate(-90deg);
-
-		/* Firefox */
 		-moz-transform: rotate(-90deg);
-
-		/* IE */
 		-ms-transform: rotate(-90deg);
-
-		/* Opera */
 		-o-transform: rotate(-90deg);
-
-		/* Internet Explorer */
 		filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-
 		margin-left: -10vw;
 	}
 }
