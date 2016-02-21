@@ -46,7 +46,6 @@ if (!is_numeric($txtWeight)) {
 
 
 //Doing the math. Unless the math involves potentially dividing by zero
-
 if(($txtFeet * $txtInches * $txtWeight) != 0){
     //Initializing new variable for math result as well
     $txtBMI =  number_format(($txtWeight/(pow( ( ($txtFeet * 12) + $txtInches), 2))) * 703, 1);

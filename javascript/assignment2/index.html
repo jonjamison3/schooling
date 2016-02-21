@@ -9,7 +9,7 @@
 	<div style="width:60%;min-width:500px;">
 	Name: <input type="text" id="txtName">
 	<p>
-		Pickup:<input type="radio" id="rbPickup" name="origin" value="Pick up">
+		Pickup:<input type="radio" id="rbPickup" name="origin" value="Pick-up">
 		Delivery:<input type="radio" id="rbDelivery" name="origin" value="Delivery">
 	</p>
 	<p>
@@ -51,7 +51,6 @@
 			$('btnConfirm').onclick = submitOrder;
 			$('btnReset').onclick=reset;
 		}
-
 		function submitOrder(){
 
 			var answerText="";
@@ -63,11 +62,13 @@
 				if($("rbDelivery").checked){
 					answerText+=$("rbDelivery").value;
 				}
-				if ($("rbPickup").checked){
+				else{
 					answerText+=$("rbPickup").value;
 				}
 
-				if($('txtName').value==""){
+				var name=$('txtName').value;
+				//name = name.replace(/\s+g,'');
+				if(name==""){
 					alert("Please enter your name.");
 					txtName.focus();
 				} 
@@ -86,14 +87,15 @@
 						toppings.push(cbSausage.value);
 					}		
 
-					answerText+= " for "+$('txtName').value + "-" + "\n"
+					answerText+= " for "+$('txtName').value + ":" + "\n"
 										+$('ddlSize').value + ", "
 										+$('ddlStyle').value + " pizza";
 
-					for(var i=0;i<toppings.length;i++){
+					for(i=0;i<toppings.length;i++){
 						answerText += "\n+"+(toppings[i]);
 					} 
-					var confirmation = confirm(answerText+"\n***\nIs this correct?");
+					
+					var confirmation = confirm(answerText+"\n*************\nIs this correct?");
 					if(confirmation){
 						$('txtReturn').value = answerText;
 					}
@@ -103,7 +105,6 @@
 				}
 			}
 		}
-		
 		function reset(){
 				$('txtName').value = "";
 				$('rbPickup').checked = false;
