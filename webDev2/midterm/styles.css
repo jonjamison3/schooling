@@ -74,7 +74,6 @@ footer{
 	margin-left: 4%;
 	text-indent: 2em;
 }
-
 .design-archives, .design-selection, .zen-resources{
 	text-align: right;
 }
@@ -117,7 +116,7 @@ footer{
 	margin-top: 0;
 	box-shadow: 10px 11px 11px #AA3939;
 	animation-name:inFade;
-	animation-duration:4s;
+	animation-duration:2s;
 }
 .preamble h3{
 	color: #AA3939;
@@ -136,7 +135,6 @@ footer{
 .design-archives li, .zen-resources li{
 	display: inline-block;
 }
-
 .supporting{
 	margin:10vw 20vw;
 }
@@ -146,20 +144,12 @@ footer{
 }
 @keyframes rotate {
 	from {
-		-webkit-transform: rotate(0deg);
-		-moz-transform: rotate(0deg);
-		-ms-transform: rotate(0deg);
-		-o-transform: rotate(0deg);
-		filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+		transform: rotate(0deg);
 		margin-left: 0;
 		margin-top: -90vh;
 	}
 	to {
-		-webkit-transform: rotate(-90deg);
-		-moz-transform: rotate(-90deg);
-		-ms-transform: rotate(-90deg);
-		-o-transform: rotate(-90deg);
-		filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+		transform: rotate(-90deg);
 		margin-left: -10vw;
 	}
 }
