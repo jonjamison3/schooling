@@ -15,18 +15,19 @@
     <body>
         <form method="post" action="process.php">
             <h3>Height</h3>
-            Feet:&nbsp;<input type="text" name="txtFeet" 
-            <?php
-                if (isset($txtFeet)) {
-                    echo "value='" . $txtFeet . "'";
-                }
-            ?>/>
+                <tr>Feet:&nbsp;<td><input type="text" name="txtFeet" 
                 <?php
-                    if (isset($feetError)) {
-                        echo $feetError;
+                    if (isset($txtFeet)) {
+                        echo "value='" . $txtFeet . "'";
                     }
-                ?>
-
+                ?>/>
+                    <?php
+                        if (isset($feetError)) {
+                            echo $feetError;
+                        }
+                    ?>
+                </td>
+                </tr>
             Inches:&nbsp;<input type="text" name="txtInches" 
             <?php
                 if (isset($txtInches)) {
@@ -64,7 +65,6 @@
                     return;
                 }
             ?>
-            
         </form>
     </body>
 </html>
