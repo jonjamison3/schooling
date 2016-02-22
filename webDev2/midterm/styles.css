@@ -1,8 +1,10 @@
+@import 'animations.css';
+
 body{
 	background:linear-gradient(to top left, #222 30%,#FFE2A9 40%, #333 41%,red 50%,#333 59%,#FFE2A9 60%,#222 70%);
 	color: #FFE2A9;
 	font-size: 1.5em;
-	font-family: "Ubuntu mono";
+	font-family: Helvetica;//"Ubuntu mono";
 }
 abbr{
 	text-decoration: none;
@@ -15,7 +17,7 @@ h1{
 	margin-right: 0;
 	margin-top: 0;
 	position: fixed;
-	font-family: "Cousine";
+	font-family: "Ubuntu mono";
 	animation-name:inFade;
 	animation-duration:4s;
 	text-shadow:3px 1px #222;
@@ -43,7 +45,6 @@ ul{
 nav ul{
 }
 nav li{
-	
 }
 
 footer{
@@ -53,13 +54,13 @@ footer{
 	padding: 1.5em;
 	background-color:#4A4343;
 	width:50vw;
-	margin-top: 0;
-	clear:both;
+	margin-top: -30vh;
+	float:left;
 }
 .main h3{
 	color:#AA3939;
 	margin-bottom: 0px;
-	font-family: "Pacifico";
+	font-family: "Ubuntu mono";
 	font-size: 1.5em;
 	border-bottom: 2px groove; 
 	width: 45%;
@@ -67,22 +68,27 @@ footer{
 .main p{
 	margin:auto;
 	margin-top: 0;
-	margin-bottom: 4%;
 	margin-left: 4%;
 	text-indent: 2em;
 }
 .design-archives, .design-selection, .zen-resources{
-	text-align: right;
+	text-align: left;
+}
+.design-archives{
+	margin-top: -10vh;
 }
 .design-selection{
-	width: 20vw;
-	margin-top: -10vh;
+	width: 25vw;
 	background-color: #222;
 	text-align: left;
 	margin-left: 0;
+	display: inline-block;
+	clear: left;
+	float: right;
 }
 .design-selection ul{
 	margin-top: 0;
+	width: 25vw;
 }
 .design-selection li {
 	background-color: #4A4343;
@@ -105,14 +111,14 @@ footer{
 	font-weight: normal;
 }
 .preamble{
-	width:20vw;
+	width:40vw;
 	background-color:#4A4343;
 	padding: 1.5em;
 	float: right;
 	min-width: 240px;
 	margin: 5%;
 	margin-right: 30vw;
-	margin-top: 0;
+	margin-top: -5vh;
 	box-shadow: 10px 11px 11px #AA3939;
 	animation-name:inFade;
 	animation-duration:2s;
@@ -121,34 +127,18 @@ footer{
 	color: #AA3939;
 }
 .summary{
-	background-color: #222;
-	max-width: 10vw;
+	max-width: 30vw;
 	min-width: 360px;
+	background-color: #222;
 	padding:2.5em;
 	box-shadow: 20px 40px 0px #4A4343;
 	margin-left: 70vw;
 }
 .zen-resources, .design-archives{
-	clear:both;
 }
 .design-archives li, .zen-resources li{
 	display: inline-block;
 }
 .supporting{
 	margin:10vw 20vw;
-}
-@keyframes inFade {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-@keyframes rotate {
-	from {
-		transform: rotate(0deg);
-		margin-left: 0;
-		margin-top: -90vh;
-	}
-	to {
-		transform: rotate(-90deg);
-		margin-left: -10vw;
-	}
 }
