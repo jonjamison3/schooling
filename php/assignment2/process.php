@@ -46,7 +46,7 @@ if ($txtWeight=="") {
 
 //Doing the math... Unless the math involves potentially dividing by zero
 if (($txtFeet * $txtWeight) != 0) {
-    $txtBMI =  rtrim(rtrim(number_format(($txtWeight/(pow( ( ($txtFeet * 12) + $txtInches), 2))) * 703, 1), 0), '.');
+    $txtBMI =  rtrim(rtrim(number_format((($txtWeight/(pow( ( ($txtFeet * 12) + $txtInches), 2))) * 703), 1), 0), '.');
 }else {
     $txtBMI = "";
 }
