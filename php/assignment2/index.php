@@ -61,8 +61,6 @@
             <?php 
                 if (isset($txtBMI)&&isset($txtStatus)){
                     echo $txtResult;
-                } else{
-                    return;
                 }
             ?>
         </form>
