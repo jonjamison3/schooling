@@ -1,10 +1,10 @@
 @import 'animations.css';
 
 body{
-	background:linear-gradient(to top left, #222 30%,#FFE2A9 40%, #333 41%,red 50%,#333 59%,#FFE2A9 60%,#222 70%);
+	background:linear-gradient(to top left, #222 30%,#4A4343 40%, #333 41%,red 50%,#333 59%,#4A4343 60%,#222 70%);
 	color: #FFE2A9;
 	font-size: 1.5em;
-	font-family: Helvetica;//"Ubuntu mono";
+	font-family: Helvetica;
 }
 abbr{
 	text-decoration: none;
@@ -12,7 +12,6 @@ abbr{
 h1{
 	font-size: 4em;
 	color:#AA3F39;
-	background-color: #4A4343;
 	box-shadow: 60px 30px 80px #222;
 	margin-right: 0;
 	margin-top: 0;
@@ -38,7 +37,6 @@ h2{
 a{
 	color:#AA3F39;
 	text-decoration: none;
-	font-weight: bold;
 }
 ul{
 	list-style-type: none;
@@ -47,10 +45,9 @@ aside{
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 200px;
-  background-color: #333;
+  height: 20vh;
+  background-color: #4A4343;
   text-align: left;
-  opacity: .95;
   margin-left: -.5vw;
 }
 footer{
@@ -62,6 +59,8 @@ footer{
 	background-color:#4A4343;
 	width:50vw;
 	float:left;
+	box-shadow:4px 0px #222;
+	opacity: .94;
 }
 .main h3{
 	color:#AA3939;
@@ -78,41 +77,6 @@ footer{
 	text-indent: 2em;
 }
 
-.design-archives{
-}
-.design-selection{
-	transform:scale(.8);
-	width: 25vw;
-	text-align: left;
-	margin-left: -10vw;
-	display: flex;
-	clear: left;
-	float: right;
-}
-.design-selection ul{
-	margin-top: 0;
-	width: 25vw;
-}
-.design-selection li {
-	background-color: #4A4343;
-	margin: 2%;
-	padding:1em;
-	text-align: left;
-}
-.design-selection li:hover{
-	margin-left: 5%;
-	transform:scale(1.1);
-	background-color: gray;
-}
-.design-selection li a:first-of-type{
-	font-size:1.2em;
-	display: block;
-}
-.design-selection li a:last-of-type{
-	margin-left: 10px;
-	color:#FFE2A9;
-	font-weight: normal;
-}
 .preamble{
 	width:600px;
 	border-radius: 50%;
@@ -146,25 +110,59 @@ footer{
 .summary{
 	max-width: 30vw;
 	min-width: 360px;
-	background-color: #222;
 	padding:2.5em;
-	box-shadow: 20px 40px 0px #4A4343;
+	box-shadow: 1px 4px 0px red;
 	margin-left: 40vw;
 }
-.zen-resources, .design-archives{
+.zen-resources, .design-archives,.design-selection{
 	margin:0 10px;
 }
-.design-archives li, .zen-resources li{
+.design-archives li, .zen-resources li,.design-selection li{
 	display: inline-block;
+}
+.design-archives, .zen-resources{
+	margin-top: 5vh;
+}
+.resources, .archives,.design-selection{
+	position: fixed;
 	transform:scale(.8);
+	width: 35vw;
+	font-size: .8em;
 }
 .resources, .archives{
-	font-size: .8em;
+	float: left;
+}
+.design-selection{
+	text-align: right;
+	margin-top: -9vh;
+	margin-left: 65vw;
+	float: right;
+}
+.design-selection ul{
+}
+.design-selection li {
+	background-color: #4A4343;
+	padding:.5em;
+	text-align: left;
+}
+
+.design-selection li:hover{
+	margin-left: 5%;
+	transform:scale(1.1);
+	background-color: gray;
+}
+.design-selection li a:first-of-type{
+	font-size:1.2em;
+	display: block;
+}
+.design-selection li a:last-of-type{
+	margin-left: 10px;
+	color:#FFE2A9;
+	font-weight: normal;
 }
 .resources, .archives a{
 	display: inline;
 }
 .supporting{
 	margin:10vw 20vw;
-
 }
