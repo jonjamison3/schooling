@@ -3,7 +3,7 @@
 body{
 	background:linear-gradient(to top left, #222 30%,#4A4343 40%, #333 41%,red 50%,#333 59%,#4A4343 60%,#222 70%);
 	color: #FFE2A9;
-	font-size: 1.5em;
+	font-size: 1.4em;
 	font-family: Helvetica;
 }
 abbr{
@@ -13,6 +13,7 @@ h1{
 	font-size: 4em;
 	color:#AA3F39;
 	box-shadow: 60px 30px 80px #222;
+	background-color: #222;
 	margin-right: 0;
 	margin-top: 0;
 	position: fixed;
@@ -43,10 +44,10 @@ ul{
 }
 aside{
   position: fixed;
+  background-color: #4A4343;
   bottom: 0;
   width: 100%;
   height: 20vh;
-  background-color: #4A4343;
   text-align: left;
   margin-left: -.5vw;
 }
@@ -80,7 +81,6 @@ footer{
 .preamble{
 	width:600px;
 	border-radius: 50%;
-	background-color:#333;
 	padding: 1.5em;
 	float: right;
 	margin: 5%;
@@ -101,7 +101,6 @@ footer{
 	padding-left: 2.5vw;
 }
 .preamble p{
-	color:#fff;
 	width: 80%;
 	margin:auto;
 	text-indent: 2em;
