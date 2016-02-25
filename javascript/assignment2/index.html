@@ -59,13 +59,7 @@
 				$("rbPickup").focus();
 			}
 			else{
-				if($("rbDelivery").checked){
-					answerText+=$("rbDelivery").value;
-				}
-				else{
-					answerText+=$("rbPickup").value;
-				}
-
+				
 				var name=$('txtName').value;
 				//name = name.replace(/\s+g,'');
 				if(name==""){
@@ -73,6 +67,13 @@
 					txtName.focus();
 				} 
 				else {	
+					if($("rbDelivery").checked){
+						answerText+=$("rbDelivery").value;
+					}
+					else{
+						answerText+=$("rbPickup").value;
+					}
+
 					var toppings = [];
 					if($('cbPepperoni').checked){
 						toppings.push(cbPepperoni.value);
@@ -87,7 +88,7 @@
 						toppings.push(cbSausage.value);
 					}		
 
-					answerText+= " for "+$('txtName').value + ":" + "\n"
+					answerText += " for "+ name + ":" + "\n"
 										+$('ddlSize').value + ", "
 										+$('ddlStyle').value + " pizza";
 
@@ -100,7 +101,7 @@
 						$('txtReturn').value = answerText;
 					}
 					else{
-						$('txtReturn').value = "***Please complete and resubmit your order.***"
+						$('txtReturn').value = "***Please complete and resubmit your order.***";
 					}					
 				}
 			}
@@ -116,7 +117,7 @@
 				$('cbBlackOlives').checked = false;
 				$('txtReturn').value = "";
 				txtName.focus();
-		};
+		}
 		var $ = function(id){
 			return document.getElementById(id);
 		}
