@@ -31,19 +31,19 @@
 	</p>
 	<p>
 	Toppings:
-		<input type="checkbox" id="cbPepperoni" value="Pepperoni">Pepperoni
-		<input type="checkbox" id="cbBlackOlives" value="Black Olives">Black Olives
+		<input type="checkbox" id="cbPepperoni" name="cbPepperoni" value="Pepperoni">Pepperoni
+		<input type="checkbox" id="cbBlackOlives" name="cbBlackOlives" value="Black Olives">Black Olives
 	</p>
 	<p style="margin-left:5em;">
-		<input type="checkbox" id="cbMeatball" value="Meatball">Meatball
-		<input type="checkbox" id="cbSausage" value="Sausage">Sausage
+		<input type="checkbox" id="cbMeatball" name="cbMeatball" value="Meatball">Meatball
+		<input type="checkbox" id="cbSausage" name="cbSausage" value="Sausage">Sausage
 	</p>
 	<br>
-	<input type="button" id="btnConfirm" value="Confirm Order" style="width:40%;margin:auto;">
-	<input type="button" id="btnReset" value="Reset" style="width:40%;margin:auto;">
+	<input type="button" id="btnConfirm" name="btnConfirm" value="Confirm Order" style="width:40%;margin:auto;">
+	<input type="button" id="btnReset" name="btnReset" value="Reset" style="width:40%;margin:auto;">
 	<br>
 	<br>
-	<textarea id="txtReturn" style="width:80%;height:8em;margin:auto;" disabled="disabled"></textarea>
+	<textarea id="txtReturn" name="txtReturn" style="width:80%;height:8em;margin:auto;" disabled="disabled"></textarea>
 	</div>
 	<script type="text/javascript">
 		
@@ -51,7 +51,7 @@
 			$('btnConfirm').onclick = submitOrder;
 			$('btnReset').onclick=reset;
 		}
-		function submitOrder(){
+		var submitOrder = function (){
 
 			var answerText="";
 			if(!$("rbPickup").checked&&!$("rbDelivery").checked){
@@ -105,7 +105,8 @@
 				}
 			}
 		}
-		function reset(){
+		var reset = function(){
+				answerText = "";
 				$('txtName').value = "";
 				$('rbPickup').checked = false;
 				$('rbDelivery').checked = false;
@@ -113,10 +114,10 @@
 				$('cbMeatball').checked = false;
 				$('cbPepperoni').checked = false;
 				$('cbBlackOlives').checked = false;
-				answerText = "";
-				$('txtReturn').value="";
-		}
-		function $(id){
+				$('txtReturn').value = "";
+				txtName.focus();
+		};
+		var $ = function(id){
 			return document.getElementById(id);
 		}
 	</script>
