@@ -128,12 +128,16 @@ footer{
 	width: 35vw;
 	font-size: .8em;
 }
+.sidebar h3{
+	font-size:1.2em;
+	display: block;
+	margin-top: -3vh;
+}
 .resources, .archives{
 	float: left;
 }
 .design-selection{
 	text-align: right;
-	margin-top: -9vh;
 	margin-left: 65vw;
 	float: right;
 }
@@ -146,7 +150,6 @@ footer{
 }
 
 .design-selection li:hover{
-	margin-left: 5%;
 	transform:scale(1.1);
 	background-color: gray;
 }
