@@ -1,7 +1,7 @@
 @import 'animations.css';
 
 body{
-	background:linear-gradient(to top left, #222 30%,#4A4343 40%, #333 41%,#AA3F39 50%,#333 59%,#4A4343 60%,#222 70%);
+	background:linear-gradient(to top left, #222 10%,#4A4343 40%, #333 41%,#AA3F39 50%,#333 59%,#4A4343 60%,#222 90%);
 	color: #FFE2A9;
 	font-size: 1.4em;
 	font-family: Helvetica;
@@ -13,7 +13,6 @@ h1{
 	font-size: 4em;
 	color:#AA3F39;
 	box-shadow: 60px 30px 80px #222;
-	background-color: #222;
 	margin-right: 0;
 	margin-top: 0;
 	position: fixed;
@@ -60,6 +59,7 @@ footer{
 	width:50vw;
 	float:left;
 	box-shadow:4px 0px #222;
+	background-color: #222;
 	opacity: .94;
 }
 .main h3{
@@ -81,6 +81,7 @@ footer{
 .preamble{
 	width:600px;
 	border-radius: 50%;
+	background-color: #222;
 	padding: 1.5em;
 	float: right;
 	margin: 5%;
@@ -147,6 +148,7 @@ footer{
 	background-color: #333;
 	padding:.5em;
 	text-align: left;
+	border-radius: 25%;
 }
 
 .design-selection li:hover{
