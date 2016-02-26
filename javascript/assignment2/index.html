@@ -2,48 +2,52 @@
 <html lang="en">
 <head>
 <title>Jon Jamison's Assignment 2</title>
+<style type="text/css">
+	body{
+		text-align: center;
+	}
+</style>
 </head>
 
 <body>
-	<h1>RVCC Pizzeria</h1>
+	
 	<div style="width:60%;min-width:500px;">
+		<h1>RVCC Pizzeria</h1>
 	Name: <input type="text" id="txtName">
-	<p>
+	
 		Pickup:<input type="radio" id="rbPickup" name="origin" value="Pick-up">
 		Delivery:<input type="radio" id="rbDelivery" name="origin" value="Delivery">
-	</p>
 	<p>
 		Style:
 		<select id="ddlStyle">
-			<option>Deep Dish</option>
-			<option>Tomato Pie</option>
-			<option>Thin Crust</option>
-			<option>Stuffed Crust</option>
+			<option value="Deep Dish">Deep Dish</option>
+			<option value="Tomato Pie">Tomato Pie</option>
+			<option value="Thin Crust">Thin Crust</option>
+			<option value="Stuffed Crust">Stuffed Crust</option>
 		</select>
 		
 		Size:
 		<select id="ddlSize">
-			<option>Xtra Large</option>
-			<option>Large</option>
-			<option>Medium</option>
-			<option>Small</option>
+			<option value="Extra Large">Xtra Large</option>
+			<option value="Large">Large</option>
+			<option value="Medium">Medium</option>
+			<option value="Small">Small</option>
 		</select>
 	</p>
 	<p>
-	Toppings:
+	Toppings:<br>
+
 		<input type="checkbox" id="cbPepperoni" name="cbPepperoni" value="Pepperoni">Pepperoni
 		<input type="checkbox" id="cbBlackOlives" name="cbBlackOlives" value="Black Olives">Black Olives
-	</p>
-	<p style="margin-left:5em;">
+	
 		<input type="checkbox" id="cbMeatball" name="cbMeatball" value="Meatball">Meatball
 		<input type="checkbox" id="cbSausage" name="cbSausage" value="Sausage">Sausage
 	</p>
-	<br>
 	<input type="button" id="btnConfirm" name="btnConfirm" value="Confirm Order" style="width:40%;margin:auto;">
 	<input type="button" id="btnReset" name="btnReset" value="Reset" style="width:40%;margin:auto;">
 	<br>
 	<br>
-	<textarea id="txtReturn" name="txtReturn" style="width:80%;height:8em;margin:auto;" disabled="disabled"></textarea>
+	<textarea id="txtReturn" name="txtReturn" style="width:70%;height:8em;margin:auto;" disabled="disabled"></textarea>
 	</div>
 	<script type="text/javascript">
 		
@@ -54,57 +58,69 @@
 		var submitOrder = function (){
 
 			var answerText="";
+			var error = "";
+			var name=$('txtName').value;
+			var deliveryType="";
+			
+
+			if(name==""){
+				error += "Name is required\n";
+				txtName.focus();
+			}
+
 			if(!$("rbPickup").checked&&!$("rbDelivery").checked){
-				alert("Please indicate whether your order should be picked up or delivered.");
+				error += "Please choose a delivery type\n";
 				$("rbPickup").focus();
 			}
-			else{
-				
-				var name=$('txtName').value;
-				//name = name.replace(/\s+g,'');
-				if(name==""){
-					alert("Please enter your name.");
-					txtName.focus();
-				} 
-				else {	
-					if($("rbDelivery").checked){
-						answerText+=$("rbDelivery").value;
-					}
-					else{
-						answerText+=$("rbPickup").value;
-					}
+			
 
-					var toppings = [];
-					if($('cbPepperoni').checked){
-						toppings.push(cbPepperoni.value);
-					}
-					if($('cbBlackOlives').checked){
-						toppings.push(cbBlackOlives.value);
-					}
-					if($('cbMeatball').checked){
-						toppings.push(cbMeatball.value);
-					}
-					if($('cbSausage').checked){
-						toppings.push(cbSausage.value);
-					}		
+			if(error==""){	
 
-					answerText += " for "+ name + ":" + "\n"
-										+$('ddlSize').value + ", "
-										+$('ddlStyle').value + " pizza";
-
-					for(i=0;i<toppings.length;i++){
-						answerText += "\n+"+(toppings[i]);
-					} 
-					
-					var confirmation = confirm(answerText+"\n*************\nIs this correct?");
-					if(confirmation){
-						$('txtReturn').value = answerText;
-					}
-					else{
-						$('txtReturn').value = "***Please complete and resubmit your order.***";
-					}					
+				if($("rbDelivery").checked){
+					deliveryType+=$("rbDelivery").value;
+				}else{
+					deliveryType+=$("rbPickup").value;
 				}
+
+				var toppings = [];
+				if($('cbPepperoni').checked){
+					toppings.push(cbPepperoni.value);
+				}
+				if($('cbBlackOlives').checked){
+					toppings.push(cbBlackOlives.value);
+				}
+				if($('cbMeatball').checked){
+					toppings.push(cbMeatball.value);
+				}
+				if($('cbSausage').checked){
+					toppings.push(cbSausage.value);
+				}		
+
+				answerText += name + "\n"
+									+deliveryType+"\nA "
+									+$('ddlSize').value + " "
+									+$('ddlStyle').value + " Pizza";
+				if(toppings.length>0){
+					answerText += "\nWith toppings:";		
+					for(i=0;i<toppings.length;i++){
+						answerText += " "+(toppings[i]);
+					} 
+				}else{
+					answerText += "\n";
+				}
+
+				var confirmation = confirm("Please confirm the following order for:\n"+answerText);
+
+				if(confirmation){
+					$('txtReturn').value = answerText+"\nYour order has been placed";
+				}
+				else{
+					$('txtReturn').value = "*Order Cancelled*";
+				}					
+			}else{
+				alert(error);
 			}
+			
 		}
 		var reset = function(){
 				answerText = "";
@@ -116,6 +132,8 @@
 				$('cbPepperoni').checked = false;
 				$('cbBlackOlives').checked = false;
 				$('txtReturn').value = "";
+				$('ddlStyle').selectedIndex = 0;
+				$('ddlSize').selectedIndex = 0;
 				txtName.focus();
 		}
 		var $ = function(id){
