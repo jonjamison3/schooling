@@ -16,7 +16,7 @@ $txtWeight = $_POST['txtWeight'];
 
 //Ensure input values are numeric 
 if ($txtFeet=="") {
-    $feetError = "<span>Feet are required</span>";
+    $feetError = "<span>Feet is required</span>";
 }elseif (!is_numeric($txtFeet)) {
     $feetError = "<span>Please enter a numeric value</span>"; 
 }
@@ -36,7 +36,7 @@ if ($txtInches=="") {
 }
 
 if ($txtWeight=="") {
-    $weightError = "<span>Feet are required</span>";
+    $weightError = "<span>Weight is required</span>";
 }elseif (!is_numeric($txtWeight)) {
     $weightError = "<span>Please enter a numeric value</span>"; 
 }elseif ($txtWeight < 85||$txtWeight > 600) {
@@ -68,7 +68,7 @@ if ($txtBMI=="") {
 if(isset($feetError)||isset($inchesError)||isset($weightError)) {
     $txtResult="";
 }else {
-    $txtResult = "<p>".$txtStatus."-".$txtBMI."</p>";
+    $txtResult = "<b>".$txtStatus." - ".$txtBMI."</b>";
 }
 
 include 'index.php';
