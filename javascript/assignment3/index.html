@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+	<title>Jon Jamison's Assignment 3</title>
+</head>
+<body>
+	<h1>Assignment 3</h1>
+	<input type="text" id="txtChange">
+
+	<p>Quarters: <span id="spanQuarter"></span></p>
+	<p>Dimes: <span id="spanDime"></span></p>
+	<p>Nickels: <span id="spanNickel"></span></p>
+	<p>Pennies: <span id="spanPenny"></span></p>
+	<input type="button" id="btnCalculate" value="calculate">
+	<script>
+		window.onload = function(){
+			$('btnCalculate').onclick=calculate;
+		}
+		
+		var calculate = function(){
+			change = $('txtChange').value;
+			if(change<100&&change>0){
+				console.log("calculating....");
+				change = $('txtChange').value;
+				var changeLeft = change;
+				var quarterCount = 0;
+				var dimeCount = 0;
+				var nickelCount = 0;
+				var pennyCount =0;
+				while(changeLeft>=25){
+					changeLeft-=25;
+					quarterCount++;
+				}
+				while(changeLeft>=10){
+					changeLeft-=10;
+					dimeCount++;
+				}
+				while(changeLeft>=5){
+					changeLeft-=5;
+					nickelCount++;
+				}
+				while(changeLeft>=1){
+					changeLeft-=1;
+					pennyCount++;
+				}
+				$('spanQuarter').innerHTML = quarterCount;
+				$('spanDime').innerHTML = dimeCount;
+				$('spanNickel').innerHTML = nickelCount;
+				$('spanPenny').innerHTML = pennyCount;
+			}else{
+				alert("Please enter a number within range");
+			}
+
+		}
+		var $ = function(id){
+			return document.getElementById(id);
+		}
+	</script>
+</body>
