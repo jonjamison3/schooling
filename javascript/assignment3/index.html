@@ -19,7 +19,9 @@
 		
 		var calculate = function(){
 			change = $('txtChange').value;
-			if(change<100&&change>0){
+			if(isInt(change)==false){
+				alert("not an int");
+			}else if(change<100&&change>0){
 				change = $('txtChange').value;
 
 				var quarterCount = 0;
@@ -27,7 +29,7 @@
 				var nickelCount = 0;
 				var pennyCount =0;
 
-				while(change>=25){
+				while(change>=25){ 
 					change-=25;
 					quarterCount++;
 				}
@@ -55,6 +57,9 @@
 		}
 		var $ = function(id){
 			return document.getElementById(id);
+		}
+		var isInt=function(number){
+			return number%1===0;
 		}
 	</script>
 </body>
