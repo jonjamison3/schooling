@@ -85,7 +85,8 @@
                         if (isset($txtBMI) && isset($txtStatus)) {
                             echo $txtResult;
                         }
-                        ?></td>
+                        ?>
+                    </td>
                 </tr>
 
             </table>
