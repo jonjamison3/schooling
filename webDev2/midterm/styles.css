@@ -1,7 +1,7 @@
 @import 'animations.css';
 
 body{
-	background:radial-gradient(#222 10%, #4A4343 40%, #333 41%, #671416 50%, #333 59%, #4A4343 60%, #222 90%);
+	background-color:#222;
 	color: #FFE2A9;
 	font-size: 1.4em;
 	font-family: Helvetica;
@@ -10,18 +10,19 @@ abbr{
 	text-decoration: none;
 }
 h1{
-	font-size: 4em;
+	font-size: 3em;
 	color:#AA3F39;
-	max-width: 40vw;
-	margin-right: 0;
-	margin-top: -10vh;
+	margin-top: 0;
 	position: fixed;
-	left:1000;
+	top:0;
+	width: 100%;
 	font-family: sinCity;
 	animation-name:inFade;
 	animation-duration:4s;
+	text-align: center;
 	text-shadow:3px 1px #fff;
-	z-index: -1;
+	z-index: 3;
+	background-color: #222;
 }
 h2{
 	color:#AA3F39;
@@ -57,12 +58,15 @@ footer{
 .main{
 	padding: 1.5em;
 	padding-right: 2em;
-	margin-top: 15vh;
+	padding-top: 20%;
+	margin-left: 40%;
 	margin-bottom: 25vh;
+	margin-top: 20%;
 	box-shadow:4px 0px #222;
-	//background-color: #222;
+	background-color: #222;
+	float: right;
+	width: 60%;
 	opacity: .94;
-	float:right;
 }
 .main h3{
 	color:#6;
@@ -85,19 +89,19 @@ footer{
 }
 
 .preamble{
-	background-color: #222;
+	background:radial-gradient(#222 10%, #222 40%, #222 41%, #222 50%, #333 59%, #222 60%, #222 90%);
 	padding: 1.5em;
 	margin-right: 60vw;
-	margin-top: 5vh;
 	box-shadow: 10px 11px 11px #AA3F39;
 	animation-name:inFade;
 	animation-duration:2s;
 	margin-bottom: 0;
 }
 .preamble h3{
+	font-family: sinCity;
+
 	color: #AA3F39;
 	text-align: center;
-	font-weight: normal;
 }
 .preamble h3, .preamble p{
 	transform:scale(.8);
@@ -109,10 +113,11 @@ footer{
 	padding:0 10px;
 }
 .summary{
+	font-family: sinCity;
+
 	max-width: 30vw;
 	min-width: 360px;
 	padding:2.5em;
-	float: left;
 	box-shadow: 1px 4px 0px #222;
 }
 .zen-resources, .design-archives,.design-selection{
