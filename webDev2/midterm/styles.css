@@ -1,7 +1,7 @@
 @import 'animations.css';
 
 body{
-	background:linear-gradient(to top left, #222 10%, #4A4343 40%, #333 41%, #AA3F39 50%, #333 59%, #4A4343 60%, #222 90%);
+	background:radial-gradient(#222 10%, #4A4343 40%, #333 41%, #671416 50%, #333 59%, #4A4343 60%, #222 90%);
 	color: #FFE2A9;
 	font-size: 1.4em;
 	font-family: Helvetica;
@@ -12,23 +12,24 @@ abbr{
 h1{
 	font-size: 4em;
 	color:#AA3F39;
-	box-shadow: 60px 30px 80px #222;
+	max-width: 40vw;
 	margin-right: 0;
 	margin-top: -10vh;
 	position: fixed;
-	font-family: "Ubuntu mono";
+	left:1000;
+	font-family: sinCity;
 	animation-name:inFade;
 	animation-duration:4s;
-	text-shadow:3px 1px #222;
-	z-index: 15;
-}	
+	text-shadow:3px 1px #fff;
+	z-index: -1;
+}
 h2{
 	color:#AA3F39;
 	text-align: right;
 	font-family: Helvetica;
 	opacity: .5;
 	position: fixed;
-	margin-top: 35vh;
+	margin-top: 40vh;
 	animation-name:rotate;
 	animation-duration:2s;
 	transform: rotate(-90deg);
@@ -59,34 +60,33 @@ footer{
 	margin-top: 15vh;
 	margin-bottom: 25vh;
 	box-shadow:4px 0px #222;
-	background-color: #222;
+	//background-color: #222;
 	opacity: .94;
 	float:right;
 }
 .main h3{
-	color:#AA3939;
+	color:#6;
 	margin-bottom: 0px;
-	font-family: "Ubuntu mono";
+	font-family: sinCity;
 	font-size: 1.5em;
-	border-bottom: 2px groove; 
+	border-bottom: 2px groove;
 	width: 45%;
-	text-shadow: 2px 3px #222;
+	text-shadow: 2px 3px #671416;
 }
 .main p{
 	margin:auto;
 	margin-top: 0;
 	margin-left: 4%;
 	text-indent: 2em;
+	text-shadow: 1px 1px #222;
 }
 .intro{
 	margin-top: 10vh;
 }
 
 .preamble{
-	width:600px;
 	background-color: #222;
 	padding: 1.5em;
-	float: left;
 	margin-right: 60vw;
 	margin-top: 5vh;
 	box-shadow: 10px 11px 11px #AA3F39;
@@ -96,7 +96,6 @@ footer{
 }
 .preamble h3{
 	color: #AA3F39;
-	font-family: impact;
 	text-align: center;
 	font-weight: normal;
 }
@@ -106,7 +105,6 @@ footer{
 }
 .preamble p{
 	width: 80%;
-	margin:auto;
 	text-indent: 2em;
 	padding:0 10px;
 }
@@ -179,4 +177,8 @@ footer{
 .supporting{
 	margin-top: -80vh;
 	max-width: 960px;
+}
+@font-face {
+    font-family: sinCity;
+    src: url("Sin City.ttf");
 }
