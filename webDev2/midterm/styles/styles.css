@@ -23,15 +23,15 @@ h1{
 	text-align: center;
 	text-shadow:3px 1px #fff;
 	z-index: 3;
-	background-color: #222;
+	background-image:url("../images/roadBW.jpg");
 }
 h2{
 	color:gray;
 	text-align: right;
 	font-family: Helvetica;
-	opacity: .5;
+	opacity: .3;
 	position: fixed;
-	left:27%;
+	right:1%;
 	top: 60%;
 	animation-name:rotate;
 	animation-duration:2s;
@@ -47,6 +47,8 @@ ul{
 }
 aside{
 	position: fixed;
+	background-image:url("../images/botRoadBW.jpg");
+	background-repeat:round; ;
 	width: 100%;
 	background-color: #222;
 	bottom: 0;
@@ -67,7 +69,6 @@ footer{
 	position: absolute;
 	box-shadow:4px 0px #222;
 	float: right;
-	height: 230%;
 	width: 60%;
 	opacity: .94;
 }
@@ -91,7 +92,6 @@ footer{
 .preamble{
 	position: fixed;
 	padding: 1.5em;
-	background-color: #222;
 	margin-right: 60vw;
 	box-shadow: 10px 11px 11px #AA3F39;
 	animation-name:inFade;
