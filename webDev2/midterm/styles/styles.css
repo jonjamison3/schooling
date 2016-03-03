@@ -4,7 +4,7 @@ body{
 	background:linear-gradient(to right, #222 20%, gray 22%, #222 23%, gray 24%, #222 26%);
 	color: #FFE2A9;
 	font-size: 1.4em;
-	font-family: impact;
+	font-family: ostrich;
 	width: 90%;
 }
 abbr{
@@ -48,7 +48,8 @@ ul{
 aside{
 	position: fixed;
 	background-image:url("../images/botRoadBW.jpg");
-	background-repeat:round; ;
+	background-size: 5000px;
+	background-repeat:no-repeat;
 	width: 100%;
 	background-color: #222;
 	bottom: 0;
@@ -63,9 +64,9 @@ footer{
 	padding-right: 2em;
 	margin-left: auto;
 	margin-bottom: 25%;
-	left:50%;
+	left:60%;
 	top: 100%;
-	right: 5%;
+	right: 15%;
 	position: absolute;
 	box-shadow:4px 0px #222;
 	float: right;
@@ -92,15 +93,13 @@ footer{
 .preamble{
 	position: fixed;
 	padding: 1.5em;
-	margin-right: 60vw;
-	box-shadow: 10px 11px 11px #AA3F39;
 	animation-name:inFade;
 	animation-duration:2s;
 	margin-bottom: 0;
 	max-width: 720px;
 	top: 5%;
 	left:2%;
-	width: 35%;
+	width: 25%;
 }
 .preamble h3{
 	font-family: sinCity;
@@ -113,13 +112,11 @@ footer{
 	padding:0 10px;
 }
 .summary{
-	font-family: impact;
-	max-width: 30vw;
+	color: #666;
 	min-width: 360px;
+	float: right;
 	padding:2.5em;
-	margin-top: 40%;
-	text-align: center
-	position: top center;
+	text-align: center;
 	width: 25%;
 }
 .zen-resources, .design-archives,.design-selection{
@@ -180,4 +177,12 @@ footer{
 @font-face {
     font-family: sinCity;
     src: url("../fonts/Sin City.ttf");
+}
+@font-face {
+    font-family: ostrich;
+    src: url("../fonts/OstrichSans-Heavy.otf");
+}
+@font-face {
+    font-family: windsong;
+    src: url("../fonts/Windsong.ttf");
 }
