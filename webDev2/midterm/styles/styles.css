@@ -97,7 +97,7 @@ footer{
 	animation-duration:2s;
 	margin-bottom: 0;
 	max-width: 720px;
-	top: 5%;
+	top: 25%;
 	left:2%;
 	width: 25%;
 }
@@ -107,7 +107,6 @@ footer{
 	text-align: center;
 }
 .preamble p{
-	width: 80%;
 	text-indent: 2em;
 	padding:0 10px;
 }
