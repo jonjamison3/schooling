@@ -5,7 +5,7 @@ body{
 	color: #FFE2A9;
 	font-size: 1.4em;
 	font-family: ostrich;
-	width: 90%;
+	width: 80%;
 }
 abbr{
 	text-decoration: none;
@@ -181,8 +181,4 @@ footer{
 @font-face {
     font-family: ostrich;
     src: url("../fonts/OstrichSans-Heavy.otf");
-}
-@font-face {
-    font-family: windsong;
-    src: url("../fonts/Windsong.ttf");
 }
