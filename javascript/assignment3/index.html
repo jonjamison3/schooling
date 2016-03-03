@@ -16,7 +16,7 @@
 		window.onload = function(){
 			$('btnCalculate').onclick=calculate;
 		}
-		
+
 		var calculate = function(){
 			change = $('txtChange').value;
 			if(isInt(change)==false){
@@ -27,9 +27,9 @@
 				var quarterCount = 0;
 				var dimeCount = 0;
 				var nickelCount = 0;
-				var pennyCount =0;
+				var pennyCount = 0;
 
-				while(change>=25){ 
+				while(change>=25){
 					change-=25;
 					quarterCount++;
 				}
@@ -45,7 +45,7 @@
 					change-=1;
 					pennyCount++;
 				}
-				
+
 				$('spanQuarter').innerHTML = quarterCount;
 				$('spanDime').innerHTML = dimeCount;
 				$('spanNickel').innerHTML = nickelCount;
