@@ -30,7 +30,7 @@
 			$('btnCalculate').onclick=calculate;
 		}
 		var calculate = function(){
-			 	var change = $('txtChange').value;
+			 	var change = $('txtChange').value.trim();
 
 			//checking for integer and non-blank space
 			if(isInt(change)===false||change==""){
