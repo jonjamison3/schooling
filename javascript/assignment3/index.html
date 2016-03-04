@@ -46,15 +46,14 @@
 		var calculate = function(){
 			 	var change = $('txtChange').value.trim();
 
-			//checking for integer and non-blank space
-			if(isInt(change)===false||change==""){
-				alert("Please enter a valid integer from 0 to 99");
-			}else if(change<100&&change>=0){
+				//checking for integer and non-blank space as well as range
+				if(isInt(change)===true&&!change==""&&change<100&&change>=0){
+				//initialize variables to hold counts
 				var quarterCount = 0;
 				var dimeCount = 0;
 				var nickelCount = 0;
 				var pennyCount = 0;
-
+				//begin count
 				while(change>=25){
 					change-=25;
 					quarterCount++;
@@ -71,7 +70,7 @@
 					change-=1;
 					pennyCount++;
 				}
-				//returning number of quarters to input fields
+				//returning coin count to input fields
 				$('txtQuarter').value = quarterCount;
 				$('txtDime').value = dimeCount;
 				$('txtNickel').value = nickelCount;
@@ -83,13 +82,12 @@
 				$('spanPenny').innerHTML = (pennyCount*.01).toFixed(2);
 				$('spanTotal').innerHTML = ($('txtChange').value*.01).toFixed(2);
 			}else{
+				//catch all for invalid input
 				alert("Please enter a valid integer from 0 to 99");
 			}
 			$('txtChange').select();
 
 		}
-
-
 		//determine if number is an integer
 		var isInt=function(number){
 			return number%1===0;
