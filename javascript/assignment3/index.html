@@ -2,28 +2,40 @@
 <html>
 <head>
 	<title>Jon Jamison's Assignment 3</title>
+	<style type="text/css">
+
+		input[type="text"]{
+			width: 50px;
+			text-align: right;
+			margin: 2px 3px;
+			margin-left: 0;
+		}
+	</style>
 </head>
 <body>
-	<h1>Assignment 3</h1>
-	<input type="text" id="txtChange">
+	<h1>Change Calculator</h1>
+	<p>Enter the number of cents (0-99): <input type="text" id="txtChange"></p>
 
-	<p>Quarters: <span id="spanQuarter"></span></p>
-	<p>Dimes: <span id="spanDime"></span></p>
-	<p>Nickels: <span id="spanNickel"></span></p>
-	<p>Pennies: <span id="spanPenny"></span></p>
-	<input type="button" id="btnCalculate" value="calculate">
+	<table>
+		<tr><td><input type="button" id="btnCalculate" value="Calculate"></td></tr>
+		<tr><td>Quarters:</td><td> <input type="text" id="txtQuarter" disabled></input> = </td><td><span id="spanQuarter"></span></td></tr>
+		<tr><td>Dimes:</td><td> <input type="text" id="txtDime" disabled></input> = </td><td><span id="spanDime"></span></td></tr>
+		<tr><td>Nickels</td><td> <input type="text" id="txtNickel" disabled></input> = </td><td><span id="spanNickel"></span></td></tr>
+		<tr><td>Pennies:</td><td> <input type="text" id="txtPenny" disabled></input> = </td><td><span id="spanPenny"></span></td></tr>
+		<tr><td>Total:</td><td> <input type="text" id="txtTotal" value="Total: " disabled></input> = </td><td><span id="spanTotal"></span></td></tr>
+	</table>
+
 	<script>
 		window.onload = function(){
 			$('btnCalculate').onclick=calculate;
 		}
-
 		var calculate = function(){
-			change = $('txtChange').value;
-			if(isInt(change)==false){
-				alert("not an int");
-			}else if(change<100&&change>0){
-				change = $('txtChange').value;
+			 	var change = $('txtChange').value;
 
+			//checking for integer and non-blank space
+			if(isInt(change)===false||change==""){
+				alert("Please enter a valid integer from 0 to 99");
+			}else if(change<100&&change>=0){
 				var quarterCount = 0;
 				var dimeCount = 0;
 				var nickelCount = 0;
@@ -45,21 +57,35 @@
 					change-=1;
 					pennyCount++;
 				}
+				//returning number of quarters to input fields
+				$('txtQuarter').value = quarterCount;
+				$('txtDime').value = dimeCount;
+				$('txtNickel').value = nickelCount;
+				$('txtPenny').value = pennyCount;
+				//calculating cent values, formatting for display as money, and returning to spans
+				$('spanQuarter').innerHTML = (quarterCount*.25).toFixed(2);
+				$('spanDime').innerHTML = (dimeCount*.10).toFixed(2);
+				$('spanNickel').innerHTML = (nickelCount*.05).toFixed(2);
+				$('spanPenny').innerHTML = (pennyCount*.01).toFixed(2);
+				$('spanTotal').innerHTML = ($('txtChange').value*.01).toFixed(2);
 
-				$('spanQuarter').innerHTML = quarterCount;
-				$('spanDime').innerHTML = dimeCount;
-				$('spanNickel').innerHTML = nickelCount;
-				$('spanPenny').innerHTML = pennyCount;
 			}else{
-				alert("Please enter a number within range");
+				//catch other errors
+				alert("Please enter a valid integer from 0 to 99");
 			}
 			$('txtChange').select();
+
 		}
-		var $ = function(id){
-			return document.getElementById(id);
-		}
+
+
+		//determine if number is an integer
 		var isInt=function(number){
 			return number%1===0;
 		}
+		//selection function used in class
+		var $ = function(id){
+			return document.getElementById(id);
+		}
+
 	</script>
 </body>
