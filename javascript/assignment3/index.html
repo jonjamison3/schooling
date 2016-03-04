@@ -44,15 +44,18 @@
 			$('btnCalculate').onclick=calculate;
 		}
 		var calculate = function(){
+				//initialize main change variable and trim for whitespace
 			 	var change = $('txtChange').value.trim();
 
 				//checking for integer and non-blank space as well as range
 				if(isInt(change)===true&&!change==""&&change<100&&change>=0){
+
 				//initialize variables to hold counts
 				var quarterCount = 0;
 				var dimeCount = 0;
 				var nickelCount = 0;
 				var pennyCount = 0;
+
 				//begin count
 				while(change>=25){
 					change-=25;
@@ -70,11 +73,13 @@
 					change-=1;
 					pennyCount++;
 				}
+
 				//returning coin count to input fields
 				$('txtQuarter').value = quarterCount;
 				$('txtDime').value = dimeCount;
 				$('txtNickel').value = nickelCount;
 				$('txtPenny').value = pennyCount;
+
 				//calculating cent values, formatting for display as money, and returning to spans
 				$('spanQuarter').innerHTML = (quarterCount*.25).toFixed(2);
 				$('spanDime').innerHTML = (dimeCount*.10).toFixed(2);
