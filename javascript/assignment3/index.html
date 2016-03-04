@@ -25,6 +25,14 @@
 		<tr><td>Total:</td><td> <input type="text" id="txtTotal" value="Total: " disabled></input> = </td><td><span id="spanTotal"></span></td></tr>
 	</table>
 
+<<<<<<< HEAD
+=======
+	<p>Quarters: <input id="txtQuarter" disabled></input> = <span id="spanQuarter"></span></p>
+	<p>Dimes: <input id="txtDime" disabled></input>= <span id="spanDime"></span></p>
+	<p>Nickels: <input id="txtNickel" disabled></input>= <span id="spanNickel"></span></p>
+	<p>Pennies: <input id="txtPenny" disabled></input>= <span id="spanPenny"></span></p>
+	<input type="button" id="btnCalculate" value="calculate">
+>>>>>>> 1ba1aa8c908fbc2922fc0a6a6ebb461fef31944b
 	<script>
 		window.onload = function(){
 			$('btnCalculate').onclick=calculate;
@@ -68,9 +76,7 @@
 				$('spanNickel').innerHTML = (nickelCount*.05).toFixed(2);
 				$('spanPenny').innerHTML = (pennyCount*.01).toFixed(2);
 				$('spanTotal').innerHTML = ($('txtChange').value*.01).toFixed(2);
-
 			}else{
-				//catch other errors
 				alert("Please enter a valid integer from 0 to 99");
 			}
 			$('txtChange').select();
