@@ -7,10 +7,10 @@
 	<h1>Assignment 3</h1>
 	<input type="text" id="txtChange">
 
-	<p>Quarters: <input id="spanQuarter" disabled></input></p>
-	<p>Dimes: <input id="spanDime" disabled></input></p>
-	<p>Nickels: <input id="spanNickel" disabled></input></p>
-	<p>Pennies: <input id="spanPenny" disabled></input></p>
+	<p>Quarters: <input id="txtQuarter" disabled></input> = <span id="spanQuarter"></span></p>
+	<p>Dimes: <input id="txtDime" disabled></input>= <span id="spanDime"></span></p>
+	<p>Nickels: <input id="txtNickel" disabled></input>= <span id="spanNickel"></span></p>
+	<p>Pennies: <input id="txtPenny" disabled></input>= <span id="spanPenny"></span></p>
 	<input type="button" id="btnCalculate" value="calculate">
 	<script>
 		window.onload = function(){
@@ -46,10 +46,14 @@
 					pennyCount++;
 				}
 
-				$('spanQuarter').innerHTML = quarterCount;
-				$('spanDime').innerHTML = dimeCount;
-				$('spanNickel').innerHTML = nickelCount;
-				$('spanPenny').innerHTML = pennyCount;
+				$('txtQuarter').innerHTML = quarterCount;
+				$('txtDime').innerHTML = dimeCount;
+				$('txtNickel').innerHTML = nickelCount;
+				$('txtPenny').innerHTML = pennyCount;
+				$('spanQuarter').innerHTML = quarterCount*.25;
+				$('spanDime').innerHTML = dimeCount*.10;
+				$('spanNickel').innerHTML = nickelCount*.5;
+				$('spanPenny').innerHTML = pennyCount*.1;
 			}else{
 				alert("Please enter a valid integer from 0 to 99");
 			}
