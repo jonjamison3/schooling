@@ -13,11 +13,35 @@
 		margin-left: -10vw;
 	}
 }
-@keyframes raiseMain {
+@keyframes enlarge{
+	0%{
+		transform:scale(0.8);
+	}
+	100%{
+		transform:scale(1.1);
+	}
+}
+@keyframes raise {
 	0% {
-		margin-right: 5vw;
+		top: 200%;
   	}
 	100%{
-		margin-right: -5vw;
+		top: 100%;
+	}
+}
+@keyframes slideFromLeft{
+	0% {
+		right: 200%;
+  	}
+	100%{
+		right: 5%;
+	}
+}
+@keyframes slideFromRight{
+	0% {
+		right: 200%;
+  	}
+	100%{
+		right: 5%;
 	}
 }

@@ -31,16 +31,21 @@ h2{
 	font-family: Helvetica;
 	opacity: .3;
 	position: fixed;
-	right:1%;
-	top: 60%;
+	top: 40%;
+	right:-10%;
 	animation-name:rotate;
 	animation-duration:2s;
 	transform: rotate(-90deg);
-	margin-left: -10vw;
+	margin-left: -12vw;
 }
 a{
 	color:#AA3F39;
 	text-decoration: none;
+}
+a:hover{
+	transform:scale(1.1);
+	animation:enlarge;
+	animation-duration:.5s;
 }
 ul{
 	list-style-type: none;
@@ -52,6 +57,7 @@ aside{
 	background-repeat:no-repeat;
 	width: 100%;
 	background-color: #222;
+	background-position: right;
 	bottom: 0;
 	height: 20%;
 	text-align: left;
@@ -62,25 +68,28 @@ footer{
 .main{
 	padding: 1.5em;
 	padding-right: 2em;
-	margin-left: auto;
 	margin-bottom: 25%;
-	left:60%;
+	left: 40%;
 	top: 100%;
-	right: 15%;
+	width: 45%;
 	position: absolute;
 	box-shadow:4px 0px #222;
 	float: right;
-	width: 60%;
 	opacity: .94;
+	animation-name:raise;
+	animation-duration:2s;
 }
 .main h3{
-	color:#6;
 	margin-bottom: 0px;
+	margin-left: 5%;
 	font-family: sinCity;
 	font-size: 1.5em;
-	border-bottom: 2px groove;
-	width: 45%;
+	width: 100%;
 	text-shadow: 2px 3px #671416;
+	text-align: left;
+}
+.main div:nth-of-type(even){
+	background-color: #222;
 }
 .main p{
 	margin:auto;
@@ -94,12 +103,12 @@ footer{
 	position: fixed;
 	padding: 1.5em;
 	animation-name:inFade;
-	animation-duration:2s;
+	animation-duration:8s;
 	margin-bottom: 0;
 	max-width: 720px;
-	top: 25%;
+	top: 10%;
 	left:2%;
-	width: 25%;
+	width: 35%;
 }
 .preamble h3{
 	font-family: sinCity;
@@ -115,6 +124,7 @@ footer{
 	min-width: 360px;
 	float: right;
 	padding:2.5em;
+	margin-right: -20%;
 	text-align: center;
 	width: 25%;
 }
@@ -142,21 +152,27 @@ footer{
 	text-align: right;
 	right:5%;
 	width: 60%;
+	animation:slideFromLeft;
+	animation-duration:.5s;
 }
 
-.design-selection nav{
-}
 .design-selection li {
 	display: inline-block;
 	background-color: #333;
 	padding:.5em;
 	text-align: left;
 	box-shadow: 10px #fff;
+	font-size: .6em;
+	opacity: .75;
 }
 
 .design-selection li:hover{
 	background-color: gray;
 	margin-top: -1vh;
+	transform:scale(1.1);
+	animation:enlarge;
+	animation-duration:.5s;
+	opacity: 1;
 }
 .design-selection li a:first-of-type{
 	display: block;
