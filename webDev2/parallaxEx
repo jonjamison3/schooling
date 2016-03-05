@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Parallax Scrolling Demo</title>
+		<meta charset="utf-8">
+		<style>		
+			*{
+				margin: 0;
+			}
+			#content-1, #content-2{
+				height:400px;
+				background-color: grey;
+				color: #fff;
+				text-align: center;
+				font-size: 3em;	
+				line-height: 3.5em;
+				padding-top: 60px;
+			}
+			#image-1 {
+			  background-image: url(workspace.jpg);			 
+			  height: 100vh;			  
+			}			
+
+			#image-2 {
+			  background-image: url(code.jpg);			  
+			  height: 400px;			 
+			}
+			#image-3 {
+			  background-image: url(beach.jpg);	
+			  height: 100vh;			  
+			}
+			#image-1, #image-2, #image-3{
+				width: 100%;
+				background-size: cover;
+				background-position: center center;
+				background-attachment: fixed;
+			}
+			#screen{
+				background:rgba(0%,0%,0%, .5);
+				height:100vh;
+				color: #fff;
+				text-align: center;
+				font-size: 3em;	
+				line-height: 3.5em;
+				padding-top: 40vh;
+			}
+		</style>
+		
+	</head>
+	
+	<body>
+		<div id="image-1"></div>
+
+		<div id="content-1">
+		  <h1>Welcome to my website. I hope you have a great stay!</h1>			
+		</div>
+
+		<div id="image-2"></div>
+		
+		<div id="content-2">
+		   <h1>When I am writing code, I feel like I am in paradise!</h1>	  
+		</div>
+		
+		<div id="image-3">
+			<div id="screen">
+				<h1>Paradise!</h1>
+			</div>
+		</div>
+	</body>
+</html>
