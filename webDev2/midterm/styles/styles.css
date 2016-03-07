@@ -33,6 +33,7 @@ h2{
 	position: fixed;
 	top: 40%;
 	right:-10%;
+	display: inline-block;
 	animation-name:rotate;
 	animation-duration:2s;
 	transform: rotate(-90deg);
@@ -68,12 +69,7 @@ footer{
 .main{
 	padding: 1.5em;
 	padding-right: 2em;
-	margin-bottom: 25%;
-	position: absolute;
-	box-shadow:4px 0px #222;
-	float: right;
-	opacity: .94;
-	top: 20%;
+
 }
 .main h3{
 	margin-bottom: 0px;
@@ -83,9 +79,6 @@ footer{
 	width: 100%;
 	text-shadow: 2px 3px #671416;
 	text-align: left;
-}
-.main div:nth-of-type(even){
-	background-color: #222;
 }
 .main p{
 	margin:auto;
@@ -100,11 +93,8 @@ footer{
 	animation-name:inFade;
 	animation-duration:8s;
 	margin-bottom: 0;
+	margin-top: 10%;
 	max-width: 720px;
-	position: fixed;
-	top: 10%;
-	right:5%;
-	width: 35%;
 }
 .preamble h3{
 	font-family: sinCity;
@@ -182,7 +172,6 @@ footer{
 	display: inline;
 }
 .supporting{
-	margin-top: -80vh;
 	max-width: 960px;
 }
 @font-face {
