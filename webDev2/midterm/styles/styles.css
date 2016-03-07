@@ -3,29 +3,32 @@
 	margin:0;
 }
 body{
-	background:linear-gradient(to right, #222 20%, gray 22%, #222 23%, gray 24%, #222 26%);
+	background: url(../images/roadBW.jpg);
+	background-attachment: fixed;
+	background-position: stretch;
+	background-repeat:no-repeat;
+	background-size: 100%;
 	color: #FFE2A9;
 	font-size: 1.4em;
 	font-family: ostrich;
-	width: 80%;
 }
 abbr{
 	text-decoration: none;
 }
 h1{
 	font-size: 3em;
-	color:#AA3F39;
+	color:#222;
 	margin-top: 0;
 	position: fixed;
 	top:0;
 	width: 100%;
-	font-family: sinCity;
+	line-height: 15vh;
 	animation-name:inFade;
 	animation-duration:4s;
 	text-align: center;
-	text-shadow:3px 1px #fff;
+	text-shadow:3px 1px red;
 	z-index: 3;
-	background-image:url("../images/roadBW.jpg");
+	background-image:url("../images/rockSurface.jpg");
 }
 h2{
 	color:gray;
@@ -44,6 +47,8 @@ h2{
 a{
 	color:#AA3F39;
 	text-decoration: none;
+	text-shadow: 0px 2px red;
+
 }
 a:hover{
 	transform:scale(1.1);
@@ -65,9 +70,12 @@ aside{
 	text-align: left;
 }
 footer{
+	display: absolute;
+	bottom: 5%;
 	text-align: center;
 }
-.preamble, .main{
+.preamble, .main.explanation, .participation, .benefits, .requirements, .preamble{
+
 	width:100vw;
 
 }
@@ -79,54 +87,63 @@ footer{
 	background-color:gray;
 }
 .main{
-	padding: 1.5em;
 	padding-right: 2em;
 	margin-bottom: 25%;
 }
 .main h3{
+	color: gray;
 	margin-bottom: 0px;
 	font-family: sinCity;
 	font-size: 1.5em;
 	width: 100%;
-	text-shadow: 2px 3px #671416;
-	text-align: left;
+	text-shadow: 0px 2px red;
+	text-align: center;;
+	//background: url(../images/roadBW.jpg);
+	//background-attachment: fixed;
+	//background-repeat:no-repeat;
+	//background-size: 100%;
+	background:linear-gradient(to right, #222 20%, gray 22%, gray 24%, #222 26%);
+
 }
 .main p{
 	margin:auto;
+	width: 60%;
+	text-align: center;
 	line-height: 2em;
 	text-indent: 2em;
 	text-shadow: 1px 1px #222;
 }
-.explanation{
-	background: url(../images/rockSurface.jpg);
-	background-attachment: fixed;
-	background-position: center center;
-	background-repeat:no-repeat;
-}
-.requirements{
+.explanation, .benefits{
 	background: url(../images/roadBW.jpg);
 	background-attachment: fixed;
 	background-position: center center;
 	background-repeat:no-repeat;
+	background-size: 100%;
+}
+.participation, .page-wrapper,.requirements{
+	background: url(../images/treetops.jpg);
+	background-attachment: fixed;
+	background-position: stretch;
+	background-repeat:no-repeat;
+	background-size: 100%;
 }
 .preamble{
-	width: 40vw;
-	padding: 1.5em;
 	animation-name:inFade;
 	animation-duration:8s;
 }
 .preamble h3{
-	font-family: sinCity;
 	color: #AA3F39;
 	text-align: center;
 }
 .preamble p{
 	text-indent: 2em;
+	text-align: left;
 	padding:0 10px;
 }
 .summary{
-	color: #666;
-	float: right;
+	margin-top: 22vh;
+	color: #222;
+	text-shadow: 0px 2px red;
 	padding:2.5em;
 	margin-right: -20%;
 	text-align: center;
@@ -191,6 +208,9 @@ footer{
 }
 .supporting{
 	//max-width: 960px;
+	padding:2em;
+	background:linear-gradient(to right, #222 20%, gray 22%, gray 24%, #222 26%);
+
 }
 @font-face {
     font-family: sinCity;
