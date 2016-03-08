@@ -16,7 +16,7 @@ abbr{
 	text-decoration: none;
 }
 h1{
-	font-size: 3em;
+	font-size: 4em;
 	color:#222;
 	margin-top: 0;
 	position: fixed;
@@ -28,7 +28,8 @@ h1{
 	text-align: center;
 	text-shadow:3px 1px red;
 	z-index: 3;
-	background-image:url("../images/rockSurface.jpg");
+	//background-image:url("../images/rockSurface.jpg");
+	background-color: #666;
 }
 h2{
 	color:gray;
