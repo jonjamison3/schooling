@@ -18,24 +18,24 @@
 
 	<table>
 		<tr><td><input type="button" id="btnCalculate" value="Calculate"></td></tr>
-		<tr><td>Quarters:</td><td> <input type="text" id="txtQuarter" disabled></input> = </td><td><span id="spanQuarter"></span></td></tr>
+		<tr><td>Quarters:</td><td> <input type="text" id="txtQuarter" disabled></input></td><td><span id="spanQuarter"></span></td></tr>
 		<tr><td>Dimes:</td>
-				<td><input type="text" id="txtDime" disabled></input> = </td>
+				<td><input type="text" id="txtDime" disabled></input></td>
 				<td><span id="spanDime"></span></td>
 		</tr>
 		<tr>
 			<td>Nickels</td>
-			<td><input type="text" id="txtNickel" disabled></input> = </td>
+			<td><input type="text" id="txtNickel" disabled></input></td>
 			<td><span id="spanNickel"></span></td>
 		</tr>
 		<tr>
 			<td>Pennies:</td>
-			<td> <input type="text" id="txtPenny" disabled></input> = </td>
+			<td> <input type="text" id="txtPenny" disabled></input></td>
 			<td><span id="spanPenny"></span></td>
 		</tr>
 		<tr>
 			<td>Total:</td>
-			<td><input type="text" id="txtTotal" value="Total:" disabled></input> = </td>
+			<td><input type="text" id="txtTotal" value="Total:" disabled></input></td>
 			<td><span id="spanTotal"></span></td>
 		</tr>
 	</table>
@@ -56,38 +56,52 @@
 					}
 					return count;
 				}
-				//Edge case that more coins are needed, Canadian nickels?
-				var valueCalc = function(count, coinValue){
+				//Function for coin math and format
+				var returnCents = function(coinValue, count){
 					//formatting for display as cents per assignment
-					return (count*(coinValue/100)).toFixed(2);
+					if(coinValue>=0){
+						return " = " + (count*(coinValue/100)).toFixed(2);
+					}
+					else {
+						return " = " + ($('txtChange').value/100).toFixed(2);
+					}
 				}
 
-				//checking for integer and non-blank space as well as range
-				if(isInt(change)===true&&!change==""&&change<100&&change>=0){
-
-				//initialize variables to hold count output
+				if(isInt(change)===true && !change=="" && change<100 && change>=0){
+				//initialize variables to hold count output for each required coin
 				var quarterCount = changeCount(25);
 				var dimeCount = changeCount(10);
 				var nickelCount = changeCount(5);
 				var pennyCount = changeCount(1);
 
-
-				//returning coin count to input fields
+				//displaying coin count to disabled input fields
 				$('txtQuarter').value = quarterCount;
 				$('txtDime').value = dimeCount;
 				$('txtNickel').value = nickelCount;
 				$('txtPenny').value = pennyCount;
 
 				//calculating cent values, formatting for display as money, and returning to spans
-				$('spanQuarter').innerHTML = valueCalc(quarterCount, 25);
-				$('spanDime').innerHTML = valueCalc(dimeCount, 10);
-				$('spanNickel').innerHTML = valueCalc(nickelCount, 5);
-				$('spanPenny').innerHTML = valueCalc(pennyCount, 1);
+				$('spanQuarter').innerHTML = returnCents(25, quarterCount);
+				$('spanDime').innerHTML = returnCents(10, dimeCount);
+				$('spanNickel').innerHTML = returnCents(5, nickelCount);
+				$('spanPenny').innerHTML = returnCents(1, pennyCount);
+				$('spanTotal').innerHTML = returnCents();
+			 }else{
+				 
+				//clear count output
+				$('txtQuarter').value = "";
+				$('txtDime').value = "";
+				$('txtNickel').value = "";
+				$('txtPenny').value = "";
 
-				$('spanTotal').innerHTML = ($('txtChange').value*.01).toFixed(2);
+				//clear monetary output
+				$('spanQuarter').innerHTML = "";
+				$('spanDime').innerHTML = "";
+				$('spanNickel').innerHTML = "";
+				$('spanPenny').innerHTML = "";
+				$('spanTotal').innerHTML = "";
 
-			}else{
-				//catch all for invalid input
+				//catch-all error message for invalid input
 				alert("Please enter a valid integer from 0 to 99");
 			}
 			//position for new input regardless of if/else outcome
@@ -103,6 +117,5 @@
 		var $ = function(id){
 			return document.getElementById(id);
 		}
-
 	</script>
 </body>
