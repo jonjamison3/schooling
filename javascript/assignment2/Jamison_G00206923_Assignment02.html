@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Jon Jamison's Assignment 2</title>
+<style type="text/css">
+	body{
+		text-align: center;
+	}
+</style>
+</head>
+
+<body>
+
+	<div style="width:60%;min-width:500px;">
+		<h1>RVCC Pizzeria</h1>
+	Name: <input type="text" id="txtName">
+
+		Pickup:<input type="radio" id="rbPickup" name="origin" value="Pick-up">
+		Delivery:<input type="radio" id="rbDelivery" name="origin" value="Delivery">
+	<p>
+		Style:
+		<select id="ddlStyle">
+			<option value="Deep Dish">Deep Dish</option>
+			<option value="Tomato Pie">Tomato Pie</option>
+			<option value="Thin Crust">Thin Crust</option>
+			<option value="Stuffed Crust">Stuffed Crust</option>
+		</select>
+
+		Size:
+		<select id="ddlSize">
+			<option value="Extra Large">Xtra Large</option>
+			<option value="Large">Large</option>
+			<option value="Medium">Medium</option>
+			<option value="Small">Small</option>
+		</select>
+	</p>
+	<p>
+	Toppings:<br>
+
+		<input type="checkbox" id="cbPepperoni" name="cbPepperoni" value="Pepperoni">Pepperoni
+		<input type="checkbox" id="cbBlackOlives" name="cbBlackOlives" value="Black Olives">Black Olives
+
+		<input type="checkbox" id="cbMeatball" name="cbMeatball" value="Meatball">Meatball
+		<input type="checkbox" id="cbSausage" name="cbSausage" value="Sausage">Sausage
+	</p>
+	<input type="button" id="btnConfirm" name="btnConfirm" value="Confirm Order" style="width:20%;margin:auto;">
+	<input type="button" id="btnReset" name="btnReset" value="Reset" style="width:20%;margin:auto;">
+	<br>
+	<br>
+	<textarea id="txtReturn" name="txtReturn" style="width:70%;height:8em;margin:auto;" disabled="disabled"></textarea>
+	</div>
+	<script type="text/javascript">
+
+		window.onload = function(){
+			$('btnConfirm').onclick = submitOrder;
+			$('btnReset').onclick=reset;
+		}
+		var submitOrder = function (){
+			//Initializing some variables
+			var name=$('txtName').value;
+			var error = "";
+
+			//First check, requiring name per spec
+			if(name==""){
+				error += "Name is required\n";
+				alert(error);
+				//Directing to the offending field
+				txtName.focus();
+
+			}else{
+				//initializing more variables
+				var answerText="";
+				var deliveryType="";
+
+				if(!$("rbPickup").checked&&!$("rbDelivery").checked){
+					error += "Please choose a delivery type\n";
+					alert(error);
+					//Bring back to the selection
+					$("rbPickup").focus();
+
+				}else{
+					//pick up or delivery check
+					if($("rbDelivery").checked){
+						deliveryType+=$("rbDelivery").value;
+					}else{
+						deliveryType+=$("rbPickup").value;
+					}
+
+					//Using an array for topping values
+					var toppings = [];
+
+					//Topping check
+					if($('cbPepperoni').checked){
+						//Adding to array if so
+						toppings.push(cbPepperoni.value);
+					}
+					if($('cbBlackOlives').checked){
+						toppings.push(cbBlackOlives.value);
+					}
+					if($('cbMeatball').checked){
+						toppings.push(cbMeatball.value);
+					}
+					if($('cbSausage').checked){
+						toppings.push(cbSausage.value);
+					}
+
+					//Following spec for answer return format
+					answerText += name + "\n"
+										+deliveryType+"\nA "
+										+$('ddlSize').value + " "
+										+$('ddlStyle').value + " Pizza";
+					//Handling toppings
+					if(toppings.length>0){
+						answerText += "\nWith toppings:";
+						//Looping through and returning values
+						for(i=0;i<toppings.length;i++){
+							answerText += " "+(toppings[i]);
+						}
+					}else{
+						answerText += "\n";
+					}
+
+					//Confirming per spec
+					var confirmation = confirm("Please confirm the following order for:\n"+answerText);
+
+					//Handling response
+					if(confirmation){
+						$('txtReturn').value = answerText+"\nYour order has been placed";
+					}else{
+						$('txtReturn').value = "*Order Cancelled*";
+					}
+				}
+			}
+		}
+		var reset = function(){
+
+				//Throw it all out
+				$('txtName').value = "";
+				$('rbPickup').checked = false;
+				$('rbDelivery').checked = false;
+				$('cbSausage').checked = false;
+				$('cbMeatball').checked = false;
+				$('cbPepperoni').checked = false;
+				$('cbBlackOlives').checked = false;
+				$('txtReturn').value = "";
+				$('ddlStyle').selectedIndex = 0;
+				$('ddlSize').selectedIndex = 0;
+				//Offer a hand
+				txtName.focus();
+		}
+		var $ = function(id){
+			return document.getElementById(id);
+		}
+	</script>
+</body>

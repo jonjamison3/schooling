@@ -51,105 +51,105 @@
 	</div>
 	<script type="text/javascript">
 
-		window.onload = function(){
-			$('btnConfirm').onclick = submitOrder;
-			$('btnReset').onclick=reset;
-		}
-		var submitOrder = function (){
-			//Initializing some variables
-			var name=$('txtName').value;
-			var error = "";
+	window.onload = function(){
+		$('btnConfirm').onclick = submitOrder;
+		$('btnReset').onclick=reset;
+	}
+	var submitOrder = function (){
+		//Initializing some variables
+		var name=$('txtName').value;
+		var error = "";
 
-			//First check, requiring name per spec
-			if(name==""){
-				error += "Name is required\n";
+		//First check, requiring name per spec
+		if(name==""){
+			error += "Name is required\n";
+			alert(error);
+			//Directing to the offending field
+			txtName.focus();
+
+		}else{
+			//initializing more variables
+			var answerText="";
+			var deliveryType="";
+
+			if(!$("rbPickup").checked&&!$("rbDelivery").checked){
+				error += "Please choose a delivery type\n";
 				alert(error);
-				//Directing to the offending field
-				txtName.focus();
+				//Bring back to the selection
+				$("rbPickup").focus();
 
 			}else{
-				//initializing more variables
-				var answerText="";
-				var deliveryType="";
-
-				if(!$("rbPickup").checked&&!$("rbDelivery").checked){
-					error += "Please choose a delivery type\n";
-					alert(error);
-					//Bring back to the selection
-					$("rbPickup").focus();
-
+				//pick up or delivery check
+				if($("rbDelivery").checked){
+					deliveryType+=$("rbDelivery").value;
 				}else{
-					//pick up or delivery check
-					if($("rbDelivery").checked){
-						deliveryType+=$("rbDelivery").value;
-					}else{
-						deliveryType+=$("rbPickup").value;
-					}
+					deliveryType+=$("rbPickup").value;
+				}
 
-					//Using an array for topping values
-					var toppings = [];
+				//Using an array for topping values
+				var toppings = [];
 
-					//Topping check
-					if($('cbPepperoni').checked){
-						//Adding to array if so
-						toppings.push(cbPepperoni.value);
-					}
-					if($('cbBlackOlives').checked){
-						toppings.push(cbBlackOlives.value);
-					}
-					if($('cbMeatball').checked){
-						toppings.push(cbMeatball.value);
-					}
-					if($('cbSausage').checked){
-						toppings.push(cbSausage.value);
-					}
+				//Topping check
+				if($('cbPepperoni').checked){
+					//Adding to array if so
+					toppings.push(cbPepperoni.value);
+				}
+				if($('cbBlackOlives').checked){
+					toppings.push(cbBlackOlives.value);
+				}
+				if($('cbMeatball').checked){
+					toppings.push(cbMeatball.value);
+				}
+				if($('cbSausage').checked){
+					toppings.push(cbSausage.value);
+				}
 
-					//Following spec for answer return format
-					answerText += name + "\n"
-										+deliveryType+"\nA "
-										+$('ddlSize').value + " "
-										+$('ddlStyle').value + " Pizza";
-					//Handling toppings
-					if(toppings.length>0){
-						answerText += "\nWith toppings:";
-						//Looping through and returning values
-						for(i=0;i<toppings.length;i++){
-							answerText += " "+(toppings[i]);
-						}
-					}else{
-						answerText += "\n";
+				//Following spec for answer return format
+				answerText += name + "\n"
+									+deliveryType+"\nA "
+									+$('ddlSize').value + " "
+									+$('ddlStyle').value + " Pizza";
+				//Handling toppings
+				if(toppings.length>0){
+					answerText += "\nWith toppings:";
+					//Looping through and returning values
+					for(i=0;i<toppings.length;i++){
+						answerText += " "+(toppings[i]);
 					}
+				}else{
+					answerText += "\n";
+				}
 
-					//Confirming per spec
-					var confirmation = confirm("Please confirm the following order for:\n"+answerText);
+				//Confirming per spec
+				var confirmation = confirm("Please confirm the following order for:\n"+answerText);
 
-					//Handling response
-					if(confirmation){
-						$('txtReturn').value = answerText+"\nYour order has been placed";
-					}else{
-						$('txtReturn').value = "*Order Cancelled*";
-					}
+				//Handling response
+				if(confirmation){
+					$('txtReturn').value = answerText+"\nYour order has been placed";
+				}else{
+					$('txtReturn').value = "*Order Cancelled*";
 				}
 			}
 		}
-		var reset = function(){
+	}
+	var reset = function(){
 
-				//Throw it all out
-				$('txtName').value = "";
-				$('rbPickup').checked = false;
-				$('rbDelivery').checked = false;
-				$('cbSausage').checked = false;
-				$('cbMeatball').checked = false;
-				$('cbPepperoni').checked = false;
-				$('cbBlackOlives').checked = false;
-				$('txtReturn').value = "";
-				$('ddlStyle').selectedIndex = 0;
-				$('ddlSize').selectedIndex = 0;
-				//Offer a hand
-				txtName.focus();
-		}
-		var $ = function(id){
-			return document.getElementById(id);
-		}
+			//Throw it all out
+			$('txtName').value = "";
+			$('rbPickup').checked = false;
+			$('rbDelivery').checked = false;
+			$('cbSausage').checked = false;
+			$('cbMeatball').checked = false;
+			$('cbPepperoni').checked = false;
+			$('cbBlackOlives').checked = false;
+			$('txtReturn').value = "";
+			$('ddlStyle').selectedIndex = 0;
+			$('ddlSize').selectedIndex = 0;
+			//Offer a hand
+			txtName.focus();
+	}
+	var $ = function(id){
+		return document.getElementById(id);
+	}
 	</script>
 </body>
