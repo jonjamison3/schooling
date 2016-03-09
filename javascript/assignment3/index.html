@@ -47,8 +47,8 @@
 				//initialize main change variable and trim for whitespace
 			 	var change = $('txtChange').value.trim();
 
-				//Keeeping it a little DRY-er
-				var changeCount = function(coinValue){
+				//Using functions to get a little closer to DRY
+					var changeCount = function(coinValue){
 					var count = 0;
 					while(change>=coinValue){
 						change-=coinValue;
@@ -60,15 +60,15 @@
 				var returnCents = function(coinValue, count){
 					//formatting for display as cents per assignment
 					if(coinValue>=0){
-						return " = " + (count*(coinValue/100)).toFixed(2);
+						return (count*(coinValue/100)).toFixed(2);
 					}
 					else {
-						return " = " + ($('txtChange').value/100).toFixed(2);
+						return ($('txtChange').value/100).toFixed(2);
 					}
 				}
 
 				if(isInt(change)===true && !change=="" && change<100 && change>=0){
-				//initialize variables to hold count output for each required coin
+				//initialize variables to hold count output for each required coin, quietly iterate over change variable
 				var quarterCount = changeCount(25);
 				var dimeCount = changeCount(10);
 				var nickelCount = changeCount(5);
@@ -81,13 +81,13 @@
 				$('txtPenny').value = pennyCount;
 
 				//calculating cent values, formatting for display as money, and returning to spans
-				$('spanQuarter').innerHTML = returnCents(25, quarterCount);
-				$('spanDime').innerHTML = returnCents(10, dimeCount);
-				$('spanNickel').innerHTML = returnCents(5, nickelCount);
-				$('spanPenny').innerHTML = returnCents(1, pennyCount);
-				$('spanTotal').innerHTML = returnCents();
+				$('spanQuarter').innerHTML = " = " + returnCents(25, quarterCount);
+				$('spanDime').innerHTML = " = " + returnCents(10, dimeCount);
+				$('spanNickel').innerHTML = " = " + returnCents(5, nickelCount);
+				$('spanPenny').innerHTML = " = " + returnCents(1, pennyCount);
+				$('spanTotal').innerHTML = " = " + returnCents();
 			 }else{
-				 
+
 				//clear count output
 				$('txtQuarter').value = "";
 				$('txtDime').value = "";
