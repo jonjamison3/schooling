@@ -48,7 +48,7 @@
 			 	var change = $('txtChange').value.trim();
 
 				//Using functions to get a little closer to DRY
-					var changeCount = function(coinValue){
+				var changeCount = function(coinValue){
 					var count = 0;
 					while(change>=coinValue){
 						change-=coinValue;
@@ -58,16 +58,16 @@
 				}
 				//Function for coin math and format
 				var returnCents = function(coinValue, count){
-					//formatting for display as cents per assignment
 					if(coinValue>=0){
+						//multiplying and formatting for display as cents per assignment
 						return (count*(coinValue/100)).toFixed(2);
-					}
-					else {
+					}else{
+						//if no parameters given, input as cents returned
 						return ($('txtChange').value/100).toFixed(2);
 					}
 				}
 
-				if(isInt(change)===true && !change=="" && change<100 && change>=0){
+				if(isInt(change)===true && change!="" && change<100 && change>=0){
 				//initialize variables to hold count output for each required coin, quietly iterate over change variable
 				var quarterCount = changeCount(25);
 				var dimeCount = changeCount(10);
