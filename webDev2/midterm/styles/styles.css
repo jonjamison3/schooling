@@ -24,19 +24,19 @@ h1{
 	position: fixed;
 	top:0;
 	width: 100%;
-	text-align: center;
-	text-shadow:3px 1px #baaa8c;
+	text-align: left;
+	text-shadow:3px 1px #fff;
 	z-index: 3;
-	background-color: #222;
+	background:linear-gradient(to top, #333 5%, gray 7%, gray 9%, #333 11%);
 }
 h2{
-	color:#baaa8c;
+	color:#fff;
 	text-align: right;
 	font-family: Helvetica;
 	opacity: .3;
 	position: fixed;
 	top: 40%;
-	right:-10%;
+	right:0%;
 	display: inline-block;
 	animation-name:rotate;
 	animation-duration:2s;
@@ -44,9 +44,9 @@ h2{
 	margin-left: -12vw;
 }
 a{
-	color:#AA3F39;
+	color:#813131;
 	text-decoration: none;
-	text-shadow: 0px 2px red;
+	text-shadow: 2px 0px #222;
 
 }
 a:hover{
@@ -58,7 +58,7 @@ ul{
 	list-style-type: none;
 }
 aside{
-	background: #222;
+	background:linear-gradient(to bottom, #333 5%, gray 7%, gray 9%, #333 11%);
 	position: fixed;
 	width: 100%;
 	background-position: center;
@@ -67,73 +67,74 @@ aside{
 	text-align: left;
 }
 footer{
-	display: absolute;
-	bottom: 5%;
+	height: 20vh;
+	font-size: 2em;
+	margin: auto;
+	margin-bottom: 5vh;
 	text-align: center;
+	background-color: #222;
+	background: url("../images/treetops.jpg");
 }
 .intro{
-	background:inherit;
 	height:45vh;
-}
-.preamble, .main.explanation, .participation, .benefits, .requirements, .preamble{
-
-}
-.explanation, .participation, .benefits{
-	height:60vh;
-}
-.explanation,.benefits{
-}
-.summary, .main{
-	line-height: 3.5em;
 }
 .main h3{
 	color: #813131;
 	font-size: 2.5em;
 	width: 100%;
-	text-shadow: 0px 2px white;
+	text-shadow: 0px 2px #fff;
 	text-align: center;
-	vertical-align: middle;
 	margin-bottom: 0;
 }
 .main p{
-	vertical-align: middle;
 	font-size: 1.3em;
 	width: 60%;
-	margin: 10vh auto;
+	margin: auto;
 	text-align: center;
 	text-indent: 2em;
-	text-shadow: 0px 1px #222;
+	text-shadow: 0px 2px 15px #333;
 }
 .explanation, .benefits{
-	background: inherit;
+	//background: url("../images/treetops.jpg");
 }
 .participation, .requirements{
-	background:inherit;
+	background-color: #222;
+
 }
 .preamble{
+	color:#fff;
+	background-color: #444;
+	text-shadow: 0px 3px 5px #222;
 	animation-name:inFade;
 	animation-duration:8s;
 	text-align: center;
+	width: 100%;
+	margin:5vh auto;
 }
 .preamble h3{
-	color: #AA3F39;
 	text-align: center;
+	text-shadow: 0px 3px red;
+
 }
 .preamble p{
+	width: 35%;
+	color:#813131;
 	text-indent: 2em;
+	margin: auto;
 	text-align: center;
-	padding:0 10px;
 }
 .requirements{
 	width: 100vw;
 }
 .summary{
-	color: #222;
-	text-shadow: 0px 2px red;
+	color: #fff;
+	background: url("../images/treetops.jpg");
+	text-shadow: 0px 2px 10px red;
 	padding:2.5em;
-	margin-left: -5vw;
-	text-align: right;
+	margin-left: 0;
+	text-align: left;
 	width: 100%;
+	margin-top: 5vh;
 }
 .zen-resources, .design-archives,.design-selection{
 	margin:0 10px;
@@ -148,15 +149,12 @@ footer{
 	position: fixed;
 }
 .sidebar h3{
-	font-size:1.2em;
-	display: block;
 	margin-top: -3vh;
-}
-.resources, .archives,.design-selection{
+	font-size: 1.5em;
 }
 .design-selection{
 	text-align: right;
-	right:5%;
+	right:2%;
 	width: 60%;
 	animation:slideFromLeft;
 	animation-duration:.5s;
@@ -164,7 +162,6 @@ footer{
 
 .design-selection li {
 	display: inline-block;
-	background:linear-gradient(to right, #222 20%, gray 22%, gray 24%, #222 26%);
 	padding:.5em;
 	text-align: left;
 	box-shadow: 10px #fff;
@@ -175,9 +172,6 @@ footer{
 .design-selection li:hover{
 	background-color: gray;
 	margin-top: -1vh;
-	transform:scale(1.1);
-	animation:enlarge;
-	animation-duration:.5s;
 	opacity: 1;
 }
 .design-selection li a:first-of-type{
@@ -185,17 +179,17 @@ footer{
 }
 .design-selection li a:last-of-type{
 	margin-left: 10px;
-	color:#FFE2A9;
+	color:#fff;
 	font-weight: normal;
 }
 .resources, .archives a{
 	display: inline;
 }
 .supporting{
-	padding:2em;
 	width: 100vw;
-
-
+}
+.supporting div{
+	margin-bottom: 10vh;
 }
 @font-face {
     font-family: sinCity;
