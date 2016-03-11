@@ -5,10 +5,12 @@
 body{
 	background: url(../images/roadBW.jpg);
 	background-attachment: fixed;
-	background-position: stretch;
+	background-position: center center;
 	background-repeat:no-repeat;
 	background-size: 100%;
-	color: #FFE2A9;
+	width: 100vw;
+	text-shadow: 3px white;
+	color: white;
 	font-size: 1.4em;
 	font-family: ostrich;
 }
@@ -17,22 +19,18 @@ abbr{
 }
 h1{
 	font-size: 4em;
-	color:#222;
+	color:#813131;
 	margin-top: 0;
 	position: fixed;
 	top:0;
 	width: 100%;
-	line-height: 15vh;
-	animation-name:inFade;
-	animation-duration:4s;
 	text-align: center;
-	text-shadow:3px 1px red;
+	text-shadow:3px 1px #baaa8c;
 	z-index: 3;
-	//background-image:url("../images/rockSurface.jpg");
-	background-color: #666;
+	background-color: #222;
 }
 h2{
-	color:gray;
+	color:#baaa8c;
 	text-align: right;
 	font-family: Helvetica;
 	opacity: .3;
@@ -60,14 +58,12 @@ ul{
 	list-style-type: none;
 }
 aside{
+	background: #222;
 	position: fixed;
-	background-image:url("../images/botRoadBW.jpg");
-	background-size: 5000px;
 	width: 100%;
-	background-color: #222;
 	background-position: center;
 	bottom: 0;
-	height: 20%;
+	height: 20vh;
 	text-align: left;
 }
 footer{
@@ -75,62 +71,49 @@ footer{
 	bottom: 5%;
 	text-align: center;
 }
+.intro{
+	background:inherit;
+	height:45vh;
+}
 .preamble, .main.explanation, .participation, .benefits, .requirements, .preamble{
 
-	width:100vw;
-
 }
-.explanation, .participation, .benefits, .requirements{
-	height:40vh;
-	width: 100%;
+.explanation, .participation, .benefits{
+	height:60vh;
 }
 .explanation,.benefits{
-	background-color:gray;
 }
-.main{
-	padding-right: 2em;
-	margin-bottom: 25%;
+.summary, .main{
+	line-height: 3.5em;
 }
 .main h3{
-	color: gray;
-	margin-bottom: 0px;
-	font-family: sinCity;
-	font-size: 1.5em;
+	color: #813131;
+	font-size: 2.5em;
 	width: 100%;
-	text-shadow: 0px 2px red;
-	text-align: center;;
-	//background: url(../images/roadBW.jpg);
-	//background-attachment: fixed;
-	//background-repeat:no-repeat;
-	//background-size: 100%;
-	background:linear-gradient(to right, #222 20%, gray 22%, gray 24%, #222 26%);
-
+	text-shadow: 0px 2px white;
+	text-align: center;
+	vertical-align: middle;
+	margin-bottom: 0;
 }
 .main p{
-	margin:auto;
+	vertical-align: middle;
+	font-size: 1.3em;
 	width: 60%;
+	margin: 10vh auto;
 	text-align: center;
-	line-height: 2em;
 	text-indent: 2em;
-	text-shadow: 1px 1px #222;
+	text-shadow: 0px 1px #222;
 }
 .explanation, .benefits{
-	background: url(../images/roadBW.jpg);
-	background-attachment: fixed;
-	background-position: center center;
-	background-repeat:no-repeat;
-	background-size: 100%;
+	background: inherit;
 }
-.participation, .page-wrapper,.requirements{
-	background: url(../images/treetops.jpg);
-	background-attachment: fixed;
-	background-position: stretch;
-	background-repeat:no-repeat;
-	background-size: 100%;
+.participation, .requirements{
+	background:inherit;
 }
 .preamble{
 	animation-name:inFade;
 	animation-duration:8s;
+	text-align: center;
 }
 .preamble h3{
 	color: #AA3F39;
@@ -138,16 +121,18 @@ footer{
 }
 .preamble p{
 	text-indent: 2em;
-	text-align: left;
+	text-align: center;
 	padding:0 10px;
 }
+.requirements{
+	width: 100vw;
+}
 .summary{
-	margin-top: 22vh;
 	color: #222;
 	text-shadow: 0px 2px red;
 	padding:2.5em;
-	margin-right: -20%;
-	text-align: center;
+	margin-left: -5vw;
+	text-align: right;
 	width: 100%;
 }
 .zen-resources, .design-archives,.design-selection{
@@ -168,7 +153,6 @@ footer{
 	margin-top: -3vh;
 }
 .resources, .archives,.design-selection{
-	float: left;
 }
 .design-selection{
 	text-align: right;
@@ -180,7 +164,7 @@ footer{
 
 .design-selection li {
 	display: inline-block;
-	background-color: #333;
+	background:linear-gradient(to right, #222 20%, gray 22%, gray 24%, #222 26%);
 	padding:.5em;
 	text-align: left;
 	box-shadow: 10px #fff;
@@ -208,9 +192,9 @@ footer{
 	display: inline;
 }
 .supporting{
-	//max-width: 960px;
 	padding:2em;
-	background:linear-gradient(to right, #222 20%, gray 22%, gray 24%, #222 26%);
+	width: 100vw;
+
 
 }
 @font-face {
