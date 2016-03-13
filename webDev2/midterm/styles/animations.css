@@ -1,47 +1,19 @@
 @keyframes inFade {
-    from {opacity: 0;}
-    to {opacity: 1;}
+    from{opacity: 0;}
+    to{opacity: 1;}
 }
 @keyframes rotate {
-	from {
+	from{
 		transform: rotate(0deg);
 		margin-left: 0;
 		margin-top: -90vh;
 	}
-	to {
+	to{
 		transform: rotate(-90deg);
 		margin-left: -10vw;
 	}
 }
-@keyframes enlarge{
-	0%{
-		transform:scale(0.8);
-	}
-	100%{
-		transform:scale(4);
-	}
-}
-@keyframes raise {
-	0% {
-		top: 200%;
-  	}
-	100%{
-		top: 100%;
-	}
-}
 @keyframes slideFromLeft{
-	0% {
-		right: 200%;
-  	}
-	100%{
-		right: 5%;
-	}
-}
-@keyframes slideFromRight{
-	0% {
-		right: 200%;
-  	}
-	100%{
-		right: 5%;
-	}
+	0%{right: 200%;}
+	100%{right: 5%;}
 }
