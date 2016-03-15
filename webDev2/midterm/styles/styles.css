@@ -109,10 +109,11 @@ footer{
 }
 .preamble p{
 	width: 35%;
-	color:#813131;
+	font-size: 1.1em;
 	text-indent: 2em;
 	margin: auto;
 	text-align: center;
+	color:#813131;
 }
 .requirements{
 	width: 100vw;
@@ -185,10 +186,10 @@ footer{
 	margin-bottom: 10vh;
 }
 @font-face {
-    font-family: ostrich;
-    src: url("../fonts/OstrichSans-Heavy.otf");
+  font-family: ostrich;
+  src: url("../fonts/OstrichSans-Heavy.otf");
 }
 @font-face {
-    font-family: horror;
-    src: url("../fonts/Horrormaster.ttf");
+  font-family: horror;
+  src: url("../fonts/Horrormaster.ttf");
 }
