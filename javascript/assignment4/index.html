@@ -49,7 +49,6 @@
       <br>
       <br>
       <input type="button" id="btnRight" value="Calculate"/>
-      
     <table id="tblRight" border="1">
       <tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>
     </table>
@@ -61,36 +60,65 @@
     $('btnRight').onclick = rightCalc;
   };
   function leftCalc(){
-    $('tblLeft').innerHTML+=interestCalc(5);
-    $('tblLeft').innerHTML+=interestCalc(6);
-    $('tblLeft').innerHTML+=interestCalc(7);
-    $('tblLeft').innerHTML+=interestCalc(8);
-    $('tblLeft').innerHTML+=interestCalc(9);
-    $('tblLeft').innerHTML+=interestCalc(10);
+    //assign rows to array for if check
+    var rows = $('tblLeft').getElementsByTagName('tr');
+    //check to see if output has already been provided
+    if(rows.length>1){
+      //pity my poor sense of humor
+      foo("Nothing to do.");
+    }else{
+      //iterating 5-10 per assignment spec
+      for(var i=5;i<11;i++){
+        //running calculation and appending resulting html strings to html of table
+        $('tblLeft').innerHTML+=interestCalc(i);
+      }
+    }
   }
   function rightCalc(){
-    $('tblRight').innerHTML = "<tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>";
+    //start fresh
+    resetTbl('tblRight');
+    //gather options into an array
     var radios = document.getElementsByName('interestRate');
-    for (i=0;i<radios.length;i++) {
+    for (var i=0;i<radios.length;i++){
+      //iterate through options looking for selected rate
       if (radios[i].checked) {
-        rate = radios[i].value;
-        $('tblRight').innerHTML+=interestCalc(rate);
+        //use rate found for math
+        $('tblRight').innerHTML+=interestCalc(radios[i].value);
+        //and exit loop
         break;
       }
-      if(radios[i].value==radios[radios.length-1].value && radios[i].checked==false){
+      //check for reaching end of array without checked input
+      if(radios[i]==radios[radios.length-1]){
+        //but if we do, inform the user that input is required
         alert("You must select a rate to proceed");
+        //offer a hand
+        radios[0].focus();
       }
     }
   }
   function interestCalc(interest){
+    //initialize variables
     var result = "";
+    //principal of 1000 used per assignment spec
     var cash=1000;
+    //create 10 rows each call
     for(i=1;i<11;i++){
+      //quickly doing the math and assigning to current cash value
       cash*=(1+interest/100);
+      //returning row per project spec
       result+="<tr><td>"+i+"</td><td>"+cash.toFixed(2)+"</td><td>"+(interest/100).toFixed(2)+"</td></tr>";
     }
     return result;
   }
+  //arguably unnecessary for this assignment
+  function resetTbl(id){
+    $(id).innerHTML = "<tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>";
+  }
+  //inarguably unnecessary for this assignment
+  function foo(bar){
+    console.log(bar);
+  }
+  //selection function used in class
   function $(id){
     return document.getElementById(id);
   }
