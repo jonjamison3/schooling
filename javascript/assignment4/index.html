@@ -2,37 +2,44 @@
 <head>
   <style>
     body{
-      width: 80%;
-    }
-    #wrapper{
+      border:1px solid black;
     }
     #left, #right{
-      width: 50%;
+      width: 49.5%;
+      display:inline-block;
+      margin:3px 1px;
+      height:200vh;
     }
     #left{
       float: left;
     }
+    #right{
+      float:right;
+    }
     div, h2{
       display: inline;
+    }
+    section{
+      border: 1px solid black;
     }
   </style>
 </head>
 <body>
 <div id="wrapper">
-  <div id="left">
+  <section id="left">
     <table id="tblLeft" border="1">
-    <h2>Assignment 4a</h2>
+    <h3>Assignment 4a</h3>
     <p>Calculate Ending cash value table for $1000 using various interest rates over 10 years</p>
     <p>Interest rates are 5,6,7,8,9 and 10%</p>
     <input id="btnLeft" type="button" id="btnLeft" value="Calculate"/>
       <tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>
       <tr></tr>
     </table>
-  </div>
+  </section>
 
-  <div id="right">
+  <section id="right">
     <table id="tblRight" border="1">
-      <h2>Assignment 4b</h2>
+      <h3>Assignment 4b</h3>
       <p>Calculate Ending cash value table for $1000 over 10 years using selected interest rate</p>
       <input type="radio" id="rad5" name="interestRate" value="5">5%</input>
       <input type="radio" id="rad6" name="interestRate" value="6">6%</input>
@@ -46,47 +53,47 @@
 
       <tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>
     </table>
-  </div>
+  </section>
 </div>
 <script>
-window.onload = function(){
-  $('btnLeft').onclick = leftCalc;
-  $('btnRight').onclick = rightCalc;
-};
-function leftCalc(){
-  $('tblLeft').innerHTML+=interestCalc(5);
-  $('tblLeft').innerHTML+=interestCalc(6);
-  $('tblLeft').innerHTML+=interestCalc(7);
-  $('tblLeft').innerHTML+=interestCalc(8);
-  $('tblLeft').innerHTML+=interestCalc(9);
-  $('tblLeft').innerHTML+=interestCalc(10);
-}
-function rightCalc(){
-  $('tblRight').innerHTML = "<tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>";
-  var radios = document.getElementsByName('interestRate');
-  for (i=0,length=radios.length;i<length;i++) {
-    if (radios[i].checked) {
-      rate = radios[i].value;
-      $('tblRight').innerHTML+=interestCalc(rate);
-      break;
-    }
-    if(radios[i].value==10&&radios[i].checked==false){
-      alert("Please select an interest rate");
+  window.onload = function(){
+    $('btnLeft').onclick = leftCalc;
+    $('btnRight').onclick = rightCalc;
+  };
+  function leftCalc(){
+    $('tblLeft').innerHTML+=interestCalc(5);
+    $('tblLeft').innerHTML+=interestCalc(6);
+    $('tblLeft').innerHTML+=interestCalc(7);
+    $('tblLeft').innerHTML+=interestCalc(8);
+    $('tblLeft').innerHTML+=interestCalc(9);
+    $('tblLeft').innerHTML+=interestCalc(10);
+  }
+  function rightCalc(){
+    $('tblRight').innerHTML = "<tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>";
+    var radios = document.getElementsByName('interestRate');
+    for (i=0;i<radios.length;i++) {
+      if (radios[i].checked) {
+        rate = radios[i].value;
+        $('tblRight').innerHTML+=interestCalc(rate);
+        break;
+      }
+      if(radios[i].value==10&&radios[i].checked==false){
+        alert("You must select a rate to proceed");
+      }
     }
   }
-}
-function interestCalc(interest){
-  var result = "";
-  var cash=1000;
-  for(i=1;i<11;i++){
-    cash*=(1+interest/100);
-    result+="<tr><td>"+i+"</td><td>"+cash.toFixed(2)+"</td><td>"+(interest/100).toFixed(2)+"</td></tr>";
+  function interestCalc(interest){
+    var result = "";
+    var cash=1000;
+    for(i=1;i<11;i++){
+      cash*=(1+interest/100);
+      result+="<tr><td>"+i+"</td><td>"+cash.toFixed(2)+"</td><td>"+(interest/100).toFixed(2)+"</td></tr>";
+    }
+    return result;
   }
-  return result;
-}
-function $(id){
-  return document.getElementById(id);
-}
+  function $(id){
+    return document.getElementById(id);
+  }
 </script>
 </body>
 </html>
