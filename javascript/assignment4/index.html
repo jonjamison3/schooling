@@ -3,11 +3,12 @@
   <style>
     body{
       border:1px solid black;
+      min-width: 820px;
     }
     #left, #right{
       width: 49.5%;
       display:inline-block;
-      margin:3px 1px;
+      margin:2px 1px;
       height:200vh;
     }
     #left{
@@ -27,18 +28,16 @@
 <body>
 <div id="wrapper">
   <section id="left">
-    <table id="tblLeft" border="1">
     <h3>Assignment 4a</h3>
     <p>Calculate Ending cash value table for $1000 using various interest rates over 10 years</p>
     <p>Interest rates are 5,6,7,8,9 and 10%</p>
     <input id="btnLeft" type="button" id="btnLeft" value="Calculate"/>
+    <table id="tblLeft" border="1">
       <tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>
-      <tr></tr>
     </table>
   </section>
 
   <section id="right">
-    <table id="tblRight" border="1">
       <h3>Assignment 4b</h3>
       <p>Calculate Ending cash value table for $1000 over 10 years using selected interest rate</p>
       <input type="radio" id="rad5" name="interestRate" value="5">5%</input>
@@ -50,7 +49,8 @@
       <br>
       <br>
       <input type="button" id="btnRight" value="Calculate"/>
-
+      
+    <table id="tblRight" border="1">
       <tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>
     </table>
   </section>
@@ -77,7 +77,7 @@
         $('tblRight').innerHTML+=interestCalc(rate);
         break;
       }
-      if(radios[i].value==10&&radios[i].checked==false){
+      if(radios[i].value==radios[radios.length-1].value && radios[i].checked==false){
         alert("You must select a rate to proceed");
       }
     }
