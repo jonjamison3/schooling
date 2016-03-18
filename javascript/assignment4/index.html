@@ -64,14 +64,16 @@ function leftCalc(){
 function rightCalc(){
   $('tblRight').innerHTML = "<tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>";
   var radios = document.getElementsByName('interestRate');
-  for (var i = 0, length = radios.length; i < length; i++) {
-      if (radios[i].checked) {
-          rate = radios[i].value;
-          $('tblRight').innerHTML+=interestCalc(rate);
-          break;
-      }
+  for (i=0,length=radios.length;i<length;i++) {
+    if (radios[i].checked) {
+      rate = radios[i].value;
+      $('tblRight').innerHTML+=interestCalc(rate);
+      break;
+    }
+    if(radios[i].value==10&&radios[i].checked==false){
+      alert("Please select an interest rate");
+    }
   }
-
 }
 function interestCalc(interest){
   var result = "";
