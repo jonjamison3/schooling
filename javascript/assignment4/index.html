@@ -63,10 +63,7 @@
     //assign rows to array for if check
     var rows = $('tblLeft').getElementsByTagName('tr');
     //check to see if output has already been provided
-    if(rows.length>1){
-      //pity my poor sense of humor
-      foo("Nothing to do.");
-    }else{
+    if(rows.length==1){
       //iterating 5-10 per assignment spec
       for(var i=5;i<11;i++){
         //running calculation and appending resulting html strings to html of table
@@ -75,8 +72,8 @@
     }
   }
   function rightCalc(){
-    //start fresh
-    resetTbl('tblRight');
+    //start table fresh
+    $('tblRight').innerHTML = "<tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>";
     //gather options into an array
     var radios = document.getElementsByName('interestRate');
     for (var i=0;i<radios.length;i++){
@@ -96,6 +93,7 @@
       }
     }
   }
+  //function to be used on both sides
   function interestCalc(interest){
     //initialize variables
     var result = "";
@@ -109,14 +107,6 @@
       result+="<tr><td>"+i+"</td><td>"+cash.toFixed(2)+"</td><td>"+(interest/100).toFixed(2)+"</td></tr>";
     }
     return result;
-  }
-  //arguably unnecessary for this assignment
-  function resetTbl(id){
-    $(id).innerHTML = "<tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>";
-  }
-  //inarguably unnecessary for this assignment
-  function foo(bar){
-    console.log(bar);
   }
   //selection function used in class
   function $(id){
