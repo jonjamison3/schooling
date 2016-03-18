@@ -89,7 +89,7 @@
       }
       //check for reaching end of array without checked input
       if(radios[i]==radios[radios.length-1]){
-        //but if we do, inform the user that input is required
+        //inform the user that input is required
         alert("You must select a rate to proceed");
         //offer a hand
         radios[0].focus();
@@ -101,7 +101,7 @@
     var result = "";
     //principal of 1000 used per assignment spec
     var cash=1000;
-    //create 10 rows each call
+    //create 10 rows each function call
     for(i=1;i<11;i++){
       //quickly doing the math and assigning to current cash value
       cash*=(1+interest/100);
