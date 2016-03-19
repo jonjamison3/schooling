@@ -79,9 +79,8 @@
     for (var i=0;i<radios.length;i++){
       //iterate through options looking for selected rate
       if (radios[i].checked) {
-        //use rate found for math
+        //use rate found for math and exit loop
         $('tblRight').innerHTML+=interestCalc(radios[i].value);
-        //and exit loop
         break;
       }
       //check for reaching end of array without checked input
@@ -95,16 +94,15 @@
   }
   //function to be used on both sides
   function interestCalc(interest){
-    //initialize variables
+    //initialize variables, principal of 1000 used per assignment spec
     var result = "";
-    //principal of 1000 used per assignment spec
-    var cash=1000;
+    var cash = 1000;
     //create 10 rows each function call
-    for(i=1;i<11;i++){
+    for(var i=1;i<11;i++){
       //quickly doing the math and assigning to current cash value
-      cash*=(1+interest/100);
+      cash *= (1+interest/100);
       //returning row per project spec
-      result+="<tr><td>"+i+"</td><td>"+cash.toFixed(2)+"</td><td>"+(interest/100).toFixed(2)+"</td></tr>";
+      result += "<tr><td>" + i + "</td><td>" + cash.toFixed(2) + "</td><td>" + (interest/100).toFixed(2) + "</td></tr>";
     }
     return result;
   }
