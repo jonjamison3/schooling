@@ -2,58 +2,50 @@
 <head>
   <style>
     body{
+      width: 835px;
+    }
+    div{
+      padding: 2px;
       border:1px solid black;
-      min-width: 820px;
     }
     #left, #right{
-      width: 49.5%;
-      display:inline-block;
-      margin:2px 1px;
-      height:200vh;
-    }
-    #left{
-      float: left;
+      margin: auto;
+      width: 49%;
+      display: inline-block;
     }
     #right{
-      float:right;
-    }
-    div, h2{
-      display: inline;
-    }
-    section{
-      border: 1px solid black;
+      float: right;
     }
   </style>
 </head>
 <body>
-<div id="wrapper">
-  <section id="left">
-    <h3>Assignment 4a</h3>
-    <p>Calculate Ending cash value table for $1000 using various interest rates over 10 years</p>
-    <p>Interest rates are 5,6,7,8,9 and 10%</p>
-    <input id="btnLeft" type="button" id="btnLeft" value="Calculate"/>
-    <table id="tblLeft" border="1">
-      <tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>
-    </table>
-  </section>
-
-  <section id="right">
-      <h3>Assignment 4b</h3>
-      <p>Calculate Ending cash value table for $1000 over 10 years using selected interest rate</p>
-      <input type="radio" id="rad5" name="interestRate" value="5">5%</input>
-      <input type="radio" id="rad6" name="interestRate" value="6">6%</input>
-      <input type="radio" id="rad7" name="interestRate" value="7">7%</input>
-      <input type="radio" id="rad8" name="interestRate" value="8">8%</input>
-      <input type="radio" id="rad9" name="interestRate" value="9">9%</input>
-      <input type="radio" id="rad10" name="interestRate" value="10">10%</input>
-      <br>
-      <br>
-      <input type="button" id="btnRight" value="Calculate"/>
-    <table id="tblRight" border="1">
-      <tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>
-    </table>
-  </section>
-</div>
+  <div id="wrapper">
+    <div id="left">
+      <h3>Assignment 4a</h3>
+      <p>Calculate Ending cash value table for $1000 using various interest rates over 10 years</p>
+      <p>Interest rates are 5,6,7,8,9 and 10%</p>
+      <input id="btnLeft" type="button" id="btnLeft" value="Calculate"/>
+      <table id="tblLeft" border="1">
+        <tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>
+      </table>
+    </div>
+    <div id="right">
+        <h3>Assignment 4b</h3>
+        <p>Calculate Ending cash value table for $1000 over 10 years using selected interest rate</p>
+        <input type="radio" id="rad5" name="interestRate" value="5">5%</input>
+        <input type="radio" id="rad6" name="interestRate" value="6">6%</input>
+        <input type="radio" id="rad7" name="interestRate" value="7">7%</input>
+        <input type="radio" id="rad8" name="interestRate" value="8">8%</input>
+        <input type="radio" id="rad9" name="interestRate" value="9">9%</input>
+        <input type="radio" id="rad10" name="interestRate" value="10">10%</input>
+        <br>
+        <br>
+        <input type="button" id="btnRight" value="Calculate"/>
+        <table id="tblRight" border="1">
+          <tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>
+        </table>
+    </div>
+  </div>
 <script>
   window.onload = function(){
     $('btnLeft').onclick = leftCalc;
@@ -76,33 +68,31 @@
     $('tblRight').innerHTML = "<tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>";
     //gather options into an array
     var radios = document.getElementsByName('interestRate');
-    for (var i=0;i<radios.length;i++){
-      //iterate through options looking for selected rate
-      if (radios[i].checked) {
-        //use rate found for math and exit loop
-        $('tblRight').innerHTML+=interestCalc(radios[i].value);
+    for (var i=0; i<radios.length; i++){
+      //iterate through options looking for checked rate
+      if (radios[i].checked){
+        //should we find one, use rate found for math and exit loop
+        $('tblRight').innerHTML += interestCalc(radios[i].value);
         break;
       }
       //check for reaching end of array without checked input
-      if(radios[i]==radios[radios.length-1]){
-        //inform the user that input is required
+      if(radios[i] == radios[radios.length-1]){
+        //inform the user that input is required and direct to first input option
         alert("You must select a rate to proceed");
-        //offer a hand
         radios[0].focus();
       }
     }
   }
-  //function to be used on both sides
-  function interestCalc(interest){
+  function interestCalc(rate){
     //initialize variables, principal of 1000 used per assignment spec
     var result = "";
     var cash = 1000;
     //create 10 rows each function call
     for(var i=1;i<11;i++){
-      //quickly doing the math and assigning to current cash value
-      cash *= (1+interest/100);
-      //returning row per project spec
-      result += "<tr><td>" + i + "</td><td>" + cash.toFixed(2) + "</td><td>" + (interest/100).toFixed(2) + "</td></tr>";
+      //doing the math and assigning to current cash value
+      cash *= (1+rate/100);
+      //returning result as table row in html
+      result += "<tr><td>" + i + "</td><td>" + cash.toFixed(2) + "</td><td>" + (rate/100).toFixed(2) + "</td></tr>";
     }
     return result;
   }
