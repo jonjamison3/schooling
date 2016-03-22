@@ -2,7 +2,7 @@ DROP database if exists assignment3a;
 CREATE database assignment3a;
 USE assignment3a;
 CREATE table tenant(
-  TenantID INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  TenantID INT(11) NOT NULL AUTO_INCREMENT,
   LastName VARCHAR(50) NOT NULL,
   FirstName VARCHAR(50) NOT NULL,
   EmailAddress VARCHAR(50) NOT NULL UNIQUE,
@@ -18,20 +18,24 @@ CREATE table tenant(
   Company VARCHAR(50),
   JobTitle VARCHAR(50) NOT NULL,
   Notes LONGTEXT,
+  PRIMARY KEY (TenantID),
   INDEX City(City),
   INDEX FirstName(FirstName),
   INDEX LastName(LastName),
   INDEX PostalCode(PostalCode)
 );
 CREATE table lease(
-  LeaseID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  PropertyID INT(11) NOT NULL references property(PropertyID),
-  TenantID INT(11) NOT NULL references tenant(TenantID),
+  LeaseID INT(11) NOT NULL  AUTO_INCREMENT,
+  PropertyID INT(11) NOT NULL,
+  TenantID INT(11) NOT NULL,
   StartDate DATETIME NOT NULL,
   EndDate DATETIME NOT NULL,
   MonthlyLeaseAmount DECIMAL(10,2) NOT NULL,
   PetDeposit DECIMAL(10,2) NOT NULL,
-  Notes LONGTEXT
+  Notes LONGTEXT,
+  PRIMARY KEY (LeaseID),
+  FOREIGN KEY (PropertyID) REFERENCES property(PropertyID),
+  FOREIGN KEY (TenantID) REFERENCES tenant(TenantID)
 );
 CREATE table property(
   PropertyID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
