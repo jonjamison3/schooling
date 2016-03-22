@@ -1,43 +1,55 @@
-drop table if exists tenant;
-drop table if exists lease;
-drop table if exists property;
-create table tenant(
-  TenantID int(11) primary key not null auto_increment,
-  LastName varchar(50) not null,
-  FirstName varchar(50) not null,
-  EmailAddress varchar(50) not null unique,
-  HomePhone varchar(25) not null,
-  MobilePhone varchar(25) not null,
-  BusinessPhone varchar(25) not null,
-  FaxNumber varchar(25) not null,
-  Address varchar(255) not null,
-  City varchar(50) not null,
-  State varchar(50) not null,
-  PostalCode varchar(15) not null,
-  Country varchar(50) not null,
-  Company varchar(50) not null,
-  JobTitle varchar(50) not null,
-  Address varchar(255) not null,
-  Notes longtext default null,
-  unique index TenantID(TenantID),
-  index FirstName(FirstName),
-  index LastName(LastName),
-  index PostalCode(PostalCode)
+DROP database if exists assignment3a;
+CREATE database assignment3a;
+USE assignment3a;
+CREATE table tenant(
+  TenantID INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  LastName VARCHAR(50) NOT NULL,
+  FirstName VARCHAR(50) NOT NULL,
+  EmailAddress VARCHAR(50) NOT NULL UNIQUE,
+  HomePhone VARCHAR(25) NOT NULL,
+  MobilePhone VARCHAR(25) NOT NULL,
+  BusinessPhone VARCHAR(25),
+  FaxNumber VARCHAR(25),
+  Address VARCHAR(255) NOT NULL,
+  City VARCHAR(50) NOT NULL,
+  State VARCHAR(50) NOT NULL,
+  PostalCode VARCHAR(15) NOT NULL,
+  Country VARCHAR(50) NOT NULL,
+  Company VARCHAR(50),
+  JobTitle VARCHAR(50) NOT NULL,
+  Notes LONGTEXT,
+  INDEX City(City),
+  INDEX FirstName(FirstName),
+  INDEX LastName(LastName),
+  INDEX PostalCode(PostalCode)
 );
-create table lease(
-  LeaseID int(11) not null primary key auto_increment,
-  PropertyID int(11) not null,
-  TenantID int(11) not null,
-  StartDate datetime not null,
-  EndDate datetime not null,
-  MonthlyLeaseAmount decimal(10,2) not null,
-  PetDeposit decimal(10,2) default 0,
-  Notes longtext default null,
-  index PropertyID(PropertyID),
-  index TenantID(TenantID)
+CREATE table lease(
+  LeaseID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  PropertyID INT(11) NOT NULL references property(PropertyID),
+  TenantID INT(11) NOT NULL references tenant(TenantID),
+  StartDate DATETIME NOT NULL,
+  EndDate DATETIME NOT NULL,
+  MonthlyLeaseAmount DECIMAL(10,2) NOT NULL,
+  PetDeposit DECIMAL(10,2) NOT NULL,
+  Notes LONGTEXT
 );
-create table property(
-  PropertyID int(11) not null primary key auto_increment,
-  Address varchar(255) not null,
-  City varchar(50) not null,
+CREATE table property(
+  PropertyID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  Address VARCHAR(255) NOT NULL,
+  City VARCHAR(50) NOT NULL,
+  State VARCHAR(50) NOT NULL,
+  PostalCode VARCHAR(15) NOT NULL,
+  SquareFeet FLOAT(9,2) NOT NULL,
+  Bedrooms SMALLINT(6) NOT NULL,
+  Bathrooms FLOAT(5,2) NOT NULL,
+  Garage TINYINT(1) NOT NULL,
+  MonthlyMortgage DECIMAL(10,2) NOT NULL,
+  HousingDues DECIMAL(10,2) NOT NULL,
+  Tax DECIMAL(10,2) NOT NULL,
+  Insurance DECIMAL(10,2) NOT NULL,
+  DownPayment DECIMAL(10,2) NOT NULL,
+  LoanAmount DECIMAL (10,2) NOT NULL,
+  AssessedValue DECIMAL(10,2) NOT NULL,
+  CurrentValue DECIMAL(10,2) NOT NULL,
+  Notes LONGTEXT
 );
