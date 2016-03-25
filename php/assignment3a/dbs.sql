@@ -2,10 +2,10 @@ DROP database if exists assignment3a;
 CREATE database assignment3a;
 USE assignment3a;
 CREATE table tenant(
-  TenantID INT(11) NOT NULL AUTO_INCREMENT,
+  TenantID INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   LastName VARCHAR(50) NOT NULL,
   FirstName VARCHAR(50) NOT NULL,
-  EmailAddress VARCHAR(50) NOT NULL UNIQUE,
+  EmailAddress VARCHAR(50) NOT NULL,
   HomePhone VARCHAR(25) NOT NULL,
   MobilePhone VARCHAR(25) NOT NULL,
   BusinessPhone VARCHAR(25),
@@ -18,26 +18,12 @@ CREATE table tenant(
   Company VARCHAR(50),
   JobTitle VARCHAR(50) NOT NULL,
   Notes LONGTEXT,
-  PRIMARY KEY (TenantID),
   INDEX City(City),
   INDEX FirstName(FirstName),
   INDEX LastName(LastName),
   INDEX PostalCode(PostalCode)
 );
-CREATE table lease(
-  LeaseID INT(11) NOT NULL  AUTO_INCREMENT,
-  PropertyID INT(11) NOT NULL,
-  TenantID INT(11) NOT NULL,
-  StartDate DATETIME NOT NULL,
-  EndDate DATETIME NOT NULL,
-  MonthlyLeaseAmount DECIMAL(10,2) NOT NULL,
-  PetDeposit DECIMAL(10,2) NOT NULL,
-  Notes LONGTEXT,
-  PRIMARY KEY (LeaseID),
-  FOREIGN KEY (PropertyID) REFERENCES property(PropertyID),
-  FOREIGN KEY (TenantID) REFERENCES tenant(TenantID)
-);
-CREATE table property(
+CREATE TABLE property(
   PropertyID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   Address VARCHAR(255) NOT NULL,
   City VARCHAR(50) NOT NULL,
@@ -55,5 +41,18 @@ CREATE table property(
   LoanAmount DECIMAL (10,2) NOT NULL,
   AssessedValue DECIMAL(10,2) NOT NULL,
   CurrentValue DECIMAL(10,2) NOT NULL,
-  Notes LONGTEXT
+  Notes LONGTEXT,
+  INDEX PostalCode(PostalCode)
+);
+CREATE table lease(
+  LeaseID INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  PropertyID INT(11) NOT NULL,
+  TenantID INT(11) NOT NULL,
+  StartDate DATETIME NOT NULL,
+  EndDate DATETIME NOT NULL,
+  MonthlyLeaseAmount DECIMAL(10,2) NOT NULL,
+  PetDeposit DECIMAL(10,2) NOT NULL,
+  Notes LONGTEXT,
+  FOREIGN KEY (PropertyID) REFERENCES property(PropertyID),
+  FOREIGN KEY (TenantID) REFERENCES tenant(TenantID)
 );
