@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+	textarea{
+		height: 100%;
+	}
+</style>
+</head>
+<body>
+	<h3>Chapter 5 Array Assignment 2</h3>
+	<table>
+		<tr><td>Score:</td><td><input type="text" id="txtScore"/></td><td>Scores:</td>
+	</tr>
+		<tr><td>Score Total:</td><td><input type="text" disabled/></td><td rowspan=4><textarea id="txtOutput"disabled></textarea></td></tr>
+		<tr><td>Score Count:</td><td><input type="text" disabled/></td></tr>
+		<tr><td>Average:</td><td><input type="text" disabled/></td></tr>
+		<tr><td><input type="button" id="btnAdd" value="Add"/></td><td><input type="button" id="btnClear" value="Clear"/></td></tr>
+	</table>
+	
+	<script>
+		var scores = [];
+		window.onload = function(){
+			$('btnAdd').onclick = calculate;
+			$('btnClear').onclick = clear;
+		}
+		function calculate(){
+			if($('txtOutput').value == ""){
+				scores.push(parseInt(txtScore.value));
+				for(var i=0;i<scores.length;i++){
+					$('txtOutput').value+="\n"+scores[i];
+				}
+			}
+		}
+		function clear(){
+			$('txtOutput').value = "";
+		}
+		function $(id){
+			return document.getElementById(id);
+		}
+	</script>
+</body>
+</html>
