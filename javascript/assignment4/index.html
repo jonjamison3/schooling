@@ -53,24 +53,25 @@
     $('btnRight').onclick = calculate;
   };
   function calculate(){
+    //a little bit of DOM traversal to gather up exisiting table rows
     var rows = this.nextElementSibling.getElementsByTagName('tr');
-    //assign rows to array for if check
     if(this.id=='btnLeft'){
       //check to see if output has already been provided
       if(rows.length==1){
-        //iterating 5-10 per assignment spec
+        //iterating 5-10 rates per assignment spec
         for(var i=5;i<11;i++){
           //running calculation and appending resulting html strings to html of table
           $('tblLeft').innerHTML+=populateTable(i);
         }
       }
     }else if(this.id=='btnRight'){
-      //table reset on each call
+      //table reset on each call after the first
       if(rows.length>1){
         $('tblRight').innerHTML = "<tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>";
       }
+      //gather potential options
       var radios = document.getElementsByName('interestRate');
-      //iterate through options looking for checked rate
+      //iterate through those options looking for checked rate
       for (var i=0; i<radios.length; i++){
         if (radios[i].checked){
           //should we find one, use rate found for math and exit loop
