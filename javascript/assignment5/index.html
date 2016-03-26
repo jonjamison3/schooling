@@ -41,20 +41,25 @@
 			$('btnClear').onclick = clear;
 		}
 		function addValue(){
-			scores.push(parseInt($('txtScore').value));
-			var sum = 0;
-			for(var i=0;i<scores.length;i++){
-				if(i==0){
-					$('txtOutput').value=scores[i]+"\n";
-				}else{
-					$('txtOutput').value+=scores[i]+"\n";
+			var newScore = $('txtScore').value.trim();
+			if(isInt(newScore)===true && newScore!="" && newScore<=100 && newScore>=0){
+				scores.push(parseInt(newScore));
+				var sum = 0;
+				for(var i=0;i<scores.length;i++){
+					if(i==0){
+						$('txtOutput').value=scores[i]+"\n";
+					}else{
+						$('txtOutput').value+=scores[i]+"\n";
+					}
+					sum += scores[i];
 				}
-				sum +=scores[i];
+				$('txtTotal').value = sum;
+				$('txtCount').value = scores.length;
+				$('txtAverage').value = (sum/scores.length).toFixed(2);
+			}else{
+				alert("Score must be numeric and between 0 and 100");
 			}
-			$('txtTotal').value = sum;
-			$('txtCount').value = scores.length;
-			$('txtAverage').value = sum/scores.length;
-			$('txtScore').select();
+			$('txtScore').focus();
 		}
 
 		function clear(){
@@ -63,7 +68,13 @@
 				targets[i].value="";
 			}
 			scores = [];
+			$('txtScore').focus();
 		}
+		//determine if number is an integer
+		var isInt=function(number){
+			return number%1===0;
+		}
+		//id selection function used in class
 		function $(id){
 			return document.getElementById(id);
 		}
