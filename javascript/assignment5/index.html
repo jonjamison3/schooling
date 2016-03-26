@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+	textarea{
+		height: 100%;
+	}
+</style>
+</head>
+<body>
+	<h3>Chapter 5 Array Assignment 2</h3>
+	<table>
+		<tr>
+			<td>Score:</td>
+			<td><input type="text" class="clearable" id="txtScore"/></td>
+			<td>Scores:</td>
+		</tr>
+		<tr>
+			<td>Score Total:</td>
+			<td><input type="text" id="txtTotal" class="clearable" disabled/></td>
+			<td rowspan=4><textarea id="txtOutput" class="clearable" disabled></textarea></td>
+		</tr>
+		<tr>
+			<td>Score Count:</td>
+			<td><input type="text" id="txtCount" class="clearable" disabled/></td>
+		</tr>
+		<tr>
+			<td>Average:</td>
+			<td><input type="text" id="txtAverage" class="clearable" disabled/></td>
+		</tr>
+		<tr>
+			<td><input type="button" id="btnAdd" value="Add"/></td>
+			<td><input type="button" id="btnClear" value="Clear"/></td>
+		</tr>
+	</table>
+
+	<script>
+		var scores = [];
+		window.onload = function(){
+			$('btnAdd').onclick = addValue;
+			$('btnClear').onclick = clear;
+		}
+		function addValue(){
+			scores.push(parseInt($('txtScore').value));
+			var sum = 0;
+			for(var i=0;i<scores.length;i++){
+				if(i==0){
+					$('txtOutput').value=scores[i]+"\n";
+				}else{
+					$('txtOutput').value+=scores[i]+"\n";
+				}
+				sum +=scores[i];
+			}
+			$('txtTotal').value = sum;
+			$('txtCount').value = scores.length;
+			$('txtAverage').value = sum/scores.length;
+			$('txtScore').select();
+		}
+
+		function clear(){
+			var targets = document.getElementsByClassName('clearable');
+			for (var i=0;i<targets.length;i++){
+				targets[i].value="";
+			}
+			scores = [];
+		}
+		function $(id){
+			return document.getElementById(id);
+		}
+	</script>
+</body>
+</html>
