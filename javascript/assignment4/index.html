@@ -7,12 +7,12 @@
     }
     div{
       padding: 2px;
-      border:1px solid black;
     }
     #left, #right{
       margin: auto;
       width: 49%;
       display: inline-block;
+      border:1px solid black;
     }
     #right{
       float: right;
@@ -49,10 +49,10 @@
   </div>
 <script>
   window.onload = function(){
-    $('btnLeft').onclick = tableCalc;
-    $('btnRight').onclick = tableCalc;
+    $('btnLeft').onclick = calculate;
+    $('btnRight').onclick = calculate;
   };
-  function tableCalc(){
+  function calculate(){
     var rows = this.nextElementSibling.getElementsByTagName('tr');
     //assign rows to array for if check
     if(this.id=='btnLeft'){
@@ -61,7 +61,7 @@
         //iterating 5-10 per assignment spec
         for(var i=5;i<11;i++){
           //running calculation and appending resulting html strings to html of table
-          $('tblLeft').innerHTML+=rowCalc(i);
+          $('tblLeft').innerHTML+=populateTable(i);
         }
       }
     }else if(this.id=='btnRight'){
@@ -74,7 +74,7 @@
       for (var i=0; i<radios.length; i++){
         if (radios[i].checked){
           //should we find one, use rate found for math and exit loop
-          $('tblRight').innerHTML += rowCalc(radios[i].value);
+          $('tblRight').innerHTML += populateTable(radios[i].value);
           break;
         }
         //check for reaching end of array without checked input
@@ -85,7 +85,7 @@
         }
       }
     }
-    function rowCalc(rate){
+    function populateTable(rate){
       //initialize variables, principal of $1000 used per assignment spec
       var result = "";
       var cash = 1000;
