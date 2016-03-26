@@ -2,6 +2,7 @@
 <head>
   <style>
     body{
+      margin: auto;
       width: 835px;
     }
     div{
@@ -48,55 +49,57 @@
   </div>
 <script>
   window.onload = function(){
-    $('btnLeft').onclick = leftCalc;
-    $('btnRight').onclick = rightCalc;
+    $('btnLeft').onclick = tableCalc;
+    $('btnRight').onclick = tableCalc;
   };
-  function leftCalc(){
+  function tableCalc(){
+    var rows = this.nextElementSibling.getElementsByTagName('tr');
     //assign rows to array for if check
-    var rows = $('tblLeft').getElementsByTagName('tr');
-    //check to see if output has already been provided
-    if(rows.length==1){
-      //iterating 5-10 per assignment spec
-      for(var i=5;i<11;i++){
-        //running calculation and appending resulting html strings to html of table
-        $('tblLeft').innerHTML+=interestCalc(i);
+    if(this.id=='btnLeft'){
+      //check to see if output has already been provided
+      if(rows.length==1){
+        //iterating 5-10 per assignment spec
+        for(var i=5;i<11;i++){
+          //running calculation and appending resulting html strings to html of table
+          $('tblLeft').innerHTML+=rowCalc(i);
+        }
       }
-    }
-  }
-  function rightCalc(){
-    //start table fresh
-    $('tblRight').innerHTML = "<tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>";
-    //gather options into an array
-    var radios = document.getElementsByName('interestRate');
-    for (var i=0; i<radios.length; i++){
+    }else if(this.id=='btnRight'){
+      //table reset on each call
+      if(rows.length>1){
+        $('tblRight').innerHTML = "<tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>";
+      }
+      var radios = document.getElementsByName('interestRate');
       //iterate through options looking for checked rate
-      if (radios[i].checked){
-        //should we find one, use rate found for math and exit loop
-        $('tblRight').innerHTML += interestCalc(radios[i].value);
-        break;
-      }
-      //check for reaching end of array without checked input
-      if(radios[i] == radios[radios.length-1]){
-        //inform the user that input is required and direct to first input option
-        alert("You must select a rate to proceed");
-        radios[0].focus();
+      for (var i=0; i<radios.length; i++){
+        if (radios[i].checked){
+          //should we find one, use rate found for math and exit loop
+          $('tblRight').innerHTML += rowCalc(radios[i].value);
+          break;
+        }
+        //check for reaching end of array without checked input
+        if(radios[i] == radios[radios.length-1]){
+          //inform the user that input is required and direct to first input option
+          alert("You must select a rate to proceed");
+          radios[0].focus();
+        }
       }
     }
-  }
-  function interestCalc(rate){
-    //initialize variables, principal of 1000 used per assignment spec
-    var result = "";
-    var cash = 1000;
-    //create 10 rows each function call
-    for(var i=1;i<11;i++){
-      //doing the math and assigning to current cash value
-      cash *= (1+rate/100);
-      //returning result as table row in html
-      result += "<tr><td>" + i + "</td><td>" + cash.toFixed(2) + "</td><td>" + (rate/100).toFixed(2) + "</td></tr>";
+    function rowCalc(rate){
+      //initialize variables, principal of $1000 used per assignment spec
+      var result = "";
+      var cash = 1000;
+      //create 10 rows each function call
+      for(var i=1;i<11;i++){
+        //doing the math and assigning to current cash value
+        cash *= (1+rate/100);
+        //returning result as table row in html
+        result += "<tr><td>" + i + "</td><td>" + cash.toFixed(2) + "</td><td>" + (rate/100).toFixed(2) + "</td></tr>";
+      }
+      return result;
     }
-    return result;
   }
-  //selection function used in class
+  //global selection function used in class
   function $(id){
     return document.getElementById(id);
   }
