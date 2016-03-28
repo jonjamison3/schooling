@@ -48,7 +48,6 @@
     </div>
   </div>
 <script>
-   selectedRate = "";
   window.onload = function(){
     $('btnLeft').onclick = calculate;
     $('btnRight').onclick = calculate;
@@ -83,12 +82,12 @@
         }
       }
       if(rows.length == 1){
-         $('tblRight').innerHTML+= populateTable(radios[i].value);
-         console.log("ran");
+        //append results of function call to table the first time around
+        $('tblRight').innerHTML += populateTable(selectedRate);
       }else if(selectedRate != parseFloat($('tblRight').children[1].firstChild.lastChild.innerHTML)){
+        //if another table already exists, reset the table, then append results function call
         $('tblRight').innerHTML = "<tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>";
-        $('tblRight').innerHTML += populateTable(radios[i].value);
-        console.log("ran");
+        $('tblRight').innerHTML += populateTable(selectedRate);
       }
     }
     function populateTable(rate){
@@ -98,9 +97,9 @@
       //create 10 rows each function call
       for(var i=1; i<11; i++){
         //doing the math and assigning to current cash value
-        cash *= (1 + rate/100);
+        cash *= (1 + rate);
         //returning result as table row in html
-        result += "<tr><td>" + i + "</td><td>" + cash.toFixed(2) + "</td><td>" + (rate/100).toFixed(2) + "</td></tr>";
+        result += "<tr><td>" + i + "</td><td>" + cash.toFixed(2) + "</td><td>" + (rate).toFixed(2) + "</td></tr>";
       }
       return result;
     }
