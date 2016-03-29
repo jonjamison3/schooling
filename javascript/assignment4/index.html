@@ -33,12 +33,12 @@
     <div id="right">
         <h3>Assignment 4b</h3>
         <p>Calculate Ending cash value table for $1000 over 10 years using selected interest rate</p>
-        <input type="radio"  name="interestRate" value="5">5%</input>
-        <input type="radio"  name="interestRate" value="6">6%</input>
-        <input type="radio"  name="interestRate" value="7">7%</input>
-        <input type="radio"  name="interestRate" value="8">8%</input>
-        <input type="radio"  name="interestRate" value="9">9%</input>
-        <input type="radio"  name="interestRate" value="10">10%</input>
+        <input type="radio" id="rad5" name="interestRate" value="5">5%</input>
+        <input type="radio" id="rad6" name="interestRate" value="6">6%</input>
+        <input type="radio" id="rad7" name="interestRate" value="7">7%</input>
+        <input type="radio" id="rad8" name="interestRate" value="8">8%</input>
+        <input type="radio" id="rad9" name="interestRate" value="9">9%</input>
+        <input type="radio" id="rad10" name="interestRate" value="10">10%</input>
         <br>
         <br>
         <input type="button" id="btnRight" value="Calculate"/>
@@ -55,16 +55,16 @@
   function calculate(){
     //a little bit of DOM traversal to gather up existing table rows
     var rows = this.nextElementSibling.getElementsByTagName('tr');
-    if(this.id=='btnLeft'){
+    if(this.id == 'btnLeft'){
       //check to see if output has already been provided
-      if(rows.length==1){
+      if(rows.length == 1){
         //iterating 5-10 rates per assignment spec
         for(var i=5; i<11; i++){
           //running calculation and appending resulting html strings to html of table
-          $('tblLeft').innerHTML+=populateTable(i);
+          $('tblLeft').innerHTML += populateTable(i);
         }
       }
-    }else if(this.id=='btnRight'){
+    }else if(this.id == 'btnRight'){
       //gather potential options
       var radios = document.getElementsByName('interestRate');
       //iterate through those options looking for checked rate
@@ -74,24 +74,22 @@
           var selectedRate = radios[i].value;
           break;
         }
-        //check for reaching end of array without checked input
-        if(radios[i] == radios[radios.length-1]){
-          //inform the user that input is required and set focus to first input option
-          alert("You must select a rate to proceed");
-          radios[0].focus();
-        }
       }
       if(selectedRate){
         //check for existing table
         if(rows.length == 1){
           //just appending results of function call to table the first time around
           $('tblRight').innerHTML += populateTable(selectedRate);
-        //braving traversal hell to ensure we don't waste time creating the same table twice frivolously
+        //traversing for value check to ensure we don't waste time creating the same table twice frivolously
         }else if(selectedRate/100 != parseFloat($('tblRight').children[1].firstChild.lastChild.innerHTML)){
             //if another table already exists, reset the table, then append results of function call
             $('tblRight').innerHTML = "<tr><th>Year</th><th>Amount on Deposit</th><th>Interest Rate</th></tr>";
             $('tblRight').innerHTML += populateTable(selectedRate);
         }
+      }else{
+        //inform the user that input is required and set focus to first input option
+        alert("You must select a rate to proceed");
+        radios[0].focus();
       }
     }
     function populateTable(rate){
@@ -103,7 +101,7 @@
       //create 10 rows each function call
       for(var i=1; i<11; i++){
         //doing the math and assigning to current cash value
-        cash *= 1 + rate;
+        cash *= (1 + rate);
         //returning result as table row in html
         result += "<tr><td>" + i + "</td><td>" + cash.toFixed(2) + "</td><td>" + rate.toFixed(2) + "</td></tr>";
       }
