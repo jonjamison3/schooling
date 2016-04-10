@@ -11,22 +11,27 @@ require('database.php');
 
 include 'header.php';
 
-$query = "select * from products order_by name";
+$query = "select * from products order by name";
 $products = $db->query($query);
 ?>
 
 <br/>
 <br/>
-<h2>Remove this markup and replace it with a table containing Products 
-        data(along with a column for a delete) as shown in the assignment UI</h2>
 
 <table>
+    <tr><th>Code</th><th>Name</th><th>Version</th><th>Release Date</th></tr>
     <?php
-        //foreach($products as $product):
+        foreach($products as $product):
     ?>
-    <tr><td></td></tr>
+    <tr>
+        <td><?php echo $product['productCode']; ?></td>
+        <td><?php echo $product['name']; ?></td>
+        <td><?php echo $product['version']; ?></td>
+        <td><?php echo $product['releaseDate']; ?></td>
+        <td><input type="button" value="Delete"/></td>
+    </tr>
     <?php
-        //endforeach;
+        endforeach;
     ?>
 </table>
 
