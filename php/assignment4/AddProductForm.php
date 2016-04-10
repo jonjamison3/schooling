@@ -11,10 +11,17 @@ include 'header.php';
 
     <br/>
     <br/>
-    <h2>Remove this markup and replace it with a table containing textboxes to enter Product data as shown in the assignment UI</h2>
+    <h2>Add Product</h2>
+    <table class="borderless">
+        <tr><td>Code: </td><td><input type="text" name ="txtCode" /></td><td></td></tr>
+        <tr><td>Name: </td><td><input type="text" name ="txtName" /></td><td></td></tr>
+        <tr><td>Version: </td><td><input type="text" name ="txtVersion" /></td><td></td></tr>
+        <tr><td>Release Date: </td><td><input type="text" name ="txtDate" /></td><td>Use 'yyyy-mm-dd' format</td></tr>
+        <tr><td></td><td><input type="button" name ="btnAddProduct" value="Add Product"/></td><td></td></tr>
+    </table>
     <br/>
     <br/>
-     <a href=".">Product List</a>
+     <a href="productList.php">View Product List</a>
 </form>
 
 <?php

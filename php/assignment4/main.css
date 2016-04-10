@@ -149,3 +149,6 @@ textarea {
 #aligned input[text] {
     width: 15em;
 }
+.borderless, .borderless th, .borderless td, .borderless tr{
+    border: 0;
+}
