@@ -46,7 +46,7 @@ $customers = $db->query($query);
 
 <br/>
 <br/>
-<a href="under_construction.php">Add Customer</a>
+<a href="AddCustomerForm.php">Add Customer</a>
 
 <?php
 include 'footer.php';

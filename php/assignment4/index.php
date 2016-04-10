@@ -5,7 +5,7 @@
         <li><a href="ProductList.php">Manage Products</a></li>
         <li><a href="techList.php">Manage Technicians</a></li>
         <li><a href="customerList.php">Manage Customers</a></li>
-        <li><a href="under_construction.php">Create Incident</a></li>
+        <li><a href="AddIncidentForm.php">Create Incident</a></li>
         <li><a href="under_construction.php">Assign Incident</a></li>
         <li><a href="incidentList.php">Display Incidents</a></li>
     </ul>
