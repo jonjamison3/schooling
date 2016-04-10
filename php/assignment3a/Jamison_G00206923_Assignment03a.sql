@@ -1,6 +1,6 @@
-DROP database if exists rental;
-CREATE database rental;
-USE rental;
+DROP database if exists assignment3a;
+CREATE database assignment3a;
+USE assignment3a;
 CREATE table tenant(
   TenantID INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   LastName VARCHAR(50) NOT NULL,
@@ -44,13 +44,12 @@ CREATE TABLE property(
   Notes LONGTEXT,
   INDEX PostalCode(PostalCode)
 );
-
 CREATE table lease(
   LeaseID INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   PropertyID INT(11) NOT NULL,
   TenantID INT(11) NOT NULL,
-  StartDate DATETIME(6) NOT NULL,
-  EndDate DATETIME(6) NOT NULL,
+  StartDate DATETIME NOT NULL,
+  EndDate DATETIME NOT NULL,
   MonthlyLeaseAmount DECIMAL(10,2) NOT NULL,
   SecurityDeposit DECIMAL(10,2) NOT NULL,
   PetDeposit DECIMAL(10,2) NOT NULL,

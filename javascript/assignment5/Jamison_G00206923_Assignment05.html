@@ -1,0 +1,99 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+	textarea{
+		height: 100%;
+	}
+</style>
+</head>
+<body>
+	<h3>Chapter 5 Array Assignment 2</h3>
+	<table>
+		<tr>
+			<td>Score:</td>
+			<td><input type="text" class="clearable" id="txtScore"/></td>
+			<td>Scores:</td>
+		</tr>
+		<tr>
+			<td>Score Total:</td>
+			<td><input type="text" id="txtSum" class="clearable" disabled/></td>
+			<td rowspan=4><textarea id="txtOutput" class="clearable" disabled></textarea></td>
+		</tr>
+		<tr>
+			<td>Score Count:</td>
+			<td><input type="text" id="txtCount" class="clearable" disabled/></td>
+		</tr>
+		<tr>
+			<td>Average:</td>
+			<td><input type="text" id="txtAverage" class="clearable" disabled/></td>
+		</tr>
+		<tr>
+			<td><input type="button" id="btnAdd" value="Add"/></td>
+			<td><input type="button" id="btnClear" value="Clear"/></td>
+		</tr>
+	</table>
+
+	<script>
+		//initializing global array for scores
+		var scores = [];
+		window.onload = function(){
+			$('btnAdd').onclick = addValue;
+			$('btnClear').onclick = clear;
+		}
+		function addValue(){
+			//assign input to variable after trimming off whitespace
+			var newScore = $('txtScore').value.trim();
+			//check that it's an int, not blank, and in range
+			if(isInt(newScore)===true && newScore!="" && newScore<=100 && newScore>=0){
+				//push to array as int
+				scores.push(parseInt(newScore));
+				//initialize another variable for sum
+				var sum = 0;
+				//iterate array of scores
+				for(var i=0;i<scores.length;i++){
+					if(i==0){
+						//first time around, using assignment for soft reset
+						$('txtOutput').value=scores[i]+"\n";
+					}else{
+						//else-wise just appending
+						$('txtOutput').value+=scores[i]+"\n";
+					}
+					//squeezing some more logic out of one loop to find array sum
+					sum += scores[i];
+				}
+				//assigning values to requisite output fields
+				$('txtSum').value = sum;
+				$('txtCount').value = scores.length;
+				//formatting average to two decimals per spec
+				$('txtAverage').value = (sum/scores.length).toFixed(2);
+			}else{
+				//in case of bad input, let the user know
+				alert("Score must be numeric and between 0 and 100");
+			}
+			//offering a hand back to the top regardless of if/else outcome
+			$('txtScore').focus();
+		}
+		function clear(){
+			//rounding up what needs clearing
+			var targets = document.getElementsByClassName('clearable');
+			//iterating through and setting values to blank
+			for (var i=0;i<targets.length;i++){
+				targets[i].value="";
+			}
+			//reset array
+			scores = [];
+			//take it to the top
+			$('txtScore').focus();
+		}
+		//determine if number is an integer
+		var isInt=function(number){
+			return number%1===0;
+		}
+		//id selection function used in class
+		function $(id){
+			return document.getElementById(id);
+		}
+	</script>
+</body>
+</html>
