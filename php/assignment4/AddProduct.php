@@ -11,9 +11,16 @@ if (isset($_POST['btnAddProduct'])) {
     $name = $_POST['txtName'];
     $version  = $_POST['txtVersion'];
     $releaseDate  = $_POST['txtDate'];
-    
-    $query = "insert into products values($code, $name, $version, $releaseDate)";
-    $db->query($query);
+    if(trim($code)==""||trim($name)==""||trim($version)==""||trim($releaseDate)==""){
+        
+        header("Location: ./AddProductForm.php");
+        echo "<span>Please enter some input</style>";
+    }else {
+        $query = "insert into products values($code, $name, $version, $releaseDate)";
+        $db->query($query);
+        
+        header("Location: ./ProductList.php");
+    }
     //
     //edit the data
     //
@@ -31,6 +38,6 @@ if (isset($_POST['btnAddProduct'])) {
 
 //we should get here only if data was ok and added to the database
 //include 'index.php'; //This will take you to the index.php for product_manager or the product list
- header("Location: ./ProductList.php");
+ 
 
 ?>

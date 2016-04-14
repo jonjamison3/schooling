@@ -42,7 +42,7 @@ $incidents = $db->query($query);
 
 <br/>
 <br/>
-<a href="under_construction.php">Add Incident</a>
+<a href="AddIncidentForm.php">Add Incident</a>
 
 <?php
 include 'footer.php';

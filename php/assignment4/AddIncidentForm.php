@@ -7,17 +7,18 @@ require('database.php');
 
 include 'header.php';
 ?>
-<form action="#" method="Post">
+<form action="AddIncident.php" method="Post">
 
     <br/>
     <br/>
     <h2>Add Incident</h2>
     <table class="borderless">
-        <tr><td>Customer ID: </td><td><input type="text" name ="txtCustomerID" /></td><td></td></tr>
-        <tr><td>Product Code: </td><td><input type="text" name ="txtProductCode" /></td><td></td></tr>
-        <tr><td>Title: </td><td><input type="text" name ="txtTitle" /></td><td></td></tr>
-        <tr><td>Description: </td><td><textarea rowspan=2 name ="txtDescription"></textarea></td><td></td></tr>
-        <tr><td></td><td><input type="button" name ="btnAddProduct" value="Add Incident"/></td><td></td></tr>
+            <tr><td>Customer ID: </td><td><input type="text" name ="txtCustomerID" /></td><td></td></tr>
+            <tr><td>Product Code: </td><td><input type="text" name ="txtProductCode" /></td><td></td></tr>
+            <tr><td>Title: </td><td><input type="text" name ="txtTitle" /></td><td></td></tr>
+            <tr><td>Description: </td><td><textarea rowspan=2 name ="txtDescription"></textarea></td><td></td></tr>
+            <tr><td></td><td><input type="submit" name ="btnAddProduct" value="Add Incident"/></td><td></td></tr>
+        
     </table>
     <br/>
     <br/>
