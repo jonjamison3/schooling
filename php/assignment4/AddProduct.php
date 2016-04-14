@@ -7,7 +7,13 @@
 require('database.php');
 
 if (isset($_POST['btnAddProduct'])) {
+    $code  = $_POST['txtCode'];
+    $name = $_POST['txtName'];
+    $version  = $_POST['txtVersion'];
+    $releaseDate  = $_POST['txtDate'];
     
+    $query = "insert into products values($code, $name, $version, $releaseDate)";
+    $db->query($query);
     //
     //edit the data
     //
