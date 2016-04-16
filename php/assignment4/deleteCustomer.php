@@ -5,17 +5,17 @@
  */
 
 require('database.php');
-$productCode = $_POST['productCode'];
+$customerID = $_POST['customerID'];
 
 
-if (isset($_POST['btnDeleteProduct'])) {
+if (isset($_POST['btnDeleteCustomer'])) {
 
     //
     //write the SQL to delete a product from the database\
     // wrap it in a try-catch block and use the database error page to display any
     // errors
     //
-    $query = "delete from products where productCode='$productCode'";
+    $query = "delete from customers where customerID='$customerID'";
 
     //
     //if the product is successfully deleted from the database
@@ -23,8 +23,9 @@ if (isset($_POST['btnDeleteProduct'])) {
     // header("Location: ./ProductList.php");
 
     try{
+      //echo $query;
       $db->exec($query);
-      header("Location: ./ProductList.php");
+      header("Location: ./customerList.php");
     }catch(Exception $e){
       echo "Encountered an exception: " . $e->getMessage();
     }

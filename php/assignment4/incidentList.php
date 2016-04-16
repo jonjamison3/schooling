@@ -24,14 +24,15 @@ $incidents = $db->query($query);
         foreach($incidents as $incident):
     ?>
     <tr>
-      <form action="AddIncident.php" method="post">
+      <form action="deleteIncident.php" method="post">
         <td><?php echo $incident['incidentID']; ?></td>
         <td><?php echo $incident['customerID']; ?></td>
         <td><?php echo $incident['productCode']; ?></td>
         <td><?php echo $incident['dateOpened']; ?></td>
         <td><?php echo $incident['title']; ?></td>
         <td><?php echo $incident['description']; ?></td>
-        <td><input type="submit" value="Delete"/></td>
+        <input type="hidden" name="incidentID" value="<?php echo $incident['incidentID']; ?>"/>
+        <td><input type="submit" name="btnDeleteIncident" value="Delete"/></td>
       </form>
     </tr>
     <?php

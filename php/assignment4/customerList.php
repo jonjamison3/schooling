@@ -24,7 +24,7 @@ $customers = $db->query($query);
         foreach($customers as $customer):
     ?>
     <tr>
-      <form action="AddCustomer.php" method="post">
+      <form action="deleteCustomer.php" method="post">
         <td><?php echo $customer['customerID']; ?></td>
         <td><?php echo $customer['firstName']; ?></td>
         <td><?php echo $customer['lastName']; ?></td>
@@ -35,7 +35,8 @@ $customers = $db->query($query);
         <td><?php echo $customer['countryCode']; ?></td>
         <td><?php echo $customer['phone']; ?></td>
         <td><?php echo $customer['email']; ?></td>
-        <td><input type="submit" value="Delete"/></td>
+        <input type="hidden" name="customerID" value="<?php echo $customer['customerID']; ?>"/>
+        <td><input type="submit" name="btnDeleteCustomer" value="Delete"/></td>
       </form>
     </tr>
     <?php
