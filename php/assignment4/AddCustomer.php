@@ -6,21 +6,23 @@ include 'header.php';
         $first  = $_POST['txtFirstName'];
         $last = $_POST['txtLastName'];
         $address  = $_POST['txtAddress'];
+        $city = $_POST['txtCity'];
         $state  = $_POST['txtState'];
         $zip = $_POST['txtZip'];
         $country = $_POST['ddlCountry'];
         $phone  = $_POST['txtPhone'];
         $email  = $_POST['txtEmail'];
-        /*if(trim($first)==""||trim($last)==""||trim($address)==""||trim($state)==""||trim($zip)==""||trim($country)==""||trim($phone)==""||trim($email)==""){
 
 
-            echo "<span>Please enter some input</style>";
-        }else {*/
-            $query = "insert into customers(firstName, lastName, address, city, state, postalCode, countryCode, phone, email, password) values('$first', '$last', '$address', '$city', '$state', '$zip', '$country', '$phone', '$email', '$password', 'sesame')";
-            echo $query;
-            //$db->query($query);
+        $query = "insert into customers(firstName, lastName, address, city, state, postalCode, countryCode, phone, email, password) values('$first', '$last', '$address', '$city', '$state', '$zip', '$country', '$phone', '$email', 'sesame')";
 
-            header("Location: ./customerList.php");
-        //}
+        $db->query($query);
+
+        header("Location: ./customerList.php");
+      /*}else(Exception $e){
+        $error = $e->getMessage();
+        echo "You've run into an error with the exception: " . $error;
+      }*/
+
     }
 ?>

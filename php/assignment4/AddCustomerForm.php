@@ -7,7 +7,7 @@ require('database.php');
 
 include 'header.php';
 
-$query = "SELECT countryName FROM countries where countryName!='United States'";
+$query = "SELECT * FROM countries where countryName!='United States'";
 $countries = $db->query($query);
 ?>
 <form action="AddCustomer.php" method="Post">
@@ -25,8 +25,8 @@ $countries = $db->query($query);
         <tr><td>Country: </td><td>
                 <select name="ddlCountry" >
                     <?php foreach($countries as $country): ?>
-                    <option>United States</option>
-                    <option><?php echo $country['countryName']?></option>
+                    <option value="US">United States</option>
+                    <option value="<?php echo $country['countryCode'] ?>"><?php echo $country['countryName'] ?></option>
                     <?php endforeach;?>
                 </select></td></tr>
         <tr><td>Phone: </td><td><input type="text" name ="txtPhone" /></td></tr>
