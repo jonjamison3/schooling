@@ -23,7 +23,6 @@ if (isset($_POST['btnDeleteCustomer'])) {
     // header("Location: ./ProductList.php");
 
     try{
-      //echo $query;
       $db->exec($query);
       header("Location: ./customerList.php");
     }catch(Exception $e){

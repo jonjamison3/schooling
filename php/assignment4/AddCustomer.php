@@ -13,11 +13,12 @@ include 'header.php';
         $email  = $_POST['txtEmail'];
         /*if(trim($first)==""||trim($last)==""||trim($address)==""||trim($state)==""||trim($zip)==""||trim($country)==""||trim($phone)==""||trim($email)==""){
 
-            
+
             echo "<span>Please enter some input</style>";
         }else {*/
-            $query = "insert into customers values(default, $first, $last, $address, $city, $state, $zip, $country, $phone, $email, $password, 'sesame')";
-            $db->query($query);
+            $query = "insert into customers(firstName, lastName, address, city, state, postalCode, countryCode, phone, email, password) values('$first', '$last', '$address', '$city', '$state', '$zip', '$country', '$phone', '$email', '$password', 'sesame')";
+            echo $query;
+            //$db->query($query);
 
             header("Location: ./customerList.php");
         //}

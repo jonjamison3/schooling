@@ -12,7 +12,7 @@ include 'header.php';
             header("Location: ./AddIncidentForm.php");
             echo "<span>Please enter some input</style>";
         }else {
-            $query = "insert into incidents values(default, $customerID, $productCode,null, NOW(), null, $title, $description)";
+            $query = "insert into incidents values(default, '$customerID', '$productCode',null, NOW(), null, '$title', '$description')";
             $db->query($query);
 
             header("Location: ./incidentList.php");
