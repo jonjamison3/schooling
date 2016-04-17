@@ -1,5 +1,9 @@
 <?php
 
+/*
+ *   Logic to delete an incident from the database is here
+ */
+
 require('database.php');
 $incidentID = $_POST['incidentID'];
 

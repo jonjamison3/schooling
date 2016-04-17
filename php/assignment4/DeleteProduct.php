@@ -7,23 +7,15 @@
 require('database.php');
 $productCode = $_POST['productCode'];
 
-
 if (isset($_POST['btnDeleteProduct'])) {
-
-    //
     //write the SQL to delete a product from the database\
+    $query = "delete from products where productCode='$productCode'";
     // wrap it in a try-catch block and use the database error page to display any
     // errors
-    //
-    $query = "delete from products where productCode='$productCode'";
-
-    //
-    //if the product is successfully deleted from the database
-    //  navigate to the product list page by uncommenting the following line
-    // header("Location: ./ProductList.php");
-
     try{
+      //if the product is successfully deleted from the database
       $db->exec($query);
+      //navigate to the product list page
       header("Location: ./ProductList.php");
     }catch(Exception $e){
       echo "Encountered an exception: " . $e->getMessage();

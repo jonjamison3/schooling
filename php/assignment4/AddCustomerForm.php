@@ -7,11 +7,11 @@ require('database.php');
 
 include 'header.php';
 
+//getting a list of countries for select list use later on
 $query = "SELECT * FROM countries where countryName!='United States'";
 $countries = $db->query($query);
 ?>
 <form action="AddCustomer.php" method="Post">
-
     <br/>
     <br/>
     <h2>Add Customer</h2>
@@ -23,10 +23,15 @@ $countries = $db->query($query);
         <tr><td>State: </td><td><input type="text" name ="txtState" /></td></tr>
         <tr><td>Zip: </td><td><input type="text" name ="txtZip" /></td></tr>
         <tr><td>Country: </td><td>
+
                 <select name="ddlCountry" >
-                    <?php foreach($countries as $country): ?>
+                    <?php
+                    //feeling clever leveraging db to avoid writing select options manually
+                    foreach($countries as $country): ?>
                     <option value="US">United States</option>
-                    <option value="<?php echo $country['countryCode'] ?>"><?php echo $country['countryName'] ?></option>
+                    <option value="<?php
+                    //setting value to country code for use in customer creation query later
+                    echo $country['countryCode'] ?>"><?php echo $country['countryName'] ?></option>
                     <?php endforeach;?>
                 </select></td></tr>
         <tr><td>Phone: </td><td><input type="text" name ="txtPhone" /></td></tr>

@@ -15,14 +15,13 @@ include 'header.php';
 
 
         $query = "insert into customers(firstName, lastName, address, city, state, postalCode, countryCode, phone, email, password) values('$first', '$last', '$address', '$city', '$state', '$zip', '$country', '$phone', '$email', 'sesame')";
+        try{
+          $db->query($query);
 
-        $db->query($query);
-
-        header("Location: ./customerList.php");
-      /*}else(Exception $e){
-        $error = $e->getMessage();
-        echo "You've run into an error with the exception: " . $error;
-      }*/
-
+          header("Location: ./customerList.php");
+        }else(Exception $e){
+          $error = $e->getMessage();
+          echo "You've run into an error with the exception: " . $error;
+        }
     }
 ?>
