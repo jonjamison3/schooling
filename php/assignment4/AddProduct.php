@@ -13,42 +13,44 @@ if (isset($_POST['btnAddProduct'])) {
 
     //grabbing input and assigning to variables
     $code  = trim($_POST['txtCode']);
-    $name =trim($_POST['txtName']);
+    $name = trim($_POST['txtName']);
     $version  = trim($_POST['txtVersion']);
     $releaseDate  =trim($_POST['txtDate']);
 
+    //query db for productcode input to ensure it's not a duplicate
     $query = "SELECT * FROM products where productCode='$code'";
     $result = $db->prepare($query);
     $result->execute();
+    //assign a variable for array of rows returned from query
     $rowCount = $result->fetchAll(PDO::FETCH_COLUMN, 0);
+    //if rows are actually returned, input is invalid
     if(sizeof($rowCount)>0){
       $validCode = false;
     }else{
       $validCode = true;
     }
-
+    //regex check for required date format
     if (preg_match("^[0-9]{4}-[0-1][0-9]-[0-3][0-9]^",$releaseDate)){
         $validDate = true;
     }else{
         $validDate = false;
     }
-    //validate all those inputs as not empty and valid...
-    if(!empty($code)&&!empty($name)&&!empty($version)&&!empty($releaseDate)&&$validDate===true&&$validCode===true){
+    //validate inputs as not empty and valid
+    if(!empty($name)&&!empty($version)&&$validDate===true&&$validCode===true){
       //try/catch for our db work
       try{
         //
         //if data is ok add a product to the database
         //
 
-        //construct a query
+        //construct a new query for insertion
         $query = "insert into products(productCode, name, version, releaseDate) values('$code', '$name', '$version', '$releaseDate')";
         //executing the query
         $db->exec($query);
-        //redirecting for display of results
 
         //we should get here only if data was ok and added to the database
-        //include 'index.php';
         //This will take you to the index.php for product_manager or the product list
+        //redirecting for display of results
         include "AddProductForm.php";
         header("Location: ./ProductList.php");
       }catch(Exception $e){
@@ -59,8 +61,10 @@ if (isset($_POST['btnAddProduct'])) {
       //
       //if data is NOT ok - show error message and redisplay form
       //
+      //create array to catch string values of invalid input
       $missingInfo = [];
 
+      //check input for our culprit
       if(empty($code)||$validCode===false){
         array_push($missingInfo, "code");
       }
@@ -73,8 +77,9 @@ if (isset($_POST['btnAddProduct'])) {
       if(empty($releaseDate)||$validDate===false){
         array_push($missingInfo, "release date");
       }
+      //create string for display of proper informative error
       $missingInfo = join(", ", $missingInfo);
-      $error = "<span style='color:red;font-style:italic;font-weight:bold;margin-left:5%;font-size:1.1em;'>Please enter a valid product $missingInfo and try again</span>";
+      $error = "Please enter a valid product $missingInfo and try again";
       //redirecting to form
       include "AddProductForm.php";
     }
