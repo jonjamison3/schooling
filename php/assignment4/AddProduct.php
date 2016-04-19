@@ -30,16 +30,22 @@ if (isset($_POST['btnAddProduct'])) {
         echo "Encountered an exception: ". $e->getMessage();
       }
     } else {
+      $missingInfo = [];
       //constructing a catch-all error
-      if(!empty($code)){
-        $error = "<span style='color:red;font-weight:bold;margin-left:10%;font-size:1.1em;'>Please enter a product code and try again</span>";
-      }else if(!empty($name)){
-        $error = "<span style='color:red;font-weight:bold;margin-left:10%;font-size:1.1em;'>Please enter a product name and try again</span>";
-      }else if(!empty($version)){
-        $error = "<span style='color:red;font-weight:bold;margin-left:10%;font-size:1.1em;'>Please enter a product version and try again</span>";
-      }else if(!empty($releaseDate)){
-        $error = "<span style='color:red;font-weight:bold;margin-left:10%;font-size:1.1em;'>Please enter a product release date and try again</span>";
+      if(empty($code)){
+        array_push($missingInfo, "code");
       }
+      if(empty($name)){
+        array_push($missingInfo, "name");
+      }
+      if(empty($version)){
+        array_push($missingInfo, "version");
+      }
+      if(empty($releaseDate)){
+        array_push($missingInfo, "release date");
+      }
+      $missingInfo = join(", ", $missingInfo);
+      $error = "<span style='color:red;font-weight:bold;margin-left:10%;font-size:1.1em;'>Please enter a product $missingInfo and try again</span>";
       //redirecting to form
       include "AddProductForm.php";
     }
