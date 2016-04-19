@@ -13,7 +13,8 @@ include 'header.php';
     <br/>
     <h2>Add Product</h2>
     <table class="borderless">
-        <form method="post" action="AddProduct.php"> 
+      <?php if(isset($error)){echo $error;} ?>
+        <form method="post" action="AddProduct.php">
             <tr><td>Code: </td><td><input type="text" name ="txtCode" /></td><td></td></tr>
             <tr><td>Name: </td><td><input type="text" name ="txtName" /></td><td></td></tr>
             <tr><td>Version: </td><td><input type="text" name ="txtVersion" /></td><td></td></tr>
@@ -30,4 +31,3 @@ include 'header.php';
 
 include "footer.php";
 ?>
-

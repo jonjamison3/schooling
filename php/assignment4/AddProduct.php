@@ -23,14 +23,16 @@ if (isset($_POST['btnAddProduct'])) {
         //executing the query
         $db->exec($query);
         //redirecting for display of results
-        echo "<span style='color:green;font-weight:bold;margin-left:20%;font-size:1.7em;'>Success!</span>";
         include "AddProductForm.php";
         header("Location: ./ProductList.php");
       }catch(Exception $e){
+        //here be your error
         echo "Encountered an exception: ". $e->getMessage();
       }
     } else {
-      echo "<span style='color:red;font-weight:bold;margin-left:20%;font-size:1.7em;'>Please enter some valid input and try again! </span>";
+      //constructing a catch-all error
+      $error = "<span style='color:red;font-weight:bold;margin-left:10%;font-size:1.1em;'>Please enter some valid input and try again</span>";
+      //redirecting to form
       include "AddProductForm.php";
     }
     //
