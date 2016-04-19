@@ -8,14 +8,18 @@ require('database.php');
 
 if (isset($_POST['btnAddProduct'])) {
     //grabbing input and assigning to variables
-    $code  = $_POST['txtCode'];
-    $name = $_POST['txtName'];
-    $version  = $_POST['txtVersion'];
-    $releaseDate  = $_POST['txtDate'];
+    $code  = trim($_POST['txtCode']);
+    $name =trim($_POST['txtName']);
+    $version  = trim($_POST['txtVersion']);
+    $releaseDate  =trim($_POST['txtDate']);
 
-
+    if (preg_match("^[0-9]{4}-[0-1][0-9]-[0-3][0-9]^",$releaseDate)){
+        $validDate = true;
+    }else{
+        $validDate = false;
+    }
     //validate all those inputs...
-    if(!empty($code)&&!empty($name)&&!empty($version)&&!empty($releaseDate)){
+    if(!empty($code)&&!empty($name)&&!empty($version)&&!empty($releaseDate)&&$validDate===true){
       //try/catch for our db work
       try{
         //construct a query
@@ -41,11 +45,11 @@ if (isset($_POST['btnAddProduct'])) {
       if(empty($version)){
         array_push($missingInfo, "version");
       }
-      if(empty($releaseDate)){
+      if(empty($releaseDate)||$validate===false){
         array_push($missingInfo, "release date");
       }
       $missingInfo = join(", ", $missingInfo);
-      $error = "<span style='color:red;font-weight:bold;margin-left:10%;font-size:1.1em;'>Please enter a product $missingInfo and try again</span>";
+      $error = "<span style='color:red;font-weight:bold;margin-left:10%;font-size:1.1em;'>Please enter a valid product $missingInfo and try again</span>";
       //redirecting to form
       include "AddProductForm.php";
     }
@@ -63,7 +67,6 @@ if (isset($_POST['btnAddProduct'])) {
 
 
 }
-
 //we should get here only if data was ok and added to the database
 //include 'index.php'; //This will take you to the index.php for product_manager or the product list
 
