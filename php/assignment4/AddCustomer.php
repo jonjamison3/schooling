@@ -14,6 +14,7 @@ include 'header.php';
       $phone  = $_POST['txtPhone'];
       $email  = $_POST['txtEmail'];
 
+
       //doing some minor validation to test for empty fields
       if(!empty($first)&&!empty($last)&&!empty($address)&&!empty($city)&&!empty($state)&&!empty($zip)&&!empty($phone)&&!empty($email)){
         //constructing query
