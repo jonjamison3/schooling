@@ -60,16 +60,16 @@ if (isset($_POST['btnAddProduct'])) {
       //
 
       //create array to catch string values of invalid input
-      $missingInfo = [];
+      $badInfo = [];
       //check given input for our failure causing culprit(s)
-      badInputCheck($code, $missingInfo, 'code', $validCode);
-      badInputCheck($name, $missingInfo, 'name');
-      badInputCheck($version, $missingInfo, 'version');
-      badInputCheck($releaseDate, $missingInfo, 'release date', $validDate);
+      badInputCheck($code, $badInfo, 'code', $validCode);
+      badInputCheck($name, $badInfo, 'name');
+      badInputCheck($version, $badInfo, 'version');
+      badInputCheck($releaseDate, $badInfo, 'release date', $validDate);
 
       //create string for display of proper informative error
-      $missingInfo = join(", ", $missingInfo);
-      $feedback = "Please enter a valid product $missingInfo and try again";
+      $badInfo = join(", ", $badInfo);
+      $feedback = "Please enter a valid product $badInfo and try again";
       //redirecting to form
       include "AddProductForm.php";
     }
