@@ -31,14 +31,13 @@ if (isset($_POST['btnAddProduct'])) {
     }
     //regex check for required date format
     $validDate = isValidDate($releaseDate);
-
+    //quick check that version is indeed a number
+    $validVersion = is_numeric($version);
     //validate inputs as not empty and valid
-    if(!empty($name)&&!empty($version)&&$validDate===true&&$validCode===true){
+    if(!empty($name)&&$validVersion&&$validDate&&$validCode){
       //try/catch for our db work
       try{
-        //
         //if data is ok add a product to the database
-        //
 
         //construct a new query for insertion
         $query = "insert into products(productCode, name, version, releaseDate) values('$code', '$name', '$version', '$releaseDate')";
@@ -55,16 +54,14 @@ if (isset($_POST['btnAddProduct'])) {
         echo "Encountered an exception: ". $e->getMessage();
       }
     } else {
-      //
       //if data is NOT ok - show error message and redisplay form
-      //
 
       //create array to catch string values of invalid input
       $badInfo = [];
       //check given input for our failure causing culprit(s)
       badInputCheck($code, $badInfo, 'code', $validCode);
       badInputCheck($name, $badInfo, 'name');
-      badInputCheck($version, $badInfo, 'version');
+      badInputCheck($version, $badInfo, 'version', $validVersion);
       badInputCheck($releaseDate, $badInfo, 'release date', $validDate);
 
       //create string for display of proper informative error
