@@ -21,15 +21,17 @@ if (isset($_POST['btnAddProduct'])) {
     $query = "SELECT * FROM products where productCode='$code'";
     $result = $db->prepare($query);
     $result->execute();
+
     //returning number of duplicates by "fetching all" first column values
     $matchCount = sizeof($result->fetchAll(PDO::FETCH_COLUMN, 0));
+
     //if a row is actually returned, input is invalid
     if($matchCount>0){
       $validCode = false;
     }else{
       $validCode = true;
     }
-    //regex check for required date format
+    //check for required date format
     $validDate = isValidDate($releaseDate);
     //quick check that version is indeed a number
     $validVersion = is_numeric($version);
@@ -79,12 +81,12 @@ function badInputCheck($inputName, &$failArray, $failString, $otherwiseValid=tru
   }
 }
 function isValidDate($date){
-  //checking for basic yyyy-mm-dd format needed by our query
-  //more work would need to be done to make this foolproof, but it's a start
-  if (preg_match("^[0-9]{4}-[0-1][0-9]-[0-3][0-9]^", $date)){
-      return true;
-  }else{
-      return false;
-  }
+    //using DateTime class was the easier way to validate range of day/month
+    //... compared to regex check I tried previously, anyway
+
+    //create a date object in desired format from input
+    $testDate = DateTime::createFromFormat('Y-m-d', $date);
+    //new date should exist, and match format of inputted date
+    return $testDate && $testDate->format('Y-m-d') === $date;
 }
 ?>
