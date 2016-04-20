@@ -21,20 +21,17 @@ if (isset($_POST['btnAddProduct'])) {
     $query = "SELECT * FROM products where productCode='$code'";
     $result = $db->prepare($query);
     $result->execute();
-    //assign a variable for array of rows returned from query
-    $rowCount = $result->fetchAll(PDO::FETCH_COLUMN, 0);
-    //if rows are actually returned, input is invalid
-    if(sizeof($rowCount)>0){
+    //returning number of duplicates by "fetching all" first column values
+    $matchCount = sizeof($result->fetchAll(PDO::FETCH_COLUMN, 0));
+    //if a row is actually returned, input is invalid
+    if($matchCount>0){
       $validCode = false;
     }else{
       $validCode = true;
     }
     //regex check for required date format
-    if (preg_match("^[0-9]{4}-[0-1][0-9]-[0-3][0-9]^",$releaseDate)){
-        $validDate = true;
-    }else{
-        $validDate = false;
-    }
+    $validDate = isValidDate($releaseDate);
+
     //validate inputs as not empty and valid
     if(!empty($name)&&!empty($version)&&$validDate===true&&$validCode===true){
       //try/catch for our db work
@@ -61,11 +58,10 @@ if (isset($_POST['btnAddProduct'])) {
       //
       //if data is NOT ok - show error message and redisplay form
       //
+
       //create array to catch string values of invalid input
       $missingInfo = [];
-
       //check given input for our failure causing culprit(s)
-
       badInputCheck($code, $missingInfo, 'code', $validCode);
       badInputCheck($name, $missingInfo, 'name');
       badInputCheck($version, $missingInfo, 'version');
@@ -78,9 +74,20 @@ if (isset($_POST['btnAddProduct'])) {
       include "AddProductForm.php";
     }
 }
-function badInputCheck($inputName, &$failTarget, $failString, $otherwiseValid=true){
+function badInputCheck($inputName, &$failArray, $failString, $otherwiseValid=true){
+  //if our field is empty going in or not otherwise valid due to optional param
   if(empty($inputName)||$otherwiseValid===false){
-    array_push($failTarget, $failString);
+    //push to our target 'error' array a string of our choosing
+    array_push($failArray, $failString);
+  }
+}
+function isValidDate($date){
+  //checking for basic yyyy-mm-dd format needed by our query
+  //more work would need to be done to make this foolproof, but it's a start
+  if (preg_match("^[0-9]{4}-[0-1][0-9]-[0-3][0-9]^", $date)){
+      return true;
+  }else{
+      return false;
   }
 }
 ?>
