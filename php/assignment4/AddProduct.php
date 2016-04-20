@@ -15,7 +15,7 @@ if (isset($_POST['btnAddProduct'])) {
     $code  = trim($_POST['txtCode']);
     $name = trim($_POST['txtName']);
     $version  = trim($_POST['txtVersion']);
-    $releaseDate  =trim($_POST['txtDate']);
+    $releaseDate  = trim($_POST['txtDate']);
 
     //query db for productcode input to ensure it's not a duplicate
     $query = "SELECT * FROM products where productCode='$code'";
@@ -64,24 +64,23 @@ if (isset($_POST['btnAddProduct'])) {
       //create array to catch string values of invalid input
       $missingInfo = [];
 
-      //check input for our culprit
-      if(empty($code)||$validCode===false){
-        array_push($missingInfo, "code");
-      }
-      if(empty($name)){
-        array_push($missingInfo, "name");
-      }
-      if(empty($version)){
-        array_push($missingInfo, "version");
-      }
-      if(empty($releaseDate)||$validDate===false){
-        array_push($missingInfo, "release date");
-      }
+      //check given input for our failure causing culprit(s)
+
+      badInputCheck($code, $missingInfo, 'code', $validCode);
+      badInputCheck($name, $missingInfo, 'name');
+      badInputCheck($version, $missingInfo, 'version');
+      badInputCheck($releaseDate, $missingInfo, 'release date', $validDate);
+
       //create string for display of proper informative error
       $missingInfo = join(", ", $missingInfo);
-      $error = "Please enter a valid product $missingInfo and try again";
+      $feedback = "Please enter a valid product $missingInfo and try again";
       //redirecting to form
       include "AddProductForm.php";
     }
+}
+function badInputCheck($inputName, &$failTarget, $failString, $otherwiseValid=true){
+  if(empty($inputName)||$otherwiseValid===false){
+    array_push($failTarget, $failString);
+  }
 }
 ?>

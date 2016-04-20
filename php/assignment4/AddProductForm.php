@@ -13,7 +13,7 @@ include 'header.php';
     <br/>
     <h2>Add Product</h2>
     <table class="borderless">
-      <span style='color:red;font-style:italic;font-weight:bold;margin-left:5%;font-size:1.1em;'><?php if(isset($error)){echo $error;} ?></span>
+      <span style='color:red;font-style:italic;font-weight:bold;margin-left:5%;font-size:1.1em;'><?php if(isset($feedback)){echo $feedback;} ?></span>
         <form method="post" action="AddProduct.php">
             <tr><td>Code: </td><td><input type="text" name ="txtCode" value="<?php if(isset($code)){echo $code;}?>" /></td><td></td></tr>
             <tr><td>Name: </td><td><input type="text" name ="txtName" value="<?php if(isset($name)){echo $name;}?>" /></td><td></td></tr>
