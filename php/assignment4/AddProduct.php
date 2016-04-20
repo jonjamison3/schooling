@@ -17,20 +17,8 @@ if (isset($_POST['btnAddProduct'])) {
     $version  = trim($_POST['txtVersion']);
     $releaseDate  = trim($_POST['txtDate']);
 
-    //query db for productcode input to ensure it's not a duplicate
-    $query = "SELECT * FROM products where productCode='$code'";
-    $result = $db->prepare($query);
-    $result->execute();
-
-    //returning number of duplicates by "fetching all" first column values
-    $matchCount = sizeof($result->fetchAll(PDO::FETCH_COLUMN, 0));
-
-    //if a row is actually returned, input is invalid
-    if($matchCount>0){
-      $validCode = false;
-    }else{
-      $validCode = true;
-    }
+    //check to ensure product code is unique
+    $validCode = isValidCode($code, $db);
     //check for required date format
     $validDate = isValidDate($releaseDate);
     //quick check that version is indeed a number
@@ -78,6 +66,22 @@ function badInputCheck($inputName, &$failArray, $failString, $otherwiseValid=tru
   if(empty($inputName)||$otherwiseValid===false){
     //push to our target 'error' array a string of our choosing
     array_push($failArray, $failString);
+  }
+}
+function isValidCode($code, $db){
+  //query db for productcode input to ensure it's not a duplicate
+  $query = "SELECT * FROM products where productCode='$code'";
+  $result = $db->prepare($query);
+  $result->execute();
+
+  //returning number of duplicates by "fetching all" first column values
+  $matchCount = sizeof($result->fetchAll(PDO::FETCH_COLUMN, 0));
+
+  //if a row is actually returned, input is invalid
+  if($matchCount>0){
+    return false;
+  }else{
+    return true;
   }
 }
 function isValidDate($date){
