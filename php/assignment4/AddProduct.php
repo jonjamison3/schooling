@@ -86,7 +86,7 @@ function isValidDate($date){
 
     //create a date object in desired format from input
     $testDate = DateTime::createFromFormat('Y-m-d', $date);
-    //new date should exist, and match format of inputted date
+    //new date should exist, and match format of input date when called specifically
     return $testDate && $testDate->format('Y-m-d') === $date;
 }
 ?>
