@@ -15,7 +15,7 @@ require('database.php');
         $validCustomerID = isValidCustomerID($customerID, $db);
         $validProductCode = isValidProductCode($productCode, $db);
         //validate inputs as not empty and valid
-        if($validCustomerID&&!empty($productCode)&&!empty($title)&&!empty($description)){
+        if($validCustomerID&&$validProductCode&&!empty($title)&&!empty($description)){
           //try/catch for our db work
           try{
             //if data is ok add a product to the database
@@ -59,7 +59,7 @@ require('database.php');
     }
     function isValidCustomerID($customerID, $db){
       //query db for productcode input to ensure it's not a duplicate
-      $query = "SELECT * FROM incidents where customerID='$customerID'";
+      $query = "SELECT * FROM customers where customerID='$customerID'";
       $result = $db->prepare($query);
       $result->execute();
 

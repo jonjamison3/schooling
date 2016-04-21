@@ -39,7 +39,9 @@ include ('header.php');
         <tr>
           <td>Description: </td>
           <td>
-            <textarea rowspan=2 name ="txtDescription"></textarea>
+            <textarea rowspan=2 name ="txtDescription">
+               <?php if (isset($description)){echo $description;}?>
+            </textarea>
           </td>
           <td>
           </td>
